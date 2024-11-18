@@ -7,10 +7,10 @@ import { useInView } from "react-intersection-observer";
 import { Player } from "video-react";
 import "video-react/dist/video-react.css";
 import play from "../../../public/play.svg";
-import PlayCircleOutlineIcon from "@mui/icons-material/PlayCircleOutline";
+
 import Image from "next/image";
 import star from "../../../public/star.svg";
-import yourImagePath from 'path';
+
 const HomeHero = () => {
   const [showVideo, setShowVideo] = useState(false);
   const [isFirstTime, setIsFirstTime] = useState(true);
@@ -26,7 +26,7 @@ const HomeHero = () => {
   }, [inView]);
 
   return (
-    <Grid container sx={{ width: "100%", height: "100vh",  }}>
+    <Grid container sx={{ width: "100%", height: "100vh" }}>
       <Grid
         item
         ref={ref}
@@ -42,7 +42,7 @@ const HomeHero = () => {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          paddingX: {xs:'5%'}
+          paddingX: { xs: "5%" },
         }}
       >
         <Grid
@@ -55,14 +55,14 @@ const HomeHero = () => {
             position: "relative",
             zIndex: 1,
             justifyContent: "flex-start",
-            alignContent: 'flex-end',
+            alignContent: "flex-end",
             marginTop: {
-              xs: '50px',
-              sm: '30px',
-              md: '200px'
+              xs: "50px",
+              sm: "30px",
+              md: "200px",
             },
             height: "100%",
-            gap: 2
+            gap: 2,
           }}
         >
           <Typography
@@ -108,11 +108,11 @@ const HomeHero = () => {
             alignItems: "flex-end",
             height: "100%",
             ml: "auto",
-            gap:2,
+            gap: 2,
             marginTop: {
-              xs: '380px',
-              sm: '30px',
-              md: '40px'
+              xs: "380px",
+              sm: "30px",
+              md: "40px",
             },
           }}
         >
@@ -125,16 +125,16 @@ const HomeHero = () => {
               display: "block",
               height: "auto",
               marginRight: "auto",
-              width: "clamp(10px, 10vw, 100px)",  // responsive width
+              width: "clamp(10px, 10vw, 100px)", // responsive width
             }}
             sx={{
-              width: { 
-                xs: '6px',    // mobile
-                sm: '70px',    // tablet
-                md: '85px',    // small desktop
-                lg: '100px'    // large desktop
+              width: {
+                xs: "6px", // mobile
+                sm: "70px", // tablet
+                md: "85px", // small desktop
+                lg: "100px", // large desktop
               },
-              height: 'auto'
+              height: "auto",
             }}
           />
           <Typography
@@ -158,7 +158,6 @@ const HomeHero = () => {
           <>
             <Box
               sx={{
-                
                 position: "absolute",
                 bottom: "14px",
               }}
@@ -174,9 +173,9 @@ const HomeHero = () => {
                 }}
                 sx={{
                   scale: 1.5,
-                  width: {xs:30,md:40},
-                  height: {xs:30, md:40},
-                  background: '#FBFBFB',
+                  width: { xs: 30, md: 40 },
+                  height: { xs: 30, md: 40 },
+                  background: "#FBFBFB",
                   color: "black",
                   borderRadius: "100%",
                 }}
@@ -187,9 +186,9 @@ const HomeHero = () => {
                   width={40}
                   height={40}
                   style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover'
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
                   }}
                 />
               </IconButton>
@@ -239,7 +238,7 @@ const HomeHero = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              overflow: 'hidden'
+              overflow: "hidden",
             }}
             initial={{ x: -3000 }}
             animate={{ x: showVideo ? 0 : -3000 }}
@@ -263,8 +262,8 @@ const HomeHero = () => {
 
             <Player
               style={{
-                width: '100%',
-                height: '100%'
+                width: "100%",
+                height: "100%",
               }}
               autoPlay
               controls={false}
