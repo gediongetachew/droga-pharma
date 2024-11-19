@@ -6,7 +6,11 @@ import product from "../../../public/product.png";
 import product2 from "../../../public/product2.png";
 export default function Products() {
   return (
-    <Grid container sx={{ background: "white", height: "500px" }}>
+    <Grid container sx={{ 
+      background: "white", 
+      height: "500px",
+      display: { xs: "none", md: "block" }  // Hide on xs and sm screens, show from md up
+    }}>
       <Grid
         item
         md={12}
