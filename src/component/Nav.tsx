@@ -57,6 +57,8 @@ export default function Nav() {
         >
           {navItems.map((item, index) => (
             <Button
+            component='a'
+            href={`/${item.toLowerCase()}`}
               key={index}
               onClick={() => handleNavigation(item, index)}
               sx={{
