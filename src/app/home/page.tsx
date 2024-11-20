@@ -7,7 +7,10 @@ import AboutUs from "@/section/landing/AboutUs";
 import Medicine from "@/section/landing/medicine";
 import Products from "@/section/landing/products";
 import Media from "@/section/landing/media";
-// import TestimonialSwiper from "@/components/TestimonialSwiper";
+import TestimonialSwiper from "@/components/TestimonialSwiper";
+import GetInTouch from '../../section/landing/getInTouch';
+import Footer from "../../component/Fotter";
+
 
 export default function Home() {
   return (
@@ -19,7 +22,9 @@ export default function Home() {
       <Medicine />
       <Products />
       <Media />
-      {/* <TestimonialSwiper /> */}
+      <TestimonialSwiper />
+      <GetInTouch />
+      <Footer />
     </div>
   );
 }

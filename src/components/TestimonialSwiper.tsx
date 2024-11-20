@@ -1,156 +1,158 @@
-// 'use client'
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import { Box, Grid, Typography } from '@mui/material';
-// import 'swiper/css';
-// import icon from 'next/icon';
+"use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Box, Button, Grid, Typography } from "@mui/material";
+import "swiper/css";
+import Image from 'next/image'
+import testimonials from "../data/testimonials";
+import { Pagination } from 'swiper/modules';
+import 'swiper/css/pagination';
 
-// const testimonials = [
-//   {
-//     id: 1,
-//     name: "John Doe",
-//     role: "Patient",
-//     text: "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque.",
-//     icon: "../../"
-//   },
-//   {
-//     id: 2,
-//     name: "Jane Smith",
-//     role: "Customer",
-//     text: "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque.",
-//     icon: "/path-to-avatar.jpg"
-//   },
-//   {
-//     id: 3,
-//     name: "Mike Johnson",
-//     role: "Patient",
-//     text: "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque.",
-//     icon: "/path-to-avatar.jpg"
-//   },
-//   {
-//     id: 4,
-//     name: "Mike Johnson",
-//     role: "Patient",
-//     text: "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque.",
-//     icon: "/path-to-avatar.jpg"
-//   },
-//   {
-//     id: 5,
-//     name: "Mike Johnson",
-//     role: "Patient",
-//     text: "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque.",
-//     icon: "/path-to-avatar.jpg"
-//   },
-//   {
-//     id: 5,
-//     name: "Mike Johnson",
-//     role: "Patient",
-//     text: "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque.",
-//     icon: "/path-to-avatar.jpg"
-//   },
-  
-//   // Add more testimonials as needed
-// ];
+export default function TestimonialSwiper() {
+  return (
+    <Box
+      sx={{
+        width: "100%",
+        overflow: "hidden",
+        padding: "40px 0",
+        background: 'white',
+        '& .swiper-pagination': {
+          display: { xs: 'flex', sm: 'none' }
+        }
+      }}
+    >
+      <Swiper
+       modules={[Pagination]}
+       pagination={{
+         clickable: true,
+         el: '.swiper-pagination',
+       }}
+       slidesPerView={1}
+       breakpoints={{
+         600: {
+           slidesPerView: 2,
+           spaceBetween: 20,
+         },
+         768: {
+           slidesPerView: 2,
+           spaceBetween: 30,
+         }
+       }}
+       spaceBetween={10}
+       centeredSlides={false}
+       style={{ paddingBottom: "40px" }}
+       className="testimonial-swiper"
+       
+      >
+        {testimonials.map((testimonial) => (
+          <SwiperSlide
+            key={testimonial.id}
+            style={{
+              width: "100%",
+              minWidth: { xs: "100%", sm: "45%" },
+            
+             
+            }}
+          >
+            <Grid container sx={{
+              border: '1px solid',
+             
+              display: 'flex',
+              flexDirection: 'column', 
+              justifyContent: 'space-between', 
+              height: 'auto', 
+              
+              borderRadius: '24px',
+              margin: {xs: '6px', md: '10px'},
+              padding: '20px',
+              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
+              transition: 'box-shadow 0.3s ease-in-out',
+              '&:hover': {
+                boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.3)',
+              }
+            }}>
+                  <Grid item xs={12} sx={{display: 'flex', justifyContent: 'flex-end'}}>
+                    <Button sx={{background:'#EAEAEA',color: 'black', borderRadius: '24px', width:{xs:'100px', md: '200px', },fontSize: {xs:'8px', md:'18px'}, fontFamily: 'DM Sans', fontWeight:700, textAlign: 'center'}}>Testimonial</Button>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography sx={{fontFamily: 'DM Sans', fontSize: {xs:'20px', md: '36px',}, fontWeight: 700, color: 'black', textAlign: 'left',}}>{testimonial.title}</Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                  <Typography sx={{fontFamily: 'DM Sans', fontSize: {xs:'10px', md: '24px',}, fontWeight: 700, color: '#737373', textAlign: 'left',}}>{testimonial.text}</Typography>
 
-// export default function TestimonialSwiper() {
-//   return (
-//     <Box sx={{ 
-//       width: '100%', 
-//       overflow: 'hidden',
-//       padding: '40px 0'
-//     }}>
-//       <Swiper
-//         slidesPerView={'auto'}
-//         spaceBetween={30}
-//         centeredSlides={false}
-//         style={{ paddingLeft: '65px' }}
-//         className="testimonial-swiper"
-//       >
-//         {testimonials.map((testimonial) => (
-//           <SwiperSlide 
-//             key={testimonial.id}
-//             style={{
-//               width: '50%',
-//               minWidth: '300px'
-//             }}
-//           >
-//             <Grid item xs={12}>
-                 
-//                     <Typography
-//                       variant="body1"
-//                       color="#000000"
-//                       marginTop={3}
-//                       sx={{
-//                         width: "100%",
-//                         marginTop: 3,
-//                         whiteSpace: "wrap",
-//                         overflow: "hidden",
-//                         textOverflow: "ellipsis",
-//                         fontFamily: "Plus Jakarta Sans",
-//                         fontSize: { xs: 10, sm: 18, md: 18, lg: 28, xl: 25 },
-//                       }}
-//                     >
-//                       {testimonial.text}
-//                     </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                  <Box
+                      sx={{
+                        display: "flex",
+                        gap: "80%",
+                        width: {xs: '90%, md:"100%" '},
+                        marginTop: { xs: 2, sm: 5, md: 2, lg: 5 },
+                        margin:2,
+                        borderRadius: '24px'
+                      }}
+                    
+                    >
+                      <Box
+                        sx={{
+                          width: { xs: "40px", sm: "50px", md: "60px" },
+                          height: { xs: "30px", sm: "50px", md: "60px" },
+                          position: "relative",
 
-//                     <Box
-//                       sx={{
-//                         display: "flex",
-//                         gap: "80%",
-//                         width: "100%",
-//                         marginTop: { xs: 2, sm: 5, md: 2, lg: 4 },
-//                       }}
-//                     >
-//                       <Box
-//                         sx={{
-//                           width: { xs: "40px", sm: "50px", md: "60px" },
-//                           height: { xs: "30px", sm: "50px", md: "60px" },
-//                           position: "relative",
-//                         }}
-//                       >
-//                         <icon
-//                           src={testimonial.icon}
-//                           alt="tropy-img"
-//                           layout="fill"
-//                           objectFit="contain"
-//                         />
-//                         <Box sx={{ marginLeft: { xs: 7, md: 10 } }}>
-//                           <Typography
-//                             variant="h6"
-//                             fontWeight="bold"
-//                             sx={{ fontSize: { xs: 10, sm: 20, md: 20 } }}
-//                           >
-//                             {testimonial.title}
-//                           </Typography>
-//                           <Typography
-//                             variant="subtitle2"
-//                             sx={{
-//                               color: "#475467",
-//                               fontSize: { xs: 6, sm: 15, md: 20 },
-//                             }}
-//                           >
-//                             {testimonial.discription}
-//                           </Typography>
-//                         </Box>
-//                       </Box>
+                        }}
+                      >
+                        <Image
+                          src={testimonial.img}
+                          alt="tropy-img"
+                          layout="fill"
+          
+                          style={{borderRadius: '100px'}}
+                        />
+                        <Box sx={{ marginLeft: { xs: 7, md: 10 } }}>
+                          <Typography
+                            variant="h6"
+                            fontWeight="bold"
+                            sx={{ fontSize: { xs: 10, sm: 20, md: 20 }, color: 'black', textWrap:'nowrap' }}
+                          >
+                            {testimonial.name}
+                          </Typography>
+                          <Typography
+                            variant="subtitle2"
+                            sx={{
+                              color: "#475467",
+                              fontSize: { xs: 6, sm: 15, md: 20 },
+                              textWrap: 'nowrap'
+                            }}
+                          >
+                            {testimonial.discription}
+                          </Typography>
+                        </Box>
+                      </Box>
 
-//                       <Box
-//                         sx={{
-//                           width: { xs: "40px", sm: "50px" },
-//                           height: "auto",
-//                         }}
-//                       >
-//                         <icon
-//                           src={testimonial.img}
-//                           alt="two balls"
-//                           layout="intrinsic"
-//                           objectFit="contain"
-//                         />
-//                       </Box>
-//                     </Box>
-//                   </Grid>
-//           </SwiperSlide>
-//         ))}
-//       </Swiper>
-//     </Box>
-//   );
-// } 
+                      <Box
+                        sx={{
+                          width: { xs: "40px", sm: "50px" },
+                          height: "auto",
+                        }}
+                      >
+                        <Image
+                          src={testimonial.icon}
+                          alt="two balls"
+                          width={50}
+                          height={50}
+                          style={{
+                            objectFit: "contain",
+                            width: "100%",
+                            height: "auto",
+                            borderRadius: '100px'
+                          }}
+                        />
+                      </Box>
+                    </Box>
+                  </Grid>
+            </Grid>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Box>
+  );
+}
