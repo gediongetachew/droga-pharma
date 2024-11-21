@@ -10,12 +10,13 @@ import Media from "@/section/landing/media";
 import TestimonialSwiper from "@/components/TestimonialSwiper";
 import GetInTouch from "../../section/landing/getInTouch";
 import Footer from "../../component/Fotter";
+import cards from "@/data/carouselCards";
 
 export default function Home() {
   return (
     <div>
       <HomeHero />
-      <ImageCarousel />
+      <ImageCarousel cards={cards.map(card => ({...card, img: card.img.src}))} />
       <AboutUs />
       <Medicine />
       <Products />
