@@ -8,14 +8,12 @@ import Medicine from "@/section/landing/medicine";
 import Products from "@/section/landing/products";
 import Media from "@/section/landing/media";
 import TestimonialSwiper from "@/components/TestimonialSwiper";
-import GetInTouch from '../../section/landing/getInTouch';
+import GetInTouch from "../../section/landing/getInTouch";
 import Footer from "../../component/Fotter";
-
 
 export default function Home() {
   return (
     <div>
-      <Nav />
       <HomeHero />
       <ImageCarousel />
       <AboutUs />

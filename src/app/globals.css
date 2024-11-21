@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -11,7 +15,6 @@
   display: flex;
   animation: scrollCarousel 60s infinite linear;
 }
-
 
 .carousel-track {
   display: flex;
