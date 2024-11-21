@@ -222,7 +222,7 @@ export default function Fotter() {
           sx={{
             position: "absolute",
             background: "#FCEE23",
-            bottom: { xs: "-80%", md: "0%" },
+            bottom: { xs: "-110%", md: "-40%" },
 
             right: 0,
             display: "flex",
