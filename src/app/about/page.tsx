@@ -5,22 +5,25 @@ import React from 'react'
 import WhatGuidesUs from '@/section/about/whatGuidesUs'
 import JourneySection from '@/section/about/mileStone'
 import OurPartners from '@/section/about/OurPartners'
-import TestimonialSwiper from '@/components/TestimonialSwiper'
+import dynamic from 'next/dynamic'
 
+// Dynamically import TestimonialSwiper with client-side only rendering
+const TestimonialSwiper = dynamic(
+  () => import('@/components/TestimonialSwiper'),
+  { ssr: false }
+)
 
 export default function page() {
   return (
     <div>
-        
         <Hero />
         <FoundersMessage />
         <FoundersMessage reverse={true}/>
         <WhatGuidesUs />
         <JourneySection />
-       <OurPartners />
+        <OurPartners />
         <TestimonialSwiper />
         <Fotter />
-       
     </div>
   )
 }

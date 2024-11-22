@@ -10,7 +10,7 @@ import { useRouter, usePathname } from "next/navigation";
 const navItems = ["Home", "About", "Products", "Companies", "Careers", "Media"];
 
 export default function Nav() {
-  const [active, setActive] = useState(-1);
+  const [active, setActive] = useState(0);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -19,7 +19,7 @@ export default function Nav() {
     const index = navItems.findIndex(
       item => item.toLowerCase() === path
     );
-    setActive(index !== -1 ? index : -1);
+    setActive(index !== -1 ? index : 0);
   }, [pathname]);
 
   const handleNavigation = (path: string, index: number) => {

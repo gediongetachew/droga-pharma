@@ -16,7 +16,7 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
           {reverse ? (
             <>
               <Grid item xs={12} md={6}>
-                <InvertedBorder />
+                <InvertedBorder name='aboutus' />
               </Grid>
               <Grid
                 item

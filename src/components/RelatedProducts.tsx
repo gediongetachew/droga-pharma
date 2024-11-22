@@ -1,4 +1,4 @@
-import { Box, Typography, Button, IconButton } from "@mui/material";
+import { Box, Typography, IconButton } from "@mui/material";
 import { useState } from "react";
 import ProductCard from "./ProductsCard";
 

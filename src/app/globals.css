@@ -341,7 +341,7 @@ main {
   right: 0;
   top: 0;
   bottom: 0;
-  background: url("/videoImg.png");
+  background: var(--poster-image);
   background-size: cover;
   transition: 1s ease;
   opacity: 1;
@@ -447,4 +447,24 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.videoBox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.videoBox iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.poster-active iframe {
+    opacity: 1;
 }
