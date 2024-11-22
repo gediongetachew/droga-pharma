@@ -1,21 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Box,
-  Container,
-  Paper,
-  Typography,
-  Pagination,
-  PaginationItem,
-} from "@mui/material";
+import { Box, Container, Paper, Typography } from "@mui/material";
 import Image from "next/image";
 import ExpandCircleDownIcon from "@mui/icons-material/ExpandCircleDown";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CustomPagination from "@/components/CustomePagination";
 import Products from "@/section/landing/products";
-import Fotter from "./Fotter";
-import GetInTouch from "@/section/landing/getInTouch";
+import Link from "next/link";
 
 interface Product {
   id: number;
@@ -210,69 +201,82 @@ export default function ProductsCMP() {
               gap={3}
             >
               {currentProducts.map((product) => (
-                <Paper
+                <Link
                   key={product.id}
-                  sx={{
-                    overflow: "hidden",
-                    borderRadius: "16px",
-                    maxWidth: { xs: "100%", md: "500px" },
-                    bgcolor: "white",
-                    boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.05)",
-                  }}
+                  href={`/detailproducts`}
+                  style={{ textDecoration: "none" }}
                 >
-                  <Box
-                    position="relative"
+                  <Paper
                     sx={{
-                      aspectRatio: "4/3",
-                      width: "100%",
+                      overflow: "hidden",
+                      borderRadius: "16px",
+                      maxWidth: { xs: "100%", md: "500px" },
+                      bgcolor: "white",
+                      boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.05)",
+                      cursor: "pointer",
+                      transition: "transform 0.2s ease-in-out",
+                      "&:hover": {
+                        transform: "scale(1.02)",
+                      },
                     }}
                   >
                     <Box
+                      position="relative"
                       sx={{
-                        position: "absolute",
-                        top: 16,
-                        left: 16,
-                        right: 16,
-                        bottom: 16,
-                        borderRadius: "12px",
-                        overflow: "hidden",
-                        bgcolor: "#F8F9FB",
+                        aspectRatio: "4/3",
+                        width: "100%",
                       }}
                     >
-                      <Image
-                        src={product.imageUrl}
-                        alt={product.title}
-                        fill
-                        className="object-contain p-4"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          top: 16,
+                          left: 16,
+                          right: 16,
+                          bottom: 16,
+                          borderRadius: "12px",
+                          overflow: "hidden",
+                          bgcolor: "#F8F9FB",
+                        }}
+                      >
+                        <Image
+                          src={product.imageUrl}
+                          alt={product.title}
+                          fill
+                          className="object-contain p-4"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      </Box>
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          top: 30,
+                          right: 26,
+                          bgcolor: "black",
+                          color: "white",
+                          px: 2,
+                          py: 1,
+                          borderRadius: "16px",
+                          fontSize: "0.875rem",
+                          zIndex: 1,
+                        }}
+                      >
+                        {product.category}
+                      </Box>
                     </Box>
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        top: 30,
-                        right: 26,
-                        bgcolor: "black",
-                        color: "white",
-                        px: 2,
-                        py: 1,
-                        borderRadius: "16px",
-                        fontSize: "0.875rem",
-                        zIndex: 1,
-                      }}
-                    >
-                      {product.category}
+                    <Box p={3}>
+                      <Typography
+                        variant="h6"
+                        sx={{ mb: 1, fontWeight: "bold" }}
+                      >
+                        {product.title}
+                      </Typography>
+                      <Typography color="text.secondary">
+                        {product.description}
+                      </Typography>
                     </Box>
-                  </Box>
-                  <Box p={3}>
-                    <Typography variant="h6" sx={{ mb: 1, fontWeight: "bold" }}>
-                      {product.title}
-                    </Typography>
-                    <Typography color="text.secondary">
-                      {product.description}
-                    </Typography>
-                  </Box>
-                </Paper>
+                  </Paper>
+                </Link>
               ))}
             </Box>
 

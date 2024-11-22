@@ -4,7 +4,6 @@ export default function Products() {
   return (
     <div>
       <ProductsCMP />
-      <Fotter />
     </div>
   );
 }
