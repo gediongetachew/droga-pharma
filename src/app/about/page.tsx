@@ -1,3 +1,4 @@
+'use client'
 import Fotter from '@/component/Fotter'
 import FoundersMessage from '@/section/about/FoundersMessage'
 import Hero from '@/section/about/Hero'
