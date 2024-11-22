@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography, Grid } from '@mui/material';
 import Image from 'next/image'
 import milestoneImage from '../../../public/mileStone.png'
-import milestone from '../../../public/milestone.svg'
+
 const milestones = [
   {
     year: '2010',

@@ -1,7 +1,5 @@
 import React from "react";
-
 import HomeHero from "../../section/landing/HomeHero";
-import Nav from "@/component/Nav";
 import ImageCarousel from "@/component/Carousel";
 import AboutUs from "@/section/landing/AboutUs";
 import Medicine from "@/section/landing/medicine";

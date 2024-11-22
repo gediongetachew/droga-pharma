@@ -29,7 +29,7 @@ interface ImageCarouselProps {
 export default function ImageCarousel({ 
   cards, 
   backgroundColor = "black", 
-  height = '150px' 
+  height = '200px' 
 }: ImageCarouselProps) {
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
 

@@ -1,7 +1,14 @@
 import Image from "next/image";
 import { Card, CardContent, Typography, Box } from "@mui/material";
 
-export default function ProductCard({ image, title, description, tag }) {
+interface ProductCardProps {
+  image: string;
+  title: string;
+  description: string;
+  tag?: string;
+}
+
+export default function ProductCard({ image, title, description, tag }: ProductCardProps) {
   return (
     <Card
       sx={{

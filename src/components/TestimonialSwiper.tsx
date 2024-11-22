@@ -48,9 +48,7 @@ export default function TestimonialSwiper() {
             key={testimonial.id}
             style={{
               width: "100%",
-              minWidth: { xs: "100%", sm: "45%" },
-            
-             
+              minWidth: window.innerWidth >= 600 ? "45%" : "100%"
             }}
           >
             <Grid container sx={{

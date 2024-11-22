@@ -3,7 +3,6 @@ import { Box, Typography, Pagination } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import React from "react";
 import Image from "next/image";
-import mediaNews from "../../../public/mediaNews.png";
 import CallMadeIcon from '@mui/icons-material/CallMade';
 import newsAndPodcast from "@/data/nesAndPodcast";
 
@@ -145,8 +144,8 @@ export default function Media() {
 
             <CallMadeIcon sx={{
               position: 'absolute', 
-              top: '55%', 
-              right: '2%', 
+              top: item.id ===2 ?  '64%':  '62%', 
+              right: '3%', 
               color: 'black', 
               scale: { xs: 0.8, md: 1 } 
             }} />

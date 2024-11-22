@@ -4,8 +4,10 @@ import Hero from '@/section/about/Hero'
 import React from 'react'
 import WhatGuidesUs from '@/section/about/whatGuidesUs'
 import JourneySection from '@/section/about/mileStone'
-import ImageCarousel from "@/component/Carousel";
-import cards from '@/data/partnersCard';
+import OurPartners from '@/section/about/OurPartners'
+import TestimonialSwiper from '@/components/TestimonialSwiper'
+
+
 export default function page() {
   return (
     <div>
@@ -15,8 +17,10 @@ export default function page() {
         <FoundersMessage reverse={true}/>
         <WhatGuidesUs />
         <JourneySection />
-        <ImageCarousel cards={cards.map(card => ({...card, img: card.img.src}))}
+       <OurPartners />
+        <TestimonialSwiper />
         <Fotter />
+       
     </div>
   )
 }

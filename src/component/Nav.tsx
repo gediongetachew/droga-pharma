@@ -5,13 +5,22 @@ import Image from "next/image";
 import logo from "../../public/logo.svg";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 const navItems = ["Home", "About", "Products", "Companies", "Careers", "Media"];
 
 export default function Nav() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(-1);
+  const pathname = usePathname();
   const router = useRouter();
+
+  useEffect(() => {
+    const path = pathname.slice(1);
+    const index = navItems.findIndex(
+      item => item.toLowerCase() === path
+    );
+    setActive(index !== -1 ? index : -1);
+  }, [pathname]);
 
   const handleNavigation = (path: string, index: number) => {
     setActive(index);
@@ -57,8 +66,6 @@ export default function Nav() {
         >
           {navItems.map((item, index) => (
             <Button
-            component='a'
-            href={`/${item.toLowerCase()}`}
               key={index}
               onClick={() => handleNavigation(item, index)}
               sx={{
