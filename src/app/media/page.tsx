@@ -70,7 +70,7 @@ export default function Media() {
   ];
 
   return (
-    <Box
+    <Grid
       component="main"
       sx={{
         minHeight: "100vh",
@@ -81,7 +81,7 @@ export default function Media() {
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={4} sx={{ mb: 6 }}>
+        <Grid container spacing={4} sx={{ pb: 10 }}>
           <Grid item xs={12} md={4}>
             <Box sx={{ mb: 4 }}>
               <Typography
@@ -316,6 +316,6 @@ export default function Media() {
           </Grid>
         </Grid>
       </Container>
-    </Box>
+    </Grid>
   );
 }
