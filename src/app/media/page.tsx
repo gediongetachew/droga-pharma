@@ -14,8 +14,8 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
+import Button from "@mui/material/Button";
 
-// You might want to move this to a separate types file
 interface MediaCard {
   tag: string;
   title: string;
@@ -24,7 +24,6 @@ interface MediaCard {
 }
 
 export default function Media() {
-  // Mock data - replace with your actual data
   const mediaCards: MediaCard[] = [
     {
       tag: "News",
@@ -288,6 +287,32 @@ export default function Media() {
                   </Card>
                 </Grid>
               ))}
+
+            <Grid
+              item
+              xs={12}
+              sx={{ display: "flex", justifyContent: "center", mt: 4 }}
+            >
+              <Button
+                variant="contained"
+                sx={{
+                  bgcolor: "#FFE600",
+                  color: "black",
+                  borderRadius: "50px",
+                  px: 4,
+                  py: 2,
+                  textTransform: "none",
+                  fontSize: "1rem",
+                  fontWeight: 500,
+                  "&:hover": {
+                    bgcolor: "#FFD700",
+                  },
+                  boxShadow: "none",
+                }}
+              >
+                Load More
+              </Button>
+            </Grid>
           </Grid>
         </Grid>
       </Container>
