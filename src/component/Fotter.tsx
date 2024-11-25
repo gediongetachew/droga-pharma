@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import React from "react";
@@ -16,25 +16,30 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 
 import Link from "next/link";
-export default function Fotter() {
+export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
   const [showSocial, setShowSocial] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      const footer = document.getElementById('footer');
+      const footer = document.getElementById("footer");
       if (footer) {
         const footerRect = footer.getBoundingClientRect();
-        const isInFooter = footerRect.top <= window.innerHeight && footerRect.bottom >= 0;
+        const isInFooter =
+          footerRect.top <= window.innerHeight && footerRect.bottom >= 0;
         setShowSocial(isInFooter);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <Grid container id="footer" sx={{ background: "white", height: "auto" }}>
+    <Grid
+      container
+      id="footer"
+      sx={{ background: bg || "white", height: "auto", paddingTop: top || 0 }}
+    >
       <Grid
         item
         xs={12}
@@ -238,20 +243,20 @@ export default function Fotter() {
         </Box>
         <Box
           sx={{
-           display:'flex', 
-           flexDirection:'column',
-           gap:4,
-           marginRight:{xs:0, md:-20},
-           marginLeft:{xs:35, md:0},
-           width:{xs:'20%', md:'5%'},
-           marginTop:{xs:0,md: 8},
-           paddingY:2,
-           height:'45%',
-           background:'#FCEE23',
-           alignItems:'center',
-           
-           borderTopLeftRadius:'24px',
-           borderBottomLeftRadius:'24px'
+            display: "flex",
+            flexDirection: "column",
+            gap: 4,
+            marginRight: { xs: 0, md: -20 },
+            marginLeft: { xs: 35, md: 0 },
+            width: { xs: "20%", md: "5%" },
+            marginTop: { xs: 0, md: 8 },
+            paddingY: 2,
+            height: "45%",
+            background: "#FCEE23",
+            alignItems: "center",
+
+            borderTopLeftRadius: "24px",
+            borderBottomLeftRadius: "24px",
           }}
         >
           <LinkedInIcon
@@ -275,7 +280,6 @@ export default function Fotter() {
           flexDirection: "column",
           background: "black",
           padding: { xs: 2, md: 8 },
-         
         }}
       >
         <Box

@@ -1,156 +1,244 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Pagination, Autoplay } from "swiper/modules";
+import Image from "next/image";
+import { Box, Typography, Avatar, Paper } from "@mui/material";
+
+// Import Swiper styles
 import "swiper/css";
-import Image from 'next/image'
-import testimonials from "../data/testimonials";
-import { Pagination } from 'swiper/modules';
-import 'swiper/css/pagination';
+import "swiper/css/pagination";
+
+// Add custom styles
+const swiperStyles = `
+  .swiper-pagination {
+    position: relative;
+    margin-top: 20px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 20px;
+    height: 3px;
+    background: #ccc;
+    opacity: 1;
+    margin: 0 5px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #000;
+    width: 30px;
+  }
+
+  @media (min-width: 768px) {
+    .swiper-pagination {
+      display: none;
+    }
+  }
+`;
+
+interface TestimonialData {
+  company: string;
+  content: string;
+  author: {
+    name: string;
+    role: string;
+    image: string;
+  };
+  logo: string;
+}
+
+const testimonials: TestimonialData[] = [
+  {
+    company: "Company name",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. In rhoncus nisl ornare eget in proin dolor integer. Orci magna ipsum ridiculus purus. Ullamcorper volutpat nullam proin malesuada nisl proin cras nisl sed. Nisl suscipit montes id bibendum at. Senectus tincidunt a id felis. Phasellus pulvinar lorem in sollicitudin donec arcu libero erat id. Sagittis aliquet id urna pellentesque amet. Lectus.",
+    author: {
+      name: "Tesfaye Haile",
+      role: "Product Manager",
+      image: "/profile.png", // Replace with actual image path
+    },
+    logo: "/logo.svg", // Replace with actual logo path
+  },
+  {
+    company: "Company name",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. In rhoncus nisl ornare eget in proin dolor integer. Orci magna ipsum ridiculus purus. Ullamcorper volutpat nullam proin malesuada nisl proin cras nisl sed. Nisl suscipit montes id bibendum at. Senectus tincidunt a id felis. Phasellus pulvinar lorem in sollicitudin donec arcu libero erat id. Sagittis aliquet id urna pellentesque amet. Lectus.",
+    author: {
+      name: "Tesfaye Haile",
+      role: "Product Manager",
+      image: "/profile.png", // Replace with actual image path
+    },
+    logo: "/logo.svg", // Replace with actual logo path
+  },
+  {
+    company: "Company name",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. In rhoncus nisl ornare eget in proin dolor integer. Orci magna ipsum ridiculus purus. Ullamcorper volutpat nullam proin malesuada nisl proin cras nisl sed. Nisl suscipit montes id bibendum at. Senectus tincidunt a id felis. Phasellus pulvinar lorem in sollicitudin donec arcu libero erat id. Sagittis aliquet id urna pellentesque amet. Lectus.",
+    author: {
+      name: "Tesfaye Haile",
+      role: "Product Manager",
+      image: "/profile.png", // Replace with actual image path
+    },
+    logo: "/logo.svg", // Replace with actual logo path
+  },
+  {
+    company: "Company name",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. In rhoncus nisl ornare eget in proin dolor integer. Orci magna ipsum ridiculus purus. Ullamcorper volutpat nullam proin malesuada nisl proin cras nisl sed. Nisl suscipit montes id bibendum at. Senectus tincidunt a id felis. Phasellus pulvinar lorem in sollicitudin donec arcu libero erat id. Sagittis aliquet id urna pellentesque amet. Lectus.",
+    author: {
+      name: "Tesfaye Haile",
+      role: "Product Manager",
+      image: "/profile.png", // Replace with actual image path
+    },
+    logo: "/logo.svg", // Replace with actual logo path
+  },
+  {
+    company: "Company name",
+    content:
+      "Lorem ipsum dolor sit amet consectetur. In rhoncus nisl ornare eget in proin dolor integer. Orci magna ipsum ridiculus purus. Ullamcorper volutpat nullam proin malesuada nisl proin cras nisl sed. Nisl suscipit montes id bibendum at. Senectus tincidunt a id felis. Phasellus pulvinar lorem in sollicitudin donec arcu libero erat id. Sagittis aliquet id urna pellentesque amet. Lectus.",
+    author: {
+      name: "Tesfaye Haile",
+      role: "Product Manager",
+      image: "/profile.png", // Replace with actual image path
+    },
+    logo: "/logo.svg", // Replace with actual logo path
+  },
+  // Add more testimonials as needed
+];
 
 export default function TestimonialSwiper() {
   return (
-    <Box
-      sx={{
-        width: "100%",
-        overflow: "hidden",
-        padding: "40px 0",
-        background: 'white',
-        '& .swiper-pagination': {
-          display: { xs: 'flex', sm: 'none' }
-        }
-      }}
-    >
-      <Swiper
-       modules={[Pagination]}
-       pagination={{
-         clickable: true,
-         el: '.swiper-pagination',
-       }}
-       slidesPerView={1}
-       breakpoints={{
-         600: {
-           slidesPerView: 2,
-           spaceBetween: 20,
-         },
-         768: {
-           slidesPerView: 2,
-           spaceBetween: 30,
-         }
-       }}
-       spaceBetween={10}
-       centeredSlides={false}
-       style={{ paddingBottom: "40px" }}
-       className="testimonial-swiper"
-       
-      >
-        {testimonials.map((testimonial) => (
-          <SwiperSlide
-            key={testimonial.id}
-            style={{
-              width: "100%",
-              minWidth: window.innerWidth >= 600 ? "45%" : "100%"
-            }}
-          >
-            <Grid container sx={{
-              border: '1px solid',
-             
-              display: 'flex',
-              flexDirection: 'column', 
-              justifyContent: 'space-between', 
-              height: 'auto', 
-              
-              borderRadius: '24px',
-              margin: {xs: '6px', md: '10px'},
-              padding: '20px',
-              boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
-              transition: 'box-shadow 0.3s ease-in-out',
-              '&:hover': {
-                boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.3)',
-              }
-            }}>
-                  <Grid item xs={12} sx={{display: 'flex', justifyContent: 'flex-end'}}>
-                    <Button sx={{background:'#EAEAEA',color: 'black', borderRadius: '24px', width:{xs:'100px', md: '200px', },fontSize: {xs:'8px', md:'18px'}, fontFamily: 'DM Sans', fontWeight:700, textAlign: 'center'}}>Testimonial</Button>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Typography sx={{fontFamily: 'DM Sans', fontSize: {xs:'20px', md: '36px',}, fontWeight: 700, color: 'black', textAlign: 'left',}}>{testimonial.title}</Typography>
-                  </Grid>
-                  <Grid item xs={12}>
-                  <Typography sx={{fontFamily: 'DM Sans', fontSize: {xs:'10px', md: '24px',}, fontWeight: 700, color: '#737373', textAlign: 'left',}}>{testimonial.text}</Typography>
+    <>
+      <style>{swiperStyles}</style>
+      <Box sx={{ py: { xs: 8, md: 8 }, background: "white" }}>
+        <Typography
+          variant="h2"
+          sx={{
+            fontSize: { xs: "24px", md: "32px" },
+            fontWeight: "bold",
+           
+            px: { xs: 2, md: 10 },
+            color:'black'
+          }}
+        >
+          What people say
+        </Typography>
 
-                  </Grid>
-                  <Grid item xs={12}>
-                  <Box
-                      sx={{
-                        display: "flex",
-                        gap: "80%",
-                        width: {xs: '90%, md:"100%" '},
-                        marginTop: { xs: 2, sm: 5, md: 2, lg: 5 },
-                        margin:2,
-                        borderRadius: '24px'
-                      }}
-                    
-                    >
-                      <Box
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          pagination={{ 
+            clickable: true,
+          }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            // Mobile view: single card with pagination
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            // Desktop view: 1.75 cards without pagination
+            768: {
+              slidesPerView: 1.75,
+              spaceBetween: -40,
+            },
+          }}
+          style={{ 
+            padding: "60px 28px 60px",
+            overflow: "visible"
+          }}
+        >
+          {testimonials.map((testimonial, index) => (
+            <SwiperSlide key={index}>
+              <Paper
+                elevation={3}
+                sx={{
+                  borderRadius: "16px",
+                  p: { xs: 3, md: 5 },
+                  m: { xs: 0, md: 5 },
+                  height: { xs: "auto", md: "500px" }, // Adjusted height for mobile
+                  minHeight: { xs: "450px", md: "500px" }, // Added minimum height
+                  display: "flex",
+                  flexDirection: "column",
+                  transition: "transform 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "translateY(-5px)",
+                    elevation: 6,
+                  },
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontSize: { xs: "18px", md: "20px" },
+                    fontWeight: "bold",
+                    mb: 2,
+                  }}
+                >
+                  {testimonial.company}
+                </Typography>
+
+                <Typography
+                  sx={{
+                    color: "text.secondary",
+                    mb: 3,
+                    fontSize: { xs: "14px", md: "25px" },
+                    flexGrow: 1,
+                    width:'95%'
+                  }}
+                >
+                  {testimonial.content}
+                </Typography>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    paddingX: 2
+                  }}
+                >
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                    <Avatar
+                      src={testimonial.author.image}
+                      alt={testimonial.author.name}
+                      sx={{ width: 48, height: 48 }}
+                    />
+                    <Box>
+                      <Typography
                         sx={{
-                          width: { xs: "40px", sm: "50px", md: "60px" },
-                          height: { xs: "30px", sm: "50px", md: "60px" },
-                          position: "relative",
-
+                          fontWeight: "500",
+                          fontSize: { xs: "14px", md: "16px" },
                         }}
                       >
-                        <Image
-                          src={testimonial.img}
-                          alt="tropy-img"
-                          layout="fill"
-          
-                          style={{borderRadius: '100px'}}
-                        />
-                        <Box sx={{ marginLeft: { xs: 7, md: 10 } }}>
-                          <Typography
-                            variant="h6"
-                            fontWeight="bold"
-                            sx={{ fontSize: { xs: 10, sm: 20, md: 20 }, color: 'black', textWrap:'nowrap' }}
-                          >
-                            {testimonial.name}
-                          </Typography>
-                          <Typography
-                            variant="subtitle2"
-                            sx={{
-                              color: "#475467",
-                              fontSize: { xs: 6, sm: 15, md: 20 },
-                              textWrap: 'nowrap'
-                            }}
-                          >
-                            {testimonial.discription}
-                          </Typography>
-                        </Box>
-                      </Box>
-
-                      <Box
+                        {testimonial.author.name}
+                      </Typography>
+                      <Typography
                         sx={{
-                          width: { xs: "40px", sm: "50px" },
-                          height: "auto",
+                          color: "text.secondary",
+                          fontSize: { xs: "12px", md: "14px" },
                         }}
                       >
-                        <Image
-                          src={testimonial.icon}
-                          alt="two balls"
-                          width={50}
-                          height={50}
-                          style={{
-                            objectFit: "contain",
-                            width: "100%",
-                            height: "auto",
-                            borderRadius: '100px'
-                          }}
-                        />
-                      </Box>
+                        {testimonial.author.role}
+                      </Typography>
                     </Box>
-                  </Grid>
-            </Grid>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </Box>
+                  </Box>
+                  <Image
+                    src={testimonial.logo}
+                    alt="Company logo"
+                    width={80}
+                    height={24}
+                    style={{ objectFit: "contain", marginLeft:20 }}
+                  />
+                </Box>
+              </Paper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Box>
+    </>
   );
 }
