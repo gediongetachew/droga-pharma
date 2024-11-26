@@ -83,7 +83,7 @@ const HomeHero = () => {
             sx={{
               textAlign: "left",
               color: "#737373",
-              fontSize: { xs: "15px", sm: "17px", md: "18px", lg: "25px" },
+              fontSize: { xs: "15px", sm: "17px", md: "15px", lg: "20px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 500,
             }}
@@ -142,7 +142,7 @@ const HomeHero = () => {
             sx={{
               textAlign: "left",
               color: "#737373",
-              fontSize: { xs: "10px", sm: "17px", md: "18px", lg: "20px" },
+              fontSize: { xs: "10px", sm: "17px", md: "15px", lg: "20px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 500,
               width: "100%",
