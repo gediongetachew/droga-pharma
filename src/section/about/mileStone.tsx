@@ -75,7 +75,7 @@ export default function JourneySection() {
          <Grid container sx={{display:{xs:'block', md:'none'}}}>
          {milestones.map((milestone, index) => (
            <Grid item xs={12} key={index} sx={{display: 'flex', flexDirection:'column'}}>
-             <Box sx={{display:'flex',flexDirection:'column'}}>
+             <Box sx={{display:'flex',flexDirection:'column', padding:5}}>
              <Box
                 sx={{
                   width: { xs: '50px', md: '50px' },
@@ -135,7 +135,7 @@ export default function JourneySection() {
                 </Typography>
               </Box>
              </Box>
-              <Box sx={{display:'flex',marginLeft:{xs:10} }}>
+              <Box sx={{display:'flex',marginLeft:{xs:'auto'} }}>
               <Box
                 sx={{
                   width: { xs: '80px', md: '50px' },
@@ -203,7 +203,7 @@ export default function JourneySection() {
          </Grid>
 
 
-        <Grid container spacing={3} justifyContent="center" sx={{display:{xs:'none', md:'flex'}}}>
+        <Grid container spacing={3} justifyContent="center" sx={{display:{xs:'none', md:'flex', padding:{xs:0, md:10, lg:0}}}}>
           {milestones.map((milestone, index) => (
             <Grid
               item
@@ -216,6 +216,7 @@ export default function JourneySection() {
                 flexDirection: { xs: 'column', md: 'column' },
                 alignItems: 'center',
                 gap: 3,
+              
               }}
             >
               
@@ -224,7 +225,7 @@ export default function JourneySection() {
                 width: { xs: '100%', md: '250px' },
                 maxWidth: '100%',
                 padding: { xs: 2, md: 0 },
-                marginRight:{xs:0, md:20}
+                marginRight:{xs:0, md:10, lg:20}
               }}>
                 <Typography
                   variant="h6"
@@ -232,7 +233,7 @@ export default function JourneySection() {
                     fontFamily: 'Plus Jakarta Sans', 
                     fontWeight: 'bold', 
                     color: 'black',
-                    fontSize: { xs: '18px', md: '24px' },
+                    fontSize: { xs: '18px', md: '20px', lg:'24px' },
                   }}
                 >
                   {milestone.year}
@@ -243,7 +244,7 @@ export default function JourneySection() {
                     fontFamily: 'Plus Jakarta Sans', 
                     fontWeight: 500, 
                     color: 'black',
-                    fontSize: { xs: '16px', md: '20px' },
+                    fontSize: { xs: '16px', md: '18px', lg:'20px' },
                   }}
                 >
                   {milestone.title}
@@ -254,7 +255,7 @@ export default function JourneySection() {
                     fontFamily: 'Plus Jakarta Sans', 
                     fontWeight: 400, 
                     color: 'black',
-                    fontSize: { xs: '14px', md: '16px' },
+                    fontSize: { xs: '14px', md: '14px', lg:'16px' },
                   }}
                 >
                   {milestone.description}
@@ -266,7 +267,7 @@ export default function JourneySection() {
                   height: { xs: '100px', md: '50px' },
                   borderRadius: '50%',
                   position: 'relative',
-                  marginRight:{xs:0, md:20} 
+                  marginRight:{xs:0, md:30, lg:20} 
                 }}
               >
                 
