@@ -26,7 +26,7 @@ const HomeHero = () => {
   }, [inView]);
 
   return (
-    <Grid container sx={{ width: "100%", height: "100vh" }}>
+    <Grid container sx={{ width: "100%", height:'100vh' }}>
       <Grid
         item
         ref={ref}
@@ -43,6 +43,7 @@ const HomeHero = () => {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           paddingX: { xs: "5%" },
+          paddingTop:{xs:5, md:0}
         }}
       >
         <Grid
@@ -72,7 +73,7 @@ const HomeHero = () => {
               color: "black",
               position: "relative",
               zIndex: 1,
-              fontSize: { xs: "35px", sm: "48px", md: "58px", lg: "96px" },
+              fontSize: { xs: "50px", sm: "48px", md: "58px", lg: "96px" },
               fontFamily: "Plus Jakarta Sans",
             }}
           >
@@ -82,7 +83,7 @@ const HomeHero = () => {
             sx={{
               textAlign: "left",
               color: "#737373",
-              fontSize: { xs: "8px", sm: "17px", md: "18px", lg: "20px" },
+              fontSize: { xs: "15px", sm: "17px", md: "18px", lg: "25px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 500,
             }}
@@ -110,7 +111,7 @@ const HomeHero = () => {
             ml: "auto",
             gap: 2,
             marginTop: {
-              xs: "380px",
+              xs: "210px",
               sm: "30px",
               md: "40px",
             },
@@ -141,7 +142,7 @@ const HomeHero = () => {
             sx={{
               textAlign: "left",
               color: "#737373",
-              fontSize: { xs: "8px", sm: "17px", md: "18px", lg: "20px" },
+              fontSize: { xs: "10px", sm: "17px", md: "18px", lg: "20px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 500,
               width: "100%",

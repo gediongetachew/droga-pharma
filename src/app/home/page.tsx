@@ -28,7 +28,7 @@ export default function Home() {
       <Products />
       <Media />
       <TestimonialSwiper />
-      <GetInTouch />
+      <GetInTouch  />
       <Footer />
     </div>
   );

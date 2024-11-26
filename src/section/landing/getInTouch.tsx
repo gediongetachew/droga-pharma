@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-export default function GetInTouch() {
+export default function GetInTouch( hidden?: any) {
   return (
     <Grid container sx={{ height: "100%", alignItems: "center", background: "white", position: "relative" }}>
       <Grid
@@ -16,7 +16,10 @@ export default function GetInTouch() {
           borderRadius: "24px",
           
           margin: {xs:2,md:10},
-          display: "flex",
+          display: {
+            xs: 'flex',
+            md: hidden === true ? 'none' : 'flex'
+          },
           flexDirection: "column",
           gap: 4,
           height: "500px",

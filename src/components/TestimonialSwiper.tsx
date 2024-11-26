@@ -111,7 +111,7 @@ export default function TestimonialSwiper() {
   return (
     <>
       <style>{swiperStyles}</style>
-      <Box sx={{ py: { xs: 8, md: 8 }, background: "white" }}>
+      <Box sx={{ py: { xs: 8, md: 8 }, background: "#FBFBFB" }}>
         <Typography
           variant="h2"
           sx={{

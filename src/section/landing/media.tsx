@@ -5,6 +5,45 @@ import React from "react";
 import Image from "next/image";
 import CallMadeIcon from '@mui/icons-material/CallMade';
 import newsAndPodcast from "@/data/nesAndPodcast";
+import { styled } from '@mui/material/styles';
+import PaginationItem from '@mui/material/PaginationItem';
+
+const CustomPagination = styled(Pagination)(({ theme }) => ({
+  '& .MuiPaginationItem-root': {
+    margin: '0 4px',
+    borderRadius: '50%',
+    color: '#000',
+    fontSize: '16px',
+    minWidth: '32px',
+    height: '32px',
+  },
+  '& .MuiPaginationItem-page': {
+    '&.Mui-selected': {
+      backgroundColor: '#000',
+      color: '#fff',
+      '&:hover': {
+        backgroundColor: '#000',
+      },
+    },
+    '&:hover': {
+      backgroundColor: 'rgba(0, 0, 0, 0.04)',
+    },
+  },
+  '& .MuiPaginationItem-previousNext': {
+    backgroundColor: '#000',
+    color: '#fff',
+    '&:hover': {
+      backgroundColor: '#000',
+    },
+    '&.Mui-disabled': {
+      backgroundColor: '#f5f5f5',
+      color: '#bdbdbd',
+    },
+  },
+  '& .MuiPaginationItem-ellipsis': {
+    border: 'none',
+  },
+}));
 
 export default function Media() {
   const [page, setPage] = React.useState(1);
@@ -153,13 +192,29 @@ export default function Media() {
         ))}
       </Grid>
 
-      <Grid item xs={12} sx={{ display: "flex", justifyContent: "start", marginLeft: {xs:5, md:10}}}>
-        <Pagination 
+      <Grid item xs={12} sx={{ 
+        display: "flex", 
+        justifyContent: "start", 
+        marginLeft: {xs:5, md:10},
+        marginY: 4
+      }}>
+        <CustomPagination 
           count={totalPages}
           page={page}
           onChange={handlePageChange}
-          color="primary"
-          size="large"
+          renderItem={(item) => (
+            <PaginationItem
+              {...item}
+              sx={{
+                ...(item.type === 'previous' && {
+                  marginRight: 2,
+                }),
+                ...(item.type === 'next' && {
+                  marginLeft: 2,
+                }),
+              }}
+            />
+          )}
         />
       </Grid>
     </Grid>

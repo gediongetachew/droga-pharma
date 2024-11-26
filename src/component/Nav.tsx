@@ -8,14 +8,7 @@ import Button from "@mui/material/Button";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import MenuIcon from "@mui/icons-material/Menu";
-import {
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  Typography,
-} from "@mui/material";
+import { Drawer, IconButton, List, ListItem, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 const navItems = ["Home", "About", "Products", "Companies", "Careers", "Media"];
@@ -231,14 +224,14 @@ export default function Nav() {
           ))}
           <ListItem
             sx={{
-              cursor: 'pointer',
-              width: '60%',
-              height: '50px',
-              borderRadius: '40px',
+              cursor: "pointer",
+              width: "60%",
+              height: "50px",
+              borderRadius: "40px",
               padding: 0,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <Button

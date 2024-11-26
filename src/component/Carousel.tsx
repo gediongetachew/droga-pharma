@@ -42,14 +42,14 @@ export default function ImageCarousel({
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: 0,
-          height: height,
+          gap: 10,
+          height: {xs:'150px', md:height},
           backgroundColor: backgroundColor,
         }}
       >
         <Grid item xs={12} marginTop={2}>
           <Swiper
-            spaceBetween={15}
+            spaceBetween={2}
             slidesPerView={5}
             loop={true}
             autoplay={{
@@ -72,7 +72,7 @@ export default function ImageCarousel({
                       position: 'relative',
                       height: '200px',
                       width: {
-                        xs: '100px',
+                        xs: '80px',
                         sm: '150px',
                         md: '200px',
                         lg: '250px',
