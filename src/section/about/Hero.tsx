@@ -35,13 +35,19 @@ export default function Hero() {
             width: "100%",
             height: "100%",
             zIndex: 1,
+            top: 0,
+            left: 0
           }}
         >
           <Image
             src={"/aboutHero.png"}
             alt="hero"
             fill
-            style={{ objectFit: "cover" }}
+            style={{ 
+              objectFit: "cover", 
+              width: "100%",
+              height: "100%"
+            }}
           />
         </Box>
 
@@ -59,7 +65,7 @@ export default function Hero() {
             sx={{
               fontSize: {
                 xs: "30px",
-                md: "96px",
+                md: "100px",
               },
               fontWeight: 600,
               color: "black",
@@ -73,7 +79,7 @@ export default function Hero() {
             sx={{
               fontSize: {
                 xs: "30px",
-                md: "96px",
+                md: "100px",
               },
               fontWeight: 600,
               color: "black",
@@ -85,14 +91,16 @@ export default function Hero() {
           </Typography>
           <Button
             sx={{
-              fontSize: { xs: "15px", md:'24px'},
+              fontSize: { xs: "15px", md: "30px" },
               fontFamily: "Plus Jakarta Sans",
+              marginTop:{xs:1, md:15},
               fontWeight: 700,
+              textTransform:"none",
               color: "#FCEE23",
               borderRadius: "100px",
               background: "black",
-              width: { xs: "200px", md:'220px'},
-              height: { xs: "60px" , md:'78px'},
+              width: { xs: "200px", md: "250px" },
+              height: { xs: "60px", md: "90px" },
               zIndex: 2,
             }}
           >
@@ -115,8 +123,28 @@ export default function Hero() {
           }}
         >
           {/* Arrow */}
-          <Box sx={{ flexShrink: 0 }}>
-            <ArrowDownwardIcon sx={{ scale: 5, color: "black" }} />
+          <Box
+            sx={{
+              flexShrink: 0,
+              cursor: "pointer", // Add pointer cursor
+            }}
+            onClick={() => {
+              window.scrollTo({
+                top: document.documentElement.scrollHeight, // Changed to scroll to bottom
+                behavior: "smooth",
+              });
+            }}
+          >
+            <ArrowDownwardIcon
+              sx={{
+                scale: 4,
+                color: "black",
+                transition: "transform 0.3s ease", // Optional: add hover animation
+                "&:hover": {
+                  transform: "translateY(5px)",
+                },
+              }}
+            />
           </Box>
 
           {/* Logo */}

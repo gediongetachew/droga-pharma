@@ -139,29 +139,34 @@ export default function Medicine() {
                         borderRadius: "24px",
                         overflow: "hidden",
                         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                        height: { xs: "290px", sm: "450px", md: "500px" },
+                        height: { xs: "290px", sm: "400px", md: "400px" },
+                        display: "flex",
+                        flexDirection: "column",
                       }}
                     >
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        fill
-                        style={{
-                          objectFit: "cover",
-                          width: "100%",
-                          height: "100%",
-                        }}
-                      />
                       <Box
                         sx={{
-                          position: "absolute",
+                          position: "relative",
+                          height: "70%", // Image container takes 70% of height
+                          width: "100%",
+                        }}
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          fill
+                          style={{
+                            objectFit: "cover",
+                          }}
+                        />
+                      </Box>
+                      <Box
+                        sx={{
                           display: "flex",
                           flexDirection: "column",
-                          bottom: 0,
-                          height: "30%",
+                          height: "30%", // Text container takes remaining 30%
                           width: "100%",
                           background: "white",
-                          borderBottom: "1px soldi",
                           borderBottomLeftRadius: "24px",
                           borderBottomRightRadius: "24px",
                           padding: "10px",
@@ -295,29 +300,34 @@ export default function Medicine() {
                         borderRadius: "24px",
                         overflow: "hidden",
                         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                        height: { xs: "290px", sm: "450px", md: "500px" },
+                        height: { xs: "290px", sm: "400px", md: "400px" },
+                        display: "flex",
+                        flexDirection: "column",
                       }}
                     >
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        fill
-                        style={{
-                          objectFit: "cover",
-                          width: "100%",
-                          height: "100%",
-                        }}
-                      />
                       <Box
                         sx={{
-                          position: "absolute",
+                          position: "relative",
+                          height: "70%", // Image container takes 70% of height
+                          width: "100%",
+                        }}
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          fill
+                          style={{
+                            objectFit: "cover",
+                          }}
+                        />
+                      </Box>
+                      <Box
+                        sx={{
                           display: "flex",
                           flexDirection: "column",
-                          bottom: 0,
-                          height: "30%",
+                          height: "30%", // Text container takes remaining 30%
                           width: "100%",
                           background: "white",
-                          borderBottom: "1px soldi",
                           borderBottomLeftRadius: "24px",
                           borderBottomRightRadius: "24px",
                           padding: "10px",

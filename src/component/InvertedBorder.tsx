@@ -23,7 +23,7 @@ export default function InvertedBorder({ name }: { name?: string }) {
 
     return (
         <main style={{ width: '100%', height: '100%', padding: '20px' }}>
-            <div className="container" style={{ width: '100%', height: '500px' }}>
+            <div className="container" style={{ width: '100%', height: '800px' }}>
                 <div className="card video" style={{ width: '100%', height: '100%' }}>
                     <div className="card-inner">
                         <div className="box">

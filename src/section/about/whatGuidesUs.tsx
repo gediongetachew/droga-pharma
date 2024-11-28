@@ -9,31 +9,30 @@ export default function whatGuidesUs() {
     <Grid container sx={{ 
       width: '100%', 
       background: 'white',
-      padding: { xs: 2, md: 5 },
-     
+      padding: { xs: 2, sm: 4, lg: 15 },
     }}>
       <Grid item xs={12} sx={{
         display: 'flex', 
-        flexDirection: { xs: 'column', md: 'row' },
+        flexDirection: { xs: 'column', lg: 'row' },
         justifyContent: 'space-between',
-      
-        marginBottom:{xs:5, md:5}
+        gap: { xs: 3, lg: 5 },
+        marginBottom: { xs: 4, lg: 5 }
       }}>
         <Typography sx={{
-          fontSize: { xs: '30px', md: '48px' }, 
+          fontSize: { xs: '24px', sm: '30px', lg: '55px' }, 
           fontFamily: 'Plus Jakarta Sans', 
           fontWeight: 600, 
           color: 'black',
-          width: { xs: '100%', md: '50%' }
+          width: { xs: '100%', lg: '50%' }
         }}>
           What Guides Us
         </Typography>
         <Typography sx={{
-          fontSize: { xs: '10px', md: '20px' }, 
+          fontSize: { xs: '14px', sm: '16px', lg: '20px' }, 
           fontFamily: 'Plus Jakarta Sans', 
           fontWeight: 600, 
           color: '#777777',
-          width: { xs: '100%', md: '50%' }
+          width: { xs: '100%', lg: '50%' }
         }}>
           We are committed to delivering accessible healthcare, sustainable solutions, and professional services that prioritize the well-being of our communities.
         </Typography>
@@ -41,40 +40,135 @@ export default function whatGuidesUs() {
 
       <Grid item xs={12} sx={{
         display: 'flex', 
-        flexDirection: { xs: 'column', md: 'row' },
-        marginX: {xs:0,md:5},
-        marginBottom: 5,
-        gap: {xs:5,md:30}
+        flexDirection: { xs: 'column', lg: 'row' },
+        marginBottom: { xs: 3, lg: 5 },
+        gap: { xs: 3, lg: 30 }
       }}>
-        <Box sx={{display:'flex',flexDirection:'column',padding:5, width:{xs:'100%', md:'35%'}, height:'250px', border:'1px solid #737373', borderRadius:'12px'}}>
-         
-          <Typography sx={{fontSize:{xs:'20px', md:'36px'}, fontFamily:'Plus Jakarta Sans', fontWeight: 600,color:'black',width:'100%'}}>Humanity</Typography>
-          <Typography sx={{fontSize:{Xs:'10px', md:'20px'}, fontFamily:'Plus Jakarta Sans', fontWeight: 400, color:'#737373',width:{xs:'100%', md:'90%'}}}>We are committed enough to achieve our target to protect the health of the people through supplying on time delivery of service and products. Our commitment will last long till we achieve our goals as a company as well as individually</Typography>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: { xs: 3, lg: 2 },
+          width: { xs: '100%', lg: '35%' },
+          height: { xs: 'auto', lg: '280px' },
+          minHeight: { xs: '200px', lg: '250px' },
+          border: '1px solid #737373',
+          borderRadius: '12px'
+        }}>
+          <Typography sx={{
+            fontSize: { xs: '22px', sm: '28px', lg: '36px' },
+            fontFamily: 'Plus Jakarta Sans',
+            fontWeight: 600,
+            color: 'black',
+            marginBottom: { xs: 2, lg: 3 }
+          }}>
+            Humanity
+          </Typography>
+          <Typography sx={{
+            fontSize: { xs: '14px', sm: '16px', lg: '20px' },
+            fontFamily: 'Plus Jakarta Sans',
+            fontWeight: 400,
+            color: '#737373',
+            width: { xs: '100%', lg: '90%' }
+          }}>
+            We are committed enough to achieve our target to protect the health of the people through supplying on time delivery of service and products.
+          </Typography>
         </Box>
 
-        <Box sx={{display:'flex',flexDirection:'column',padding:5,  width:{xs:'100%', md:'35%'}, height:'250px', border:'1px solid #737373', borderRadius:'12px'}}>
-        
-          <Typography sx={{fontSize:{xs:'20px', md:'36px'}, fontFamily:'Plus Jakarta Sans', fontWeight: 600,color:'black',width:'100%'}}>Integrity</Typography>
-          <Typography sx={{fontSize:{Xs:'10px', md:'20px'}, fontFamily:'Plus Jakarta Sans', fontWeight: 400, color:'#737373',width:{xs:'100%', md:'90%'}}}>We keep our promise to protect the health of the people. We are honest to ourselves, to our customers and to our society in delivering quality product and service to the healthcare facility of the country.</Typography>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: { xs: 3, lg: 2 },
+          width: { xs: '100%', lg: '35%' },
+          height: { xs: 'auto', lg: '280px' },
+          minHeight: { xs: '200px', lg: '250px' },
+          border: '1px solid #737373',
+          borderRadius: '12px'
+        }}>
+          <Typography sx={{
+            fontSize: { xs: '22px', sm: '28px', lg: '36px' },
+            fontFamily: 'Plus Jakarta Sans',
+            fontWeight: 600,
+            color: 'black',
+            marginBottom: { xs: 2, lg: 3 }
+          }}>
+            Integrity
+          </Typography>
+          <Typography sx={{
+            fontSize: { xs: '14px', sm: '16px', lg: '20px' },
+            fontFamily: 'Plus Jakarta Sans',
+            fontWeight: 400,
+            color: '#737373',
+            width: { xs: '100%', lg: '90%' }
+          }}>
+            We keep our promise to protect the health of the people. We are honest to ourselves, to our customers and to our society in delivering quality product and service to the healthcare facility of the country.
+          </Typography>
         </Box>
       </Grid>
       <Grid item xs={12} sx={{
         display: 'flex', 
-        flexDirection: { xs: 'column', md: 'row' },
-        marginX: {xs:0,md:15},
-        marginBottom: 5,
-        gap: {xs:5,md:30}
+        flexDirection: { xs: 'column', lg: 'row' },
+        marginX: { xs: 0, lg: 15 },
+        marginBottom: { xs: 3, lg: 5 },
+        gap: { xs: 3,lg: 30 }
       }}>
         
-        <Box sx={{display:'flex',flexDirection:'column',padding:5,  width:{xs:'100%', md:'40%'}, height:'250px', border:'1px solid #737373', borderRadius:'12px'}}>
-         
-         <Typography sx={{fontSize:{xs:'20px', md:'36px'}, fontFamily:'Plus Jakarta Sans', fontWeight: 600,color:'black',width:'100%'}}>Commitment</Typography>
-         <Typography sx={{fontSize:{Xs:'10px', md:'20px'}, fontFamily:'Plus Jakarta Sans', fontWeight: 400, color:'#737373',width:{xs:'100%', md:'90%'}}}> We are committed enough to achieve our target to protect the health of the people through supplying on time delivery of service and products. Our commitment will last long till we achieve our goals as a company as well as individually</Typography>
-       </Box>
-        <Box sx={{display:'flex',flexDirection:'column',padding:5,  width:{xs:'100%', md:'40%'}, height:'250px', border:'1px solid #737373', borderRadius:'12px'}}>
-         
-          <Typography sx={{fontSize:{xs:'20px', md:'36px'}, fontFamily:'Plus Jakarta Sans', fontWeight: 600,color:'black',width:'100%'}}>Customer Centric</Typography>
-          <Typography sx={{fontSize:{Xs:'10px', md:'20px'}, fontFamily:'Plus Jakarta Sans', fontWeight: 400, color:'#737373',width:{xs:'100%', md:'90%'}}}>Our success as a team will be achieved in the fulfillment of the customer demand. We respect human being, honest to ourselves and committed to satisfy our customer needs.</Typography>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: { xs: 3, lg: 2 },
+          width: { xs: '100%', lg: '40%' },
+          height: { xs: 'auto', lg: '280px' },
+          minHeight: { xs: '200px', lg: '250px' },
+          border: '1px solid #737373',
+          borderRadius: '12px'
+        }}>
+          <Typography sx={{
+            fontSize: { xs: '22px', sm: '28px', lg: '36px' },
+            fontFamily: 'Plus Jakarta Sans',
+            fontWeight: 600,
+            color: 'black',
+            marginBottom: { xs: 2, lg: 3 }
+          }}>
+            Commitment
+          </Typography>
+          <Typography sx={{
+            fontSize: { xs: '14px', sm: '16px', lg: '20px' },
+            fontFamily: 'Plus Jakarta Sans',
+            fontWeight: 400,
+            color: '#737373',
+            width: { xs: '100%', lg: '90%' }
+          }}>
+            We are committed enough to achieve our target to protect the health of the people through supplying on time delivery of service and products. Our commitment will last long till we achieve our goals as a company as well as individually
+          </Typography>
+        </Box>
+        <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          padding: { xs: 3, lg: 2 },
+          width: { xs: '100%', lg: '40%' },
+          height: { xs: 'auto', lg: '250px' },
+          minHeight: { xs: '200px', lg: '280px' },
+          border: '1px solid #737373',
+          borderRadius: '12px'
+        }}>
+          <Typography sx={{
+            fontSize: { xs: '22px', sm: '28px', lg: '36px' },
+            fontFamily: 'Plus Jakarta Sans',
+            fontWeight: 600,
+            color: 'black',
+            marginBottom: { xs: 2, lg: 3 }
+          }}>
+            Customer Centric
+          </Typography>
+          <Typography sx={{
+            fontSize: { xs: '14px', sm: '16px', lg: '20px' },
+            fontFamily: 'Plus Jakarta Sans',
+            fontWeight: 400,
+            color: '#737373',
+            width: { xs: '100%', lg: '90%' }
+          }}>
+            Our success as a team will be achieved in the fulfillment of the customer demand. We respect human being, honest to ourselves and committed to satisfy our customer needs.
+          </Typography>
         </Box>
       </Grid>
     </Grid>

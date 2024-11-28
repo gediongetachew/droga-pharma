@@ -1,54 +1,54 @@
-'use client'
+"use client";
 import { Box, Typography, Pagination } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import React from "react";
 import Image from "next/image";
-import CallMadeIcon from '@mui/icons-material/CallMade';
+import CallMadeIcon from "@mui/icons-material/CallMade";
 import newsAndPodcast from "@/data/nesAndPodcast";
-import { styled } from '@mui/material/styles';
-import PaginationItem from '@mui/material/PaginationItem';
+import { styled } from "@mui/material/styles";
+import PaginationItem from "@mui/material/PaginationItem";
 
 const CustomPagination = styled(Pagination)(({ theme }) => ({
-  '& .MuiPaginationItem-root': {
-    margin: '0 4px',
-    borderRadius: '50%',
-    color: '#000',
-    fontSize: '16px',
-    minWidth: '32px',
-    height: '32px',
+  "& .MuiPaginationItem-root": {
+    margin: "0 4px",
+    borderRadius: "50%",
+    color: "#000",
+    fontSize: "16px",
+    minWidth: "32px",
+    height: "32px",
   },
-  '& .MuiPaginationItem-page': {
-    '&.Mui-selected': {
-      backgroundColor: '#000',
-      color: '#fff',
-      '&:hover': {
-        backgroundColor: '#000',
+  "& .MuiPaginationItem-page": {
+    "&.Mui-selected": {
+      backgroundColor: "#000",
+      color: "#fff",
+      "&:hover": {
+        backgroundColor: "#000",
       },
     },
-    '&:hover': {
-      backgroundColor: 'rgba(0, 0, 0, 0.04)',
+    "&:hover": {
+      backgroundColor: "rgba(0, 0, 0, 0.04)",
     },
   },
-  '& .MuiPaginationItem-previousNext': {
-    backgroundColor: '#000',
-    color: '#fff',
-    '&:hover': {
-      backgroundColor: '#000',
+  "& .MuiPaginationItem-previousNext": {
+    backgroundColor: "#000",
+    color: "#fff",
+    "&:hover": {
+      backgroundColor: "#000",
     },
-    '&.Mui-disabled': {
-      backgroundColor: '#f5f5f5',
-      color: '#bdbdbd',
+    "&.Mui-disabled": {
+      backgroundColor: "#f5f5f5",
+      color: "#bdbdbd",
     },
   },
-  '& .MuiPaginationItem-ellipsis': {
-    border: 'none',
+  "& .MuiPaginationItem-ellipsis": {
+    border: "none",
   },
 }));
 
 export default function Media() {
   const [page, setPage] = React.useState(1);
   const [windowWidth, setWindowWidth] = React.useState(
-    typeof window !== 'undefined' ? window.innerWidth : 0
+    typeof window !== "undefined" ? window.innerWidth : 0
   );
 
   React.useEffect(() => {
@@ -56,34 +56,45 @@ export default function Media() {
       setWindowWidth(window.innerWidth);
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const itemsPerPage = windowWidth < 900 ? 2 : 4;
-  
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+
+  const handlePageChange = (
+    event: React.ChangeEvent<unknown>,
+    value: number
+  ) => {
     setPage(value);
   };
 
   // Calculate displayed items
   const startIndex = (page - 1) * itemsPerPage;
-  const displayedItems = newsAndPodcast.slice(startIndex, startIndex + itemsPerPage);
+  const displayedItems = newsAndPodcast.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
   const totalPages = Math.ceil(newsAndPodcast.length / itemsPerPage);
 
   return (
-    <Grid container spacing={2} sx={{ background: 'white', marginTop: 10}}>
+    <Grid container spacing={2} sx={{ background: "white", marginTop: 10 }}>
       <Grid
         item
         xs={12}
-        sx={{ display: "flex", justifyContent: "space-between", marginX: {xs:2, md:10}, marginTop: {xs:2, md:10} }}
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginX: { xs: 2, md: 10 },
+          marginTop: { xs: 2, md: 10 },
+        }}
       >
         <Typography
           sx={{
             fontSize: { xs: "40px", md: "48px" },
             fontWeight: 600,
             fontFamily: "Plus Jakarta Sans",
-            color: 'black'
+            color: "black",
           }}
         >
           Media
@@ -94,8 +105,8 @@ export default function Media() {
             fontSize: { xs: "10px", md: "20px" },
             fontWeight: 400,
             fontFamily: "Plus Jakarta Sans",
-            color:'#6D6D6D',
-            width: '40%'
+            color: "#6D6D6D",
+            width: "40%",
           }}
         >
           Lorem ipsum dolor sit amet consectetur. Montes habitant enim a
@@ -106,22 +117,28 @@ export default function Media() {
       <Grid
         item
         xs={12}
-        sx={{ display: "flex", flexWrap: "wrap", gap: 2, justifyContent: "space-between",marginX:{xs:2, md:10}}}
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 2,
+          justifyContent: "space-between",
+          marginX: { xs: 2, md: 10 },
+        }}
       >
         {displayedItems.map((item, index) => (
           <Box
             key={index}
             sx={{
               width: { xs: "100%", md: "48%" },
-              height: {xs: '390px', md: item.id === 2 ? '450px' : '390px'},
+              height: { xs: "390px", md: item.id === 2 ? "500px" : "450px" },
               position: "relative",
-              border: '3px solid',
+              border: "3px solid",
               borderRadius: "30px",
-            
-              background: 'white',
-              marginTop: { 
+
+              background: "white",
+              marginTop: {
                 xs: 2,
-                md: item.id === 3 ? -3 : 2 
+                md: item.id === 3 ? -3 : 2,
               },
               zIndex: 1,
             }}
@@ -130,11 +147,11 @@ export default function Media() {
               sx={{
                 position: "absolute",
                 top: "2%",
-                left:'1%',
+                left: "1%",
                 width: "98%",
-                height: { 
+                height: {
                   xs: "50%",
-                  md: item.id === 2 ? "60%" : "57%" 
+                  md: item.id === 2 ? "70%" : "65%",
                 },
                 zIndex: 2,
                 borderRadius: "30px",
@@ -147,17 +164,20 @@ export default function Media() {
                 style={{
                   objectFit: "cover",
                   borderRadius: "inherit",
+                  objectPosition: item.id === 2 ? "50% 35%" : "center middle",
                 }}
               />
             </Box>
-            
-            <Box sx={{ 
-              marginTop: { 
-                xs: '70%',
-                md: item.id === 2 ? '40%' : '33%' 
-              }, 
-              paddingX: 2 
-            }}>
+
+            <Box
+              sx={{
+                marginTop: {
+                  xs: "70%",
+                  md: item.id === 2 ? "52%" : "45%",
+                },
+                paddingX: 2,
+              }}
+            >
               <Typography
                 sx={{
                   fontSize: { xs: "18px", md: "24px" },
@@ -181,24 +201,30 @@ export default function Media() {
               </Typography>
             </Box>
 
-            <CallMadeIcon sx={{
-              position: 'absolute', 
-              top: item.id ===2 ?  '64%':  '62%', 
-              right: '3%', 
-              color: 'black', 
-              scale: { xs: 0.8, md: 1 } 
-            }} />
+            <CallMadeIcon
+              sx={{
+                position: "absolute",
+                top: item.id === 2 ? "75%" : "70%",
+                right: "3%",
+                color: "black",
+                scale: { xs: 0.8, md: 1 },
+              }}
+            />
           </Box>
         ))}
       </Grid>
 
-      <Grid item xs={12} sx={{ 
-        display: "flex", 
-        justifyContent: "start", 
-        marginLeft: {xs:5, md:10},
-        marginY: 4
-      }}>
-        <CustomPagination 
+      <Grid
+        item
+        xs={12}
+        sx={{
+          display: "flex",
+          justifyContent: "start",
+          marginLeft: { xs: 5, md: 10 },
+          marginY: 4,
+        }}
+      >
+        <CustomPagination
           count={totalPages}
           page={page}
           onChange={handlePageChange}
@@ -206,10 +232,10 @@ export default function Media() {
             <PaginationItem
               {...item}
               sx={{
-                ...(item.type === 'previous' && {
+                ...(item.type === "previous" && {
                   marginRight: 2,
                 }),
-                ...(item.type === 'next' && {
+                ...(item.type === "next" && {
                   marginLeft: 2,
                 }),
               }}

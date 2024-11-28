@@ -20,20 +20,20 @@ export default function DetailedProducts() {
   return (
     <Box
       sx={{
-        bgcolor: "#F8F9FA",
+        background: "#F5F5F5",
         minHeight: "100vh",
-        p: { xs: 2, md: 4 },
-        pt: { xs: 4, md: 13 },
+      
+        p: { xs: 4, md: 8 },
       }}
     >
       <IconButton
         onClick={() => router.back()}
         sx={{
-          mb: 4,
+          mb: 10,
           border: "1px solid #E0E0E0",
           borderRadius: "24px",
-          px: 2,
-          py: 1,
+          px: 5,
+          py: 2,
           "&:hover": {
             border: "1px solid #BDBDBD",
             bgcolor: "rgba(0, 0, 0, 0.04)",
@@ -46,8 +46,8 @@ export default function DetailedProducts() {
         </Typography>
       </IconButton>
 
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
+      <Grid container spacing={4} sx={{padding:0, borderRadius:'24px', background:'white'}}>
+        <Grid item xs={12} md={6} >
           <Box
             sx={{
               position: "relative",
@@ -55,6 +55,7 @@ export default function DetailedProducts() {
               height: { xs: "300px", md: "500px" },
               borderRadius: "16px",
               overflow: "hidden",
+           
             }}
           >
             <Image

@@ -75,6 +75,7 @@ const HomeHero = () => {
               zIndex: 1,
               fontSize: { xs: "50px", sm: "48px", md: "58px", lg: "96px" },
               fontFamily: "Plus Jakarta Sans",
+              fontWeight: 700
             }}
           >
             Serving the People
@@ -83,7 +84,7 @@ const HomeHero = () => {
             sx={{
               textAlign: "left",
               color: "#737373",
-              fontSize: { xs: "15px", sm: "17px", md: "15px", lg: "20px" },
+              fontSize: { xs: "15px", sm: "17px", md: "15px", lg: "18px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 500,
             }}
@@ -113,7 +114,7 @@ const HomeHero = () => {
             marginTop: {
               xs: "210px",
               sm: "30px",
-              md: "40px",
+              md: "0px",
             },
           }}
         >
@@ -142,16 +143,13 @@ const HomeHero = () => {
             sx={{
               textAlign: "left",
               color: "#737373",
-              fontSize: { xs: "10px", sm: "17px", md: "15px", lg: "20px" },
+              fontSize: { xs: "10px", sm: "17px", md: "15px", lg: "15px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 500,
               width: "100%",
             }}
           >
-            Droga Pharma Pvt. Ltd. Co., based in Addis Ababa, Ethiopia, focuses
-            on sustainably supplying quality medicines, sutures, orthopedic
-            implants, disposable medical devices, and diagnostic equipment at
-            competitive prices.
+        Lorem ipsum dolor sit amet consectetur. Placerat platea mauris donec a purus hac. Lobortis sit ac.
           </Typography>
         </Grid>
 
@@ -177,6 +175,7 @@ const HomeHero = () => {
                   width: { xs: 30, md: 40 },
                   height: { xs: 30, md: 40 },
                   background: "#FBFBFB",
+                  marginBottom:{xs:2, md:5},
                   color: "black",
                   borderRadius: "100%",
                 }}

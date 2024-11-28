@@ -58,7 +58,7 @@ const testimonials: TestimonialData[] = [
       role: "Product Manager",
       image: "/profile.png", // Replace with actual image path
     },
-    logo: "/logo.svg", // Replace with actual logo path
+    logo: "/testimonialLogo.svg", // Replace with actual logo path
   },
   {
     company: "Company name",
@@ -69,7 +69,7 @@ const testimonials: TestimonialData[] = [
       role: "Product Manager",
       image: "/profile.png", // Replace with actual image path
     },
-    logo: "/logo.svg", // Replace with actual logo path
+    logo: "/testimonialLogo.svg", // Replace with actual logo path
   },
   {
     company: "Company name",
@@ -80,7 +80,7 @@ const testimonials: TestimonialData[] = [
       role: "Product Manager",
       image: "/profile.png", // Replace with actual image path
     },
-    logo: "/logo.svg", // Replace with actual logo path
+    logo: "/testimonialLogo.svg", // Replace with actual logo path
   },
   {
     company: "Company name",
@@ -91,7 +91,7 @@ const testimonials: TestimonialData[] = [
       role: "Product Manager",
       image: "/profile.png", // Replace with actual image path
     },
-    logo: "/logo.svg", // Replace with actual logo path
+    logo: "/testimonialLogo.svg", // Replace with actual logo path
   },
   {
     company: "Company name",
@@ -102,7 +102,7 @@ const testimonials: TestimonialData[] = [
       role: "Product Manager",
       image: "/profile.png", // Replace with actual image path
     },
-    logo: "/logo.svg", // Replace with actual logo path
+    logo: "/testimonialLogo.svg", // Replace with actual logo path
   },
   // Add more testimonials as needed
 ];
@@ -117,9 +117,9 @@ export default function TestimonialSwiper() {
           sx={{
             fontSize: { xs: "24px", md: "32px" },
             fontWeight: "bold",
-           
+
             px: { xs: 2, md: 10 },
-            color:'black'
+            color: "black",
           }}
         >
           What people say
@@ -127,7 +127,7 @@ export default function TestimonialSwiper() {
 
         <Swiper
           modules={[Pagination, Autoplay]}
-          pagination={{ 
+          pagination={{
             clickable: true,
           }}
           autoplay={{
@@ -146,9 +146,9 @@ export default function TestimonialSwiper() {
               spaceBetween: -40,
             },
           }}
-          style={{ 
+          style={{
             padding: "60px 28px 60px",
-            overflow: "visible"
+            overflow: "visible",
           }}
         >
           {testimonials.map((testimonial, index) => (
@@ -157,16 +157,18 @@ export default function TestimonialSwiper() {
                 elevation={3}
                 sx={{
                   borderRadius: "16px",
-                  p: { xs: 3, md: 5 },
+                  p: { xs: 3, md: 4 },
                   m: { xs: 0, md: 5 },
-                  height: { xs: "auto", md: "500px" }, // Adjusted height for mobile
-                  minHeight: { xs: "450px", md: "500px" }, // Added minimum height
+                  height: { xs: "auto", md: "540px" },
+                  minHeight: { xs: "450px", md: "500px" },
+                  width: { xs: "100%", md: "85%" },
                   display: "flex",
                   flexDirection: "column",
-                  transition: "transform 0.3s ease-in-out",
+                  transition: "all 0.3s ease-in-out",
+                  boxShadow: "4px 4px 40px rgba(0, 0, 0, 0.25)",
                   "&:hover": {
                     transform: "translateY(-5px)",
-                    elevation: 6,
+                    boxShadow: "0px 8px 30px rgba(0, 0, 0, 0.2)",
                   },
                 }}
               >
@@ -174,7 +176,22 @@ export default function TestimonialSwiper() {
                   variant="h6"
                   sx={{
                     fontSize: { xs: "18px", md: "20px" },
-                    fontWeight: "bold",
+                    fontWeight: 700,
+
+                    alignSelf: "flex-end",
+                    background: "#EAEAEA",
+                    borderRadius: "24px",
+                    paddingX: 2,
+                    paddingY: 1,
+                  }}
+                >
+                  TESTIMONIALS
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontSize: { xs: "18px", md: "40px" },
+                    fontWeight: 700,
                     mb: 2,
                   }}
                 >
@@ -184,10 +201,10 @@ export default function TestimonialSwiper() {
                 <Typography
                   sx={{
                     color: "text.secondary",
-                    mb: 3,
-                    fontSize: { xs: "14px", md: "25px" },
+                    mb: 8,
+                    fontSize: { xs: "14px", md: "20px" },
                     flexGrow: 1,
-                    width:'95%'
+                    width: "95%",
                   }}
                 >
                   {testimonial.content}
@@ -198,20 +215,25 @@ export default function TestimonialSwiper() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    paddingX: 2
+                    paddingX: 2,
                   }}
                 >
                   <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                     <Avatar
                       src={testimonial.author.image}
                       alt={testimonial.author.name}
-                      sx={{ width: 48, height: 48 }}
+                      variant="square"
+                      sx={{
+                        width: 70,
+                        height: 68,
+                        borderRadius: "12px",
+                      }}
                     />
                     <Box>
                       <Typography
                         sx={{
                           fontWeight: "500",
-                          fontSize: { xs: "14px", md: "16px" },
+                          fontSize: { xs: "14px", md: "25px" },
                         }}
                       >
                         {testimonial.author.name}
@@ -219,7 +241,7 @@ export default function TestimonialSwiper() {
                       <Typography
                         sx={{
                           color: "text.secondary",
-                          fontSize: { xs: "12px", md: "14px" },
+                          fontSize: { xs: "12px", md: "20px" },
                         }}
                       >
                         {testimonial.author.role}
@@ -229,9 +251,9 @@ export default function TestimonialSwiper() {
                   <Image
                     src={testimonial.logo}
                     alt="Company logo"
-                    width={80}
-                    height={24}
-                    style={{ objectFit: "contain", marginLeft:20 }}
+                    width={90}
+                    height={40}
+                    style={{ objectFit: "contain", marginLeft: 20 }}
                   />
                 </Box>
               </Paper>

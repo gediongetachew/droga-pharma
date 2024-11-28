@@ -1,5 +1,7 @@
 import mediaNews from "../../public/mediaNews.png";
 import mediaPodcast from "../../public/mediaPodcast.png";
+import foodday from "../../public/foodday.png";
+import pils from "../../public/pils.png";
 import newsIcon from "../../public/newsIcon.svg";
 import podcastIcon from "../../public/podcastIcon.svg";
 const newsAndPodcast = [
@@ -24,7 +26,7 @@ const newsAndPodcast = [
     title: "Lorem ipsum dolor sit amet",
     description:
       "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
-    src: mediaNews,
+    src: foodday,
     icon: newsIcon,
   },
   {
@@ -32,7 +34,7 @@ const newsAndPodcast = [
     title: "Lorem ipsum dolor sit amet",
     description:
       "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
-    src: mediaPodcast,
+    src: pils,
     icon: podcastIcon,
   },
 
@@ -57,7 +59,7 @@ const newsAndPodcast = [
     title: "Lorem ipsum dolor sit amet",
     description:
       "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
-    src: mediaNews,
+    src: foodday,
     icon: newsIcon,
   },
 ];

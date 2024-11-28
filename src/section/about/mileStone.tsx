@@ -27,7 +27,7 @@ const milestones = [
 export default function JourneySection() {
   return (
     <Box sx={{ 
-      padding: '40px 20px',
+      padding: '30px 10px',
       position: 'relative',
       minHeight: '100vh',
       background: 'white',
@@ -66,7 +66,7 @@ export default function JourneySection() {
             color: 'black', // Adjust text color for visibility
             textAlign:'left',
             zIndex:3,
-            paddingLeft: {xs:2, md:8}
+            paddingLeft: {xs:2, md:0}
           }}
         >
           Our Journey
@@ -98,7 +98,7 @@ export default function JourneySection() {
                 width: { xs: '100%', md: '250px' },
                 maxWidth: '100%',
                 padding: { xs: 2, md: 0 },
-                marginRight:{xs:0, md:20}
+                marginRight:{xs:0, md:30}
               }}>
                 <Typography
                   variant="h6"
@@ -285,12 +285,12 @@ export default function JourneySection() {
                       position: 'absolute',
                       width: { xs: '0px', md: '300px' },
                       height: { xs: '50px', md: '2px' },
-                      background: '#6C63FF',
+                      background: 'black',
                       transform: {
                         xs: 'rotate(45deg)',
-                        md: index % 2 === 0 ? 'rotate(-147deg)' : 'rotate(-147deg)'
+                        md: index % 2 === 0 ? 'rotate(-144deg)' : 'rotate(-144deg)'
                       },
-                      top: '250%',
+                      top: '260%',
                       left:  '40%' ,
                       right: '100%' ,
                       zIndex: 2,
@@ -327,7 +327,7 @@ export default function JourneySection() {
                   width: { xs: '100px', md: '50px' },
                   height: { xs: '100px', md: '50px' },
                   borderRadius: '50%',
-                  marginLeft: { xs: 0, md: 60 },
+                  marginLeft: { xs: 0, md: 56 },
                   position: 'relative',
                 }}
               >
@@ -335,15 +335,15 @@ export default function JourneySection() {
                   <Box
                     sx={{
                       position: 'absolute',
-                      width: { xs: '0px', md: '320px' },
+                      width: { xs: '0px', md: '295px' },
                       height: { xs: '50px', md: '2px' },
-                      background: '#6C63FF',
+                      background: 'black',
                       transform: {
                         xs: 'rotate(45deg)',
-                        md: 'rotate(-33deg)'
+                        md: 'rotate(-38deg)'
                       },
-                      top: '20%',
-                      left: '90%',
+                      top: '30%',
+                      left: '80%',
                       transformOrigin: '0 0',
                       zIndex: 2,
                     }}
@@ -367,7 +367,7 @@ export default function JourneySection() {
                 width: { xs: '100%', md: '100%' },
                 maxWidth: '100%',
                 padding: { xs: 2, md: 0 },
-                marginLeft:{xs:0, md:40},
+                marginLeft: { xs: 0, md: 35 },
               }}>
                 <Typography
                   variant="h6"

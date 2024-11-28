@@ -1,53 +1,93 @@
 import Grid from "@mui/material/Grid";
 import React from "react";
 import Image from "next/image";
-import getInTouchImage from "../../../public/p2.jpg";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import dna from '../../../public/dna.svg';
+import dna2 from '../../../public/dna2.svg';
 
-export default function GetInTouch( hidden?: any) {
+export default function GetInTouch(hidden?: any) {
   return (
-    <Grid container sx={{ height: "100%", alignItems: "center", background: "white", position: "relative" }}>
+    <Grid
+      container
+      sx={{
+        height: "100%",
+        alignItems: "center",
+        background: "white",
+        position: "relative",
+      }}
+    >
       <Grid
         item
         xs={12}
         sx={{
           borderRadius: "24px",
-          
-          margin: {xs:2,md:10},
+          margin: { xs: 2, md: 10 },
           display: {
-            xs: 'flex',
-            md: hidden === true ? 'none' : 'flex'
+            xs: "flex",
+            md: hidden === true ? "none" : "flex",
           },
           flexDirection: "column",
-          gap: 4,
-          height: "500px",
-          position: "relative", // Ensure correct stacking context for image and content
-          overflow: "hidden", // Ensures the image doesn't overflow its container
+          height: "600px",
+          position: "relative",
+          overflow: "hidden",
+          background: 'black'
         }}
       >
-        {/* Updated Image */}
-        <Image
-          src={getInTouchImage}
-          alt="Get in Touch"
-          fill // Use "fill" layout to make the image cover its parent container
-          style={{
-            objectFit: "cover",
-            borderRadius: "24px",
-            zIndex: 0, // Keep the image behind the content
-          }}
-        />
+        {/* Left DNA Image */}
+        <Box sx={{
+          position: 'absolute',
+          width: '20%',
+          height: '100%',
+          left: 0,
+          top: 0,
+          zIndex: 1
+        }}>
+          <Image 
+            src={dna} 
+            alt='dna spiral' 
+            fill 
+            style={{
+              objectFit: 'contain',
+              width: '100%',
+              height: '100%'
+            }}
+          />
+        </Box>
+
+        {/* Right DNA Image */}
+        <Box sx={{
+          position: 'absolute',
+          width: '20%',
+          height: '100%',
+          right: 0,
+          top: 0,
+          zIndex: 1
+        }}>
+          <Image 
+            src={dna2} 
+            alt='dna spiral' 
+            fill 
+            style={{
+              objectFit: 'contain',
+              width: '100%',
+              height: '100%'
+            }}
+          />
+        </Box>
+
+        {/* Content Box */}
         <Box
           sx={{
             position: "relative",
             zIndex: 1,
             p: 4,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100%'
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
           }}
         >
           <Typography
@@ -56,12 +96,12 @@ export default function GetInTouch( hidden?: any) {
               fontSize: { xs: "30px", md: "60px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 700,
-              width:{xs:'100%', md: '40%'},
+              width: { xs: "100%", md: "60%" },
               textAlign: "center",
               zIndex: 2,
             }}
           >
-            Partner With Us 
+            Partner With Us
           </Typography>
           <Typography
             sx={{
@@ -69,7 +109,7 @@ export default function GetInTouch( hidden?: any) {
               fontSize: { xs: "30px", md: "60px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 700,
-              width: {xs:"100%", md:"50%"},
+              width: { xs: "100%", md: "60%" },
               textAlign: "center",
               zIndex: 2,
             }}
@@ -82,29 +122,41 @@ export default function GetInTouch( hidden?: any) {
               fontSize: { xs: "15px", md: "25px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 704,
-              width: {xs:'100%', md: '50%'},
+              width: { xs: "100%", md: "50%" },
               zIndex: 2,
-              marginTop: {xs:1, md:2},
-              textAlign: 'center'
+              marginTop: { xs: 1, md: 2 },
+              textAlign: "center",
+              opacity: "51%",
             }}
           >
-            Lorem ipsum dolor sit amet consectetur. Ultrices diam vulputate tempus congue ac. In faucibus senectus risus
-            risus orci. Semper sit.
+            Lorem ipsum dolor sit amet consectetur. Ultrices diam vulputate
+            tempus congue ac. In faucibus senectus risus risus orci. Semper sit.
           </Typography>
           <Button
             sx={{
-              width: { xs: "200px", md: "215px" },
-              paddngY:{xs:1, md:2},
-              fontSize: { xs: "16px", md: "22.5px" },
+              width: { xs: "200px", md: "230px" },
+              padding: { 
+                xs: "8px 16px",    // Small screens
+                sm: "10px 20px",   // Medium screens
+                md: "20px 15px"    // Large screens
+              },
+              fontSize: { xs: "16px", md: "25.5px" },
               fontWeight: 700,
-              borderRadius: '24px',
+              borderRadius: "93px",
               fontFamily: "Plus Jakarta Sans",
               color: "black",
               background: "#FCEE23",
-              marginTop: 4
+              marginTop: 4,
+              textTransform:'none',
+              transition: "all 0.3s ease",
+              '&:hover': {
+                background: "#FCEE23",
+                transform: "translateY(-2px)",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.1)"
+              }
             }}
           >
-            Get In Touch
+            Get in touch
           </Button>
         </Box>
       </Grid>
