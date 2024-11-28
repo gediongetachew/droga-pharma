@@ -19,7 +19,7 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
           margin: 5,
           borderRadius: "24px",
           overflow: "hidden",
-          minHeight: { xs: "auto", md: "800px" },
+          minHeight: { xs: "auto", md: "790px" },
         }}
       >
         <Grid container sx={{ background: "white", height: "100%" }}>
@@ -31,7 +31,7 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                 md={6}
                 sx={{ height: { xs: "400px", md: "850px" } }}
               >
-                <InvertedBorder name="aboutus" />
+                <InvertedBorder name="aboutus" height='700px' />
               </Grid>
               <Grid
                 item
@@ -280,7 +280,7 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                 md={6}
                 sx={{ height: { xs: "400px", md: "850px" } }}
               >
-                <InvertedBorder />
+                <InvertedBorder height='700px'/>
               </Grid>
             </>
           )}

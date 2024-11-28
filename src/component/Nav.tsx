@@ -18,12 +18,23 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const path = pathname.slice(1);
     const index = navItems.findIndex((item) => item.toLowerCase() === path);
     setActive(index !== -1 ? index : 0);
   }, [pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNavigation = (path: string, index: number) => {
     setActive(index);
@@ -45,7 +56,9 @@ export default function Nav() {
         right: 0,
         zIndex: 1000,
         padding: { xs: "10px 20px", md: "20px 40px" },
-        background: "transparent",
+        background: scrolled ? "rgba(255, 255, 255, 0.9)" : "transparent",
+        backdropFilter: scrolled ? "blur(10px)" : "none",
+        transition: "all 0.3s ease-in-out",
       }}
     >
       {/* Mobile View */}
@@ -84,10 +97,11 @@ export default function Nav() {
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            width: "40%",
+            width: "50%",
             height: "100%",
             borderRadius: "60px",
             background: "black",
+            paddingX: 2,
             paddingY: { md: 1 },
           }}
         >
@@ -99,12 +113,17 @@ export default function Nav() {
                 color: active === index ? "#FCEE23" : "#B4B4B4",
                 background: active === index ? "#242424" : "transparent",
                 textTransform: "none",
-                width: { md: "90px", lg: "115px" },
+                width: { md: "120px", lg: "140px" },
                 fontSize: {
                   md: "16px",
                   lg: "16px",
-                  fontFamily: "Plus Jakarta Sans",
-                  borderRadius: "40px",
+                },
+                fontFamily: "Plus Jakarta Sans",
+                borderRadius: "40px",
+                mx: 0.5,
+                "&:hover": {
+                  background:
+                    active === index ? "#242424" : "rgba(36, 36, 36, 0.5)",
                 },
               }}
             >

@@ -43,6 +43,14 @@ export default function Hero() {
     setPlayVideo(true);
   };
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    const nextSection = document.getElementById('openPositions');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <Grid
       container
@@ -121,7 +129,8 @@ export default function Hero() {
 
         <Button
           component="a"
-          href="/openPositions"
+          href="#openPositions"
+          onClick={handleScroll}
           sx={{
             borderRadius: "100px",
             width: {
@@ -136,6 +145,10 @@ export default function Hero() {
             color: "black",
             background: "#FCEE23",
             fontSize: { xs: "10px", sm: "16px", md: "20px" },
+            '&:hover': {
+              background: "#FCEE23",
+              opacity: 0.9,
+            },
           }}
         >
           Open Positions

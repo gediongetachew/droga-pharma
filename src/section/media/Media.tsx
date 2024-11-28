@@ -161,14 +161,15 @@ const Media = () => {
                 sx={{
                  
                   fontWeight: "bold",
-                  color: "black",
+                  color: "#4F4F4F",
                   fontSize: {xs:'1.5rem', md:"2.2rem"},
+                  FontFamily:'Plus Jakarta Sans'
               
                 }}
               >
                 Filter
               </Typography>
-              <Typography component="span" sx={{ color: "text.secondary" }}>
+              <Typography component="span" sx={{ color: "text.secondary" , FontFamily:'Plus Jakarta Sans'}}>
                 • By Topic
               </Typography>
             </Box>
@@ -249,9 +250,9 @@ const Media = () => {
                   }
                 }}
               >
-                <MenuItem value="all">All</MenuItem>
-                <MenuItem value="news">News</MenuItem>
-                <MenuItem value="blog">Blog</MenuItem>
+                <MenuItem sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'Medium', color:'#4F4F4F'}} value="all">All Stuff</MenuItem>
+                <MenuItem sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'Medium', color:'#4F4F4F'}} value="news">News</MenuItem>
+                <MenuItem sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'Medium', color:'#4F4F4F'}} value="blog">Blog</MenuItem>
               </Select>
             </FormControl>
           </Grid>
@@ -264,8 +265,9 @@ const Media = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: "4rem", md: "10rem" },
-                fontWeight: 300,
+                fontSize: { xs: "4rem", md: "11rem" },
+                fontWeight: 500,
+                
                 color: "transparent",
                 WebkitTextStroke: "1px #000",
                 letterSpacing: "0.05em",
@@ -304,6 +306,32 @@ const Media = () => {
                       borderRadius: "16px",
                       bgcolor: "#F8F9FB",
                       border: "solid 1px #000",
+                      width: { 
+                        xs: '80px',    // mobile
+                        sm: '80px',   // tablet
+                        md: '80px',   // laptop
+                        lg: '100px'    // desktop
+                      },
+                      height: {
+                        xs: '24px',
+                        sm: '28px',
+                        md: '32px',
+                        lg: '36px'
+                      },
+                      '& .MuiChip-label': {
+                        px: 0,
+                        fontSize: {
+                          xs: '10px',
+                          sm: '12px',
+                          md: '14px',
+                          lg: '16px'
+                        },
+                        fontWeight: 'regular',
+                        fontFamily:'Plus Jakarta Sans',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis'
+                      }
                     }}
                   />
                   <Box
@@ -314,7 +342,7 @@ const Media = () => {
                       mb: 1,
                     }}
                   >
-                    <Typography variant="h6" sx={{ flex: 1 }}>
+                    <Typography variant="h6" sx={{ flex: 1, fontFamily:'Plus Jakarta Sans', fontWeight:'semibold' }}>
                       {card.title}
                     </Typography>
                     <ArrowForwardIcon
@@ -330,7 +358,8 @@ const Media = () => {
                   <Typography
                     variant="body2"
                     color="text.secondary"
-                    sx={{ mb: 2 }}
+                  
+                    sx={{ mb: 2 ,  fontFamily:'Plus Jakarta Sans',}}
                   >
                     {card.description}
                   </Typography>
@@ -371,6 +400,32 @@ const Media = () => {
                       borderRadius: "16px",
                       bgcolor: "#F8F9FB",
                       border: "solid 1px #000",
+                      width: { 
+                        xs: '80px',    // mobile
+                        sm: '80px',   // tablet
+                        md: '10px',   // laptop
+                        lg: '100px'   // desktop
+                      },
+                      height: {
+                        xs: '24px',
+                        sm: '28px',
+                        md: '32px',
+                        lg: '36px'
+                      },
+                      '& .MuiChip-label': {
+                        px: 0,
+                        fontSize: {
+                          xs: '10px',
+                          sm: '12px',
+                          md: '14px',
+                          lg: '16px'
+                        },
+                        fontWeight: 'regular',
+                        fontFamily:'Plus Jakarta Sans',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis'
+                      }
                     }}
                   />
                   <Box
@@ -381,7 +436,7 @@ const Media = () => {
                       mb: 1,
                     }}
                   >
-                    <Typography variant="h6" sx={{ flex: 1 }}>
+                    <Typography variant="h6" sx={{ flex: 1,  fontFamily:'Plus Jakarta Sans', fontWeight:'semibold',color:'black' }}>
                       {card.title}
                     </Typography>
                     <ArrowForwardIcon
@@ -397,7 +452,7 @@ const Media = () => {
                   <Typography
                     variant="body2"
                     color="text.secondary"
-                    sx={{ mb: 2 }}
+                    sx={{ mb: 2,   fontFamily:'Plus Jakarta Sans', }}
                   >
                     {card.description}
                   </Typography>
@@ -439,6 +494,7 @@ const Media = () => {
                     bgcolor: "#FFD700",
                   },
                   boxShadow: "none",
+                  fontFamily:'Plus Jakarta Sans',
                 }}
               >
                 Load More

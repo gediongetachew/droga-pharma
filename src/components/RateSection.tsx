@@ -47,9 +47,10 @@ export default function ReviewCard() {
             <Typography
               variant="subtitle1"
               sx={{
-                fontWeight: "bold",
+                fontWeight: "medium",
                 color: "#333",
                 mb: 0.5,
+                fontFamily: "Inter",
               }}
             >
               Fitsum Haile
@@ -60,6 +61,7 @@ export default function ReviewCard() {
               sx={{
                 color: "#666",
                 fontSize: "0.875rem",
+                fontFamily: "Inter",
               }}
             >
               Fitsumhaile@gmail.com
@@ -73,7 +75,7 @@ export default function ReviewCard() {
             flexShrink: 0,
           }}
         >
-          {[1, 2, 3, 4].map((star) => (
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((star) => (
             <StarIcon
               key={star}
               sx={{
@@ -98,6 +100,7 @@ export default function ReviewCard() {
           fontSize: "0.875rem",
           lineHeight: 1.6,
           letterSpacing: "0.1px",
+          fontFamily: "Inter",
         }}
       >
         Lorem ipsum dolor sit amet consectetur. Pellentesque ipsum tellus
