@@ -143,7 +143,7 @@ export default function Media() {
             {mediaCards
               .filter((_, index) => index % 2 === 0)
               .map((card, index) => (
-                <Grid item xs={12} key={`left-${index}`} sx={{ mb: 10 }}>
+                <Grid item xs={12} key={`left-${index}`} sx={{ mb: 0 }}>
                   <Card
                     sx={{
                       width: "100%",
@@ -218,9 +218,9 @@ export default function Media() {
                   xs={12}
                   key={`right-${index}`}
                   sx={{
-                    mb: 4,
+                    mb: 15,
                     ...(index === 0 && {
-                      mt: { xs: 0, md: 12 },
+                      mt: { xs: 0, md: 8 },
                     }),
                   }}
                 >
