@@ -68,7 +68,7 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           <Typography
             sx={{
               fontSize: { xs: "10px", md: "20px" },
-              fontWeight: 400,
+              fontWeight: 'regular',
               fontFamily: "Plus Jakarta Sans",
               color: "#F3EFEF",
               textAlign: "left",
@@ -90,11 +90,10 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
                 },
                 "& .MuiInputLabel-root": {
                   color: "#999999",
-                  left: "10%",
-
-                  transform: "translate(-50%, 20px)",
+                  transform: "translate(14px, 12px) scale(1)",
+                  fontFamily: "Inter",
                   "&.Mui-focused, &.MuiFormLabel-filled": {
-                    transform: "translate(-50%, -50%) scale(0.75)",
+                    transform: "translate(14px, -9px) scale(0.75)",
                   },
                 },
                 "& .MuiOutlinedInput-input": {
@@ -102,7 +101,7 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
                   fontFamily: "Inter",
                   fontWeight: 400,
                   fontSize: { xs: "8px", md: "13px" },
-                  textAlign: "center",
+                  paddingLeft: "14px",
                 },
               }}
             />
@@ -119,10 +118,9 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
                 },
                 "& .MuiInputLabel-root": {
                   color: "#999999",
-                  left: "10%",
-                  transform: "translate(-50%, 20px)",
+                  transform: "translate(14px, 12px) scale(1)",
                   "&.Mui-focused, &.MuiFormLabel-filled": {
-                    transform: "translate(-50%, -50%) scale(0.75)",
+                    transform: "translate(14px, -9px) scale(0.75)",
                   },
                 },
                 "& .MuiOutlinedInput-input": {
@@ -130,7 +128,7 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
                   fontFamily: "Inter",
                   fontWeight: 400,
                   fontSize: { xs: "8px", md: "13px" },
-                  textAlign: "center",
+                  paddingLeft: "14px",
                 },
               }}
             />
@@ -139,16 +137,21 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
                 <Checkbox
                   name="subscribe"
                   sx={{
-                    "& .MuiSvgIcon-root": {
+                    '& .MuiSvgIcon-root': {
+                      fontSize: { xs: '16px', md: '16px' },
                       borderRadius: "100%",
                       border: "1px solid #5A5A5A",
                       backgroundColor: "transparent",
+                    },
+                    padding: '4px',
+                    '&.Mui-checked': {
+                      color: '#FCEE23',
                     },
                   }}
                 />
               }
               label={
-                <Typography sx={{ color: "#999999", fontSize: "14px" }}>
+                <Typography sx={{ color: "#999999", fontSize: { xs: "12px", md: "14px" } }}>
                   i agree with the{" "}
                   <Box component="span" sx={{ color: "#FCEE23" }}>
                     Terms & Conditions
@@ -187,15 +190,15 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           <Typography
             variant="h6"
             fontWeight="bold"
-            color="#FFFFFFBF"
-            sx={{ marginBottom: { xs: 0 } }}
+            color="#E0E0E0"
+            sx={{ marginBottom: { xs: 0 },fontFamily:'Plus Jakarta Sans',fontWeight:600, fontSize:{xs:20} }}
           >
             Companies
           </Typography>
-          <Typography variant="body2"> Ema</Typography>
-          <Typography variant="body2">Droga Pharmacy</Typography>
-          <Typography variant="body2">Trust Pharma</Typography>
-          <Typography variant="body2">Droga Physioterapy</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}> Ema</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Pharmacy</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Trust Pharma</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Physioterapy</Typography>
         </Box>
         <Box
           sx={{
@@ -209,15 +212,15 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           <Typography
             variant="body1"
             fontWeight="bold"
-            color="#FFFFFFBF"
-            sx={{ marginBottom: { xs: 0 } }}
+            color="#E0E0E0"
+            sx={{ marginBottom: { xs: 0 } ,fontFamily:'Plus Jakarta Sans',fontWeight:600, fontSize:{xs:20}}}
           >
             Companies
           </Typography>
-          <Typography variant="body2"> Ema</Typography>
-          <Typography variant="body2">Droga Pharmacy</Typography>
-          <Typography variant="body2">Trust Pharma</Typography>
-          <Typography variant="body2">Droga Physioterapy</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}> Ema</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Pharmacy</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Trust Pharma</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Physioterapy</Typography>
         </Box>
         <Box
           sx={{
@@ -231,15 +234,15 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           <Typography
             variant="body1"
             fontWeight="bold"
-            color="#FFFFFFBF"
-            sx={{ marginBottom: { xs: 0 } }}
+            color="#E0E0E0"
+            sx={{ marginBottom: { xs: 0 } ,fontFamily:'Plus Jakarta Sans',fontWeight:600, fontSize:{xs:20}}}
           >
             Companies
           </Typography>
-          <Typography variant="body2"> Ema</Typography>
-          <Typography variant="body2">Droga Pharmacy</Typography>
-          <Typography variant="body2">Trust Pharma</Typography>
-          <Typography variant="body2">Droga Physioterapy</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}> Ema</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Pharmacy</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Trust Pharma</Typography>
+          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Physioterapy</Typography>
         </Box>
         <Box
           sx={{
@@ -322,8 +325,7 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           <Typography
             sx={{
               fontFamily: "Segoe UI",
-              fontSize: { xs: "10px", md: "12px" },
-              fontWeight: 700,
+              fontSize:  12 ,
               color: "#999A9A",
             }}
           >

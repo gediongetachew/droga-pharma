@@ -10,6 +10,13 @@ import play from "../../../public/play.svg";
 
 import Image from "next/image";
 import star from "../../../public/star.svg";
+import HomeHeroImage from "../../../public/HomeHero.png";
+
+const backgroundImages = [
+  HomeHeroImage,
+  HomeHeroImage,
+  HomeHeroImage,
+];
 
 const HomeHero = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -17,6 +24,8 @@ const HomeHero = () => {
   const { ref, inView } = useInView({
     threshold: 0.1,
   });
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const totalImages = backgroundImages.length;
 
   useEffect(() => {
     if (!inView) {
@@ -25,8 +34,18 @@ const HomeHero = () => {
     }
   }, [inView]);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === totalImages - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [totalImages]);
+
   return (
-    <Grid container sx={{ width: "100%", height:'100vh' }}>
+    <Grid container sx={{ width: "100%", height:'125vh' }}>
       <Grid
         item
         ref={ref}
@@ -36,16 +55,61 @@ const HomeHero = () => {
           flexDirection: "column",
           position: "absolute",
           top: 0,
-          height: "100vh",
+          height: "125vh",
           width: "100%",
-          backgroundImage: `url("/HomeHero.png")`, // Updated path
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
           paddingX: { xs: "5%" },
-          paddingTop:{xs:5, md:0}
+          paddingTop:{xs:5, md:0},
+          position: "relative"
         }}
       >
+        {backgroundImages.map((img, index) => (
+          <Image
+            key={index}
+            src={img}
+            alt={`Hero background ${index + 1}`}
+            fill
+            priority={index === 0}
+            style={{
+              objectFit: "cover",
+              zIndex: -1,
+              opacity: currentImageIndex === index ? 1 : 0,
+              transition: "opacity",
+            }}
+            quality={100}
+          />
+        ))}
+
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: { xs: "3%", md: "3%" },
+            right: { xs: "8%", md: "8%" },
+            zIndex: 2,
+            width: { xs: "50px", md: "70px" },
+            height: { xs: "50px", md: "70px" },
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: "50%",
+            backgroundImage: `url('/circle.svg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backdropFilter: 'blur(4px)',
+            boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.15)',
+          }}
+        >
+          <Typography
+            sx={{
+              color: "black",
+              fontSize: { xs: "20px", md: "28px" },
+              fontWeight: "700",
+              fontFamily: "Pota One",
+            }}
+          >
+            {currentImageIndex + 1}
+          </Typography>
+        </Box>
+
         <Grid
           item
           xs={12}
@@ -60,7 +124,7 @@ const HomeHero = () => {
             marginTop: {
               xs: "50px",
               sm: "30px",
-              md: "200px",
+              md: "255px",
             },
             height: "100%",
             gap: 2,
@@ -75,7 +139,7 @@ const HomeHero = () => {
               zIndex: 1,
               fontSize: { xs: "50px", sm: "48px", md: "58px", lg: "96px" },
               fontFamily: "Plus Jakarta Sans",
-              fontWeight: 700
+              fontWeight: 600
             }}
           >
             Serving the People
@@ -99,13 +163,13 @@ const HomeHero = () => {
         <Grid
           item
           xs={12}
-          md={3.5}
+          md={3}
           sx={{
             display: "flex",
             flexDirection: "column",
             position: "relative",
             zIndex: 1,
-            p: 4,
+            pl: 8,
             justifyContent: "flex-center",
             alignItems: "flex-end",
             height: "100%",
@@ -114,8 +178,9 @@ const HomeHero = () => {
             marginTop: {
               xs: "210px",
               sm: "30px",
-              md: "0px",
+              md: -5
             },
+           
           }}
         >
           <Image
@@ -126,15 +191,16 @@ const HomeHero = () => {
             style={{
               display: "block",
               height: "auto",
-              marginRight: "auto",
-              width: "clamp(10px, 10vw, 100px)", // responsive width
+              marginRight: 'auto',
+              marginTop:-20,
+              width: "clamp(10px, 10vw, 80px)", // responsive width
             }}
             sx={{
               width: {
                 xs: "6px", // mobile
                 sm: "70px", // tablet
                 md: "85px", // small desktop
-                lg: "100px", // large desktop
+                lg: "80%", // large desktop
               },
               height: "auto",
             }}
@@ -143,7 +209,7 @@ const HomeHero = () => {
             sx={{
               textAlign: "left",
               color: "#737373",
-              fontSize: { xs: "10px", sm: "17px", md: "15px", lg: "15px" },
+              fontSize: { xs: "10px", sm: "17px", md: "15px", lg: "18px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 500,
               width: "100%",
@@ -159,6 +225,7 @@ const HomeHero = () => {
               sx={{
                 position: "absolute",
                 bottom: "14px",
+                zIndex: 2
               }}
             >
               <IconButton
@@ -171,13 +238,13 @@ const HomeHero = () => {
                   setShowVideo(true);
                 }}
                 sx={{
-                  scale: 1.5,
+                  scale: 3,
                   width: { xs: 30, md: 40 },
                   height: { xs: 30, md: 40 },
-                  background: "#FBFBFB",
                   marginBottom:{xs:2, md:5},
                   color: "black",
                   borderRadius: "100%",
+                  background:'#EBEBEB'
                 }}
               >
                 <Image

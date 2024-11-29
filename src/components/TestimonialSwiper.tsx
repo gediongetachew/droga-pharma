@@ -115,9 +115,9 @@ export default function TestimonialSwiper() {
         <Typography
           variant="h2"
           sx={{
-            fontSize: { xs: "24px", md: "32px" },
-            fontWeight: "bold",
-
+            fontSize: { xs: "24px", md: "42px" },
+            fontWeight: 600,
+            fontFamily:'Plus Jakarta Sans',
             px: { xs: 2, md: 10 },
             color: "black",
           }}
@@ -159,7 +159,7 @@ export default function TestimonialSwiper() {
                   borderRadius: "16px",
                   p: { xs: 3, md: 4 },
                   m: { xs: 0, md: 5 },
-                  height: { xs: "auto", md: "540px" },
+                  height: { xs: "auto", md: "500px" },
                   minHeight: { xs: "450px", md: "500px" },
                   width: { xs: "100%", md: "85%" },
                   display: "flex",
@@ -176,11 +176,11 @@ export default function TestimonialSwiper() {
                   variant="h6"
                   sx={{
                     fontSize: { xs: "18px", md: "20px" },
-                    fontWeight: 700,
-
+                    fontWeight: 'bold',
+                    fontFamily:'DM Sans',
                     alignSelf: "flex-end",
                     background: "#EAEAEA",
-                    borderRadius: "24px",
+                    borderRadius: "30px",
                     paddingX: 2,
                     paddingY: 1,
                   }}
@@ -192,23 +192,53 @@ export default function TestimonialSwiper() {
                   sx={{
                     fontSize: { xs: "18px", md: "40px" },
                     fontWeight: 700,
+                    fontFamily:'DM Sans',
                     mb: 2,
                   }}
                 >
                   {testimonial.company}
                 </Typography>
 
-                <Typography
-                  sx={{
-                    color: "text.secondary",
-                    mb: 8,
-                    fontSize: { xs: "14px", md: "20px" },
-                    flexGrow: 1,
-                    width: "95%",
-                  }}
-                >
-                  {testimonial.content}
-                </Typography>
+                <Box sx={{ position: 'relative', width: '95%' }}>
+                  <Typography
+                    sx={{
+                      color: '#CCCCCC',
+                      fontSize: { xs: '40px', md: '60px' },
+                      position: 'absolute',
+                      top: -20,
+                      left: -10,
+                      fontFamily: 'DM Sans',
+                    }}
+                  >
+                    "
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "text.secondary",
+                      mb: 8,
+                      fontSize: { xs: "14px", md: "20px" },
+                      flexGrow: 1,
+                      width: "100%",
+                      fontFamily: 'DM Sans',
+                      fontWeight: 'regular',
+                      px: 4  // Add padding to accommodate the quotes
+                    }}
+                  >
+                    {testimonial.content}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: '#CCCCCC',
+                      fontSize: { xs: '40px', md: '60px' },
+                      position: 'absolute',
+                      bottom: 10,
+                      right: 90,
+                      fontFamily: 'DM Sans',
+                    }}
+                  >
+                    "
+                  </Typography>
+                </Box>
 
                 <Box
                   sx={{
@@ -224,9 +254,9 @@ export default function TestimonialSwiper() {
                       alt={testimonial.author.name}
                       variant="square"
                       sx={{
-                        width: 70,
-                        height: 68,
-                        borderRadius: "12px",
+                        width: 68,
+                        height: 65,
+                        borderRadius: "18px",
                       }}
                     />
                     <Box>

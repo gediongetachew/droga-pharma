@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Image from "next/image";
 import aboutImage from "../../../public/aboutus.png";
-import logo from "../../../public/logo.svg";
+import logo2 from "../../../public/logo2.svg";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
@@ -26,9 +26,9 @@ export default function AboutUs() {
             position: "relative",
             width: "100%",
             height: {xs:'55vh', md:"80vh"},
-            borderRadius: "20px",
+            borderRadius: "30px",
             zindex: 1,
-
+            boxShadow: '2px 2px 2px rgba(0.3, 0.3, 0.3, 0.3)',
             overflow: "hidden",
           }}
         >
@@ -48,15 +48,26 @@ export default function AboutUs() {
               height: {xs:"20%",md:"10%"},
               zIndex: 2,
               background: "white",
-
               borderBottomLeftRadius: "20px",
+              overflow: "hidden",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-start",
             }}
           >
             <Image
-              src={logo}
+              src={logo2}
               alt="about us"
-              fill
-              style={{ objectFit: "cover" }}
+              width={100}
+              height={80}
+              style={{ 
+                width: "auto",
+                height: "100%",
+                padding: "8px",
+                objectFit: "contain",
+                borderBottomLeftRadius: "20px",
+                objectPosition: "center top",
+              }}
             />
           </Box>
         </Box>
