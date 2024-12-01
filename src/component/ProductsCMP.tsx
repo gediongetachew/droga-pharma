@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Box, Container, Paper, Typography } from "@mui/material";
+import { Box, Container, Paper, Typography, Divider } from "@mui/material";
 import Image from "next/image";
-import ExpandCircleDownIcon from "@mui/icons-material/ExpandCircleDown";
+import { HiOutlineChevronUpDown } from "react-icons/hi2";
 import CustomPagination from "@/components/CustomePagination";
 import Products from "@/section/landing/products";
 import Link from "next/link";
@@ -126,7 +126,7 @@ export default function ProductsCMP() {
           sx={{
             mb: 4,
             fontWeight: "bold",
-            px: { xs: 2, md: 38 },
+            px: { xs: 2, md: 35 },
           }}
         >
           Featured Products
@@ -145,49 +145,55 @@ export default function ProductsCMP() {
               px: { xs: 2, md: 0 },
             }}
           >
-            <Box display="flex" alignItems="center" gap={2} mb={2}>
-              <Typography
-                color="text.primary"
-                variant="h6"
-                sx={{ fontWeight: "bold" }}
-              >
-                Filter
-              </Typography>
-              <Box display="flex" alignItems="center" gap={1}>
-                <Box
-                  sx={{
-                    width: 8,
-                    height: 8,
-                    borderRadius: "50%",
-                    bgcolor: "black",
-                  }}
-                />
-                <Typography color="text.secondary">By Category</Typography>
-              </Box>
-            </Box>
-
-            {categories.map((category, index) => (
-              <Paper
-                key={index}
-                sx={{
-                  width: "100%",
-                  p: 2,
-                  mb: 1,
-                  cursor: "pointer",
-                  "&:hover": { bgcolor: "grey.100" },
-                }}
-              >
-                <Box
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  gap={1}
+            <Paper sx={{ p: 4, borderRadius: "5%" }}>
+              <Box display="flex" alignItems="center" gap={2} mb={2}>
+                <Typography
+                  color="text.primary"
+                  variant="h6"
+                  sx={{ fontWeight: "bold" }}
                 >
-                  {category}
-                  <ExpandCircleDownIcon sx={{ fontSize: 20 }} />
+                  Filter
+                </Typography>
+                <Box display="flex" alignItems="center" gap={1}>
+                  <Box
+                    sx={{
+                      width: 8,
+                      height: 8,
+                      borderRadius: "50%",
+                      bgcolor: "black",
+                    }}
+                  />
+                  <Typography color="text.secondary">By Category</Typography>
                 </Box>
-              </Paper>
-            ))}
+              </Box>
+              <Divider />
+              {categories.map((category, index) => (
+                <Box key={index}>
+                  <Box
+                    display="flex"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    sx={{
+                      py: 2,
+                      cursor: "pointer",
+                      "&:hover": { bgcolor: "grey.100" },
+                    }}
+                  >
+                    {category}
+                    <Box
+                      sx={{
+                        p: 0.2,
+                        border: "1px solid #E0E0E0",
+                        borderRadius: "50%",
+                      }}
+                    >
+                      <HiOutlineChevronUpDown />
+                    </Box>
+                  </Box>
+                  {index < categories.length - 1 && <Divider />}
+                </Box>
+              ))}
+            </Paper>
           </Box>
           <Box
             sx={{
@@ -198,7 +204,7 @@ export default function ProductsCMP() {
             <Box
               display="grid"
               gridTemplateColumns={{ xs: "1fr", md: "1fr 1fr" }}
-              gap={3}
+              gap={5}
             >
               {currentProducts.map((product) => (
                 <Link

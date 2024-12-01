@@ -8,7 +8,6 @@ import ReviewCard from "@/components/RateSection";
 import { useState } from "react";
 import RelatedProducts from "@/components/RelatedProducts";
 
-
 export default function DetailedProducts() {
   const router = useRouter();
 
@@ -23,17 +22,18 @@ export default function DetailedProducts() {
         bgcolor: "#F8F9FA",
         minHeight: "100vh",
         p: { xs: 2, md: 4 },
-        pt: { xs: 4, md: 13 },
+        pt: { xs: 10, md: 18 },
       }}
     >
       <IconButton
         onClick={() => router.back()}
         sx={{
-          mb: 4,
           border: "1px solid #E0E0E0",
           borderRadius: "24px",
+          mb: 3,
           px: 2,
           py: 1,
+          ml: { xs: 3, md: 3 },
           "&:hover": {
             border: "1px solid #BDBDBD",
             bgcolor: "rgba(0, 0, 0, 0.04)",
@@ -46,146 +46,111 @@ export default function DetailedProducts() {
         </Typography>
       </IconButton>
 
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={6}>
-          <Box
-            sx={{
-              position: "relative",
-              width: "100%",
-              height: { xs: "300px", md: "500px" },
-              borderRadius: "16px",
-              overflow: "hidden",
-            }}
-          >
-            <Image
-              src="/medicine1.png"
-              alt="Medical Supplies"
-              fill
-              style={{ objectFit: "cover" }}
-            />
-          </Box>
-        </Grid>
-
-        <Grid item xs={12} md={6}>
-          <Box sx={{ display: "flex", gap: 4 }}>
-            <Stack spacing={2} sx={{ flex: 1 }}>
-              <Typography
-                variant="h4"
-                component="h1"
-                sx={{ color: "black", fontWeight: "bold" }}
-              >
-                Medical Suppliers
-              </Typography>
-
-              <Typography
-                variant="subtitle1"
-                color="text.secondary"
-                sx={{ color: "black", fontWeight: "bold" }}
-              >
-                Category: Medical supplies
-              </Typography>
-
-              <Typography color="text.secondary" sx={{ mt: 2 }}>
-                Lorem ipsum dolor sit amet consectetur. Pellentesque ipsum
-                tellus facilisis ultrices ut tempor ultricies amet sit. Massa
-                nunc pellentesque a in vitam tempus diam. Viverra nunc tempor
-                sed pellentesque. Vel ullamcorper ut blanket amet diam duis a
-                non. Faucibus diam augue sem sapien. Amet turpis molestie purus
-                amet tortor. Suspendisse sed at ut pharetra facilisis amet sit.
-              </Typography>
-
-              <Box sx={{ mt: 3 }}>
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  sx={{ color: "black", fontWeight: "bold" }}
-                >
-                  Material Info:
-                </Typography>
-                <Stack spacing={1} sx={{ color: "text.secondary" }}>
-                  <Typography>Size: 34px x 34mm</Typography>
-                  <Typography>Country: Munich, Germany</Typography>
-                  <Typography>Dimension: 34mm x 34mm</Typography>
-                </Stack>
-              </Box>
-            </Stack>
-
-            <Stack
-              spacing={2}
-              sx={{
-                display: { xs: "none", md: "flex" },
-                width: "100px",
-              }}
-            >
-              {thumbnails.map((thumb, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    position: "relative",
-                    width: "100px",
-                    height: "100px",
-                    borderRadius: "8px",
-                    overflow: "hidden",
-                  }}
-                >
-                  <Image
-                    src={thumb}
-                    alt={`Thumbnail ${index + 1}`}
-                    fill
-                    style={{ objectFit: "cover" }}
-                  />
-                </Box>
-              ))}
-            </Stack>
-          </Box>
-
-          <Box
-            sx={{
-              display: { xs: "block", md: "none" },
-              mt: 3,
-              width: "100%",
-              overflow: "hidden",
-            }}
-          >
+      <Box
+        sx={{
+          bgcolor: "#FFFFFF",
+          borderRadius: "16px",
+          py: 3,
+          px: 3,
+        }}
+      >
+        <Grid container spacing={0}>
+          <Grid item xs={12} md={6}>
             <Box
               sx={{
-                display: "flex",
-                gap: 2,
-                overflowX: "auto",
-                WebkitOverflowScrolling: "touch",
-                scrollbarWidth: "none",
-                "&::-webkit-scrollbar": {
-                  display: "none",
-                },
-                px: 2,
-                pb: 2,
+                position: "relative",
+                width: "90%",
+                height: { xs: "200px", md: "380px" },
+                borderRadius: "16px",
+                overflow: "hidden",
+                // ml: { xs: 0, md: 8 },
               }}
             >
-              {thumbnails.map((thumb, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    position: "relative",
-                    minWidth: "80px",
-                    width: "80px",
-                    height: "80px",
-                    borderRadius: "8px",
-                    overflow: "hidden",
-                    flexShrink: 0,
-                  }}
-                >
-                  <Image
-                    src={thumb}
-                    alt={`Thumbnail ${index + 1}`}
-                    fill
-                    style={{ objectFit: "cover" }}
-                  />
-                </Box>
-              ))}
+              <Image
+                src="/medicine1.png"
+                alt="Medical Supplies"
+                fill
+                style={{ objectFit: "cover" }}
+              />
             </Box>
-          </Box>
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <Box sx={{ display: "flex", gap: 4 }}>
+              <Stack spacing={2} sx={{ flex: 1, pr: { xs: 0, md: 4 } }}>
+                <Typography
+                  variant="h4"
+                  component="h1"
+                  sx={{ color: "black", fontWeight: "bold" }}
+                >
+                  Medical Suppliers
+                </Typography>
+
+                <Typography
+                  variant="subtitle1"
+                  color="text.secondary"
+                  sx={{ color: "black", fontWeight: "bold" }}
+                >
+                  Category: Medical supplies
+                </Typography>
+
+                <Typography color="text.secondary" sx={{ mt: 1 }}>
+                  Lorem ipsum dolor sit amet consectetur. Pellentesque ipsum
+                  tellus facilisis ultrices ut tempor ultricies amet sit. Massa
+                  nunc pellentesque a in vitam tempus diam. Viverra nunc tempor
+                  sed pellentesque. Vel ullamcorper ut blanket amet diam duis a
+                  non. Faucibus diam augue sem sapien. Amet turpis molestie
+                  purus amet tortor. Suspendisse sed at ut pharetra facilisis
+                  amet sit.
+                </Typography>
+
+                <Box sx={{ mt: 3 }}>
+                  <Typography
+                    variant="h6"
+                    gutterBottom
+                    sx={{ color: "black", fontWeight: "bold" }}
+                  >
+                    Material Info:
+                  </Typography>
+                  <Stack spacing={1} sx={{ color: "text.secondary" }}>
+                    <Typography>Size: 34px x 34mm</Typography>
+                    <Typography>Country: Munich, Germany</Typography>
+                    <Typography>Dimension: 34mm x 34mm</Typography>
+                  </Stack>
+                </Box>
+              </Stack>
+
+              <Stack
+                spacing={2}
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  width: "120px",
+                }}
+              >
+                {thumbnails.map((thumb, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      position: "relative",
+                      width: "150px",
+                      height: "100px",
+                      borderRadius: "8px",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <Image
+                      src={thumb}
+                      alt={`Thumbnail ${index + 1}`}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
+                  </Box>
+                ))}
+              </Stack>
+            </Box>
+          </Grid>
         </Grid>
-      </Grid>
+      </Box>
 
       <Box sx={{ mt: 8, mb: 4 }}>
         <Typography
@@ -263,7 +228,6 @@ export default function DetailedProducts() {
         </Box>
       </Box>
       <RelatedProducts />
-    
     </Box>
   );
 }

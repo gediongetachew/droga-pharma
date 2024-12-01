@@ -98,6 +98,7 @@ export default function ReviewCard() {
           fontSize: "0.875rem",
           lineHeight: 1.6,
           letterSpacing: "0.1px",
+          pl: { xs: 0, md: 3 },
         }}
       >
         Lorem ipsum dolor sit amet consectetur. Pellentesque ipsum tellus
