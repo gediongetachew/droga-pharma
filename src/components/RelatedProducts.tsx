@@ -4,6 +4,7 @@ import ProductCard from "./ProductsCard";
 
 export default function RelatedProducts() {
   const [activeStep, setActiveStep] = useState(0);
+  const [showAll, setShowAll] = useState(false);
 
   const products = [
     {
@@ -40,6 +41,8 @@ export default function RelatedProducts() {
     },
   ];
 
+  const displayedProducts = showAll ? products : products.slice(0, 3);
+
   return (
     <Box sx={{ mt: 8, mb: 4, paddingLeft: { xs: 0, md: 5 } }}>
       <Box
@@ -51,9 +54,7 @@ export default function RelatedProducts() {
           px: { xs: 2, md: 0 },
         }}
       >
-        <Typography
-          variant="h5"
-          sx={{
+        <Typography variant="h5"   sx={{
             fontWeight: 600,
             color: "black",
             fontFamily: "Plus Jakarta Sans",
@@ -63,11 +64,11 @@ export default function RelatedProducts() {
               md: "24px",
               lg: "40px",
             },
-          }}
-        >
+          }}>
           Related Products
         </Typography>
         <IconButton
+          onClick={() => setShowAll(!showAll)}
           sx={{
             mb: { xs: 2, sm: 3, md: 4 },
             border: "1px solid #E0E0E0",
@@ -83,39 +84,57 @@ export default function RelatedProducts() {
             },
           }}
         >
-          <Typography
+          <Typography 
             sx={{
               ml: { xs: 0.5, sm: 0.75, md: 1 },
               color: "black",
               fontWeight: 500,
               fontFamily: "Plus Jakarta Sans",
               fontSize: { xs: "12px", sm: "14px", md: "16px", lg: "20px" },
-            }}
-          >
-            See All
+            }}>
+            {showAll ? 'Show Less' : 'See All'}
           </Typography>
         </IconButton>
       </Box>
 
-      {/* Desktop View - 3 items */}
+      {/* Desktop View */}
       <Box
         sx={{
-          display: { xs: "none", xl: "grid" },
-          gridTemplateColumns: "repeat(3, minmax(380px, 1fr))",
-          gap: 4,
-          maxWidth: "1500px",
-          margin: "0 auto",
+          display: { xs: "none", md: "grid" },
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 3,
+          "& .additional-row": {
+            marginTop: 3,
+          }
         }}
       >
+        {/* First row - always visible */}
         {products.slice(0, 3).map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
+        
+        {/* Additional row - visible when showAll is true */}
+        {showAll && (
+          <Box 
+            className="additional-row" 
+            sx={{ 
+              display: 'grid',
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: 3,
+              gridColumn: "1 / -1"
+            }}
+          >
+            {products.slice(3).map((product) => (
+              <ProductCard key={product.id} {...product} />
+            ))}
+          </Box>
+        )}
       </Box>
 
-      {/* Mobile View - Swipeable with 3 items per view */}
+      {/* Mobile View - Swipeable */}
       <Box
         sx={{
-          display: { xs: "block", xl: "none" },
+          display: { xs: "block", md: "none" },
           width: "100%",
           overflow: "hidden",
         }}
@@ -123,39 +142,58 @@ export default function RelatedProducts() {
         <Box
           sx={{
             display: "flex",
-            gap: 3,
-            overflowX: "auto",
-            WebkitOverflowScrolling: "touch",
-            scrollbarWidth: "none",
-            "&::-webkit-scrollbar": {
-              display: "none",
-            },
-            px: 2,
-            pb: 2,
-          }}
-          onScroll={(e) => {
-            const element = e.target as HTMLElement;
-            const scrollPosition = element.scrollLeft;
-            const cardWidth = 340 + 24;
-            const newStep = Math.round(scrollPosition / cardWidth);
-            setActiveStep(newStep);
+            flexDirection: "column",
+            gap: 2,
           }}
         >
-          {products.slice(0, 3).map((product) => (
+          {/* First row */}
+          <Box
+            sx={{
+              display: "flex",
+              gap: 2,
+              overflowX: "auto",
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "none",
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
+              px: 2,
+              pb: 2,
+            }}
+            onScroll={(e) => {
+              const element = e.target as HTMLElement;
+              const scrollPosition = element.scrollLeft;
+              const cardWidth = 280 + 16;
+              const newStep = Math.round(scrollPosition / cardWidth);
+              setActiveStep(newStep);
+            }}
+          >
+            {products.slice(0, 3).map((product) => (
+              <ProductCard key={product.id} {...product} />
+            ))}
+          </Box>
+
+          {/* Additional row for mobile */}
+          {showAll && (
             <Box
-              key={product.id}
               sx={{
-                flex: "0 0 auto",
-                width: {
-                  xs: "320px",
-                  sm: "340px",
-                  md: "400px",
+                display: "flex",
+                gap: 2,
+                overflowX: "auto",
+                WebkitOverflowScrolling: "touch",
+                scrollbarWidth: "none",
+                "&::-webkit-scrollbar": {
+                  display: "none",
                 },
+                px: 2,
+                pb: 2,
               }}
             >
-              <ProductCard {...product} />
+              {products.slice(3).map((product) => (
+                <ProductCard key={product.id} {...product} />
+              ))}
             </Box>
-          ))}
+          )}
         </Box>
 
         {/* Pagination Dots */}
@@ -167,7 +205,7 @@ export default function RelatedProducts() {
             mt: 2,
           }}
         >
-          {products.slice(0, 3).map((_, index) => (
+          {(showAll ? products : products.slice(0, 3)).map((_, index) => (
             <Box
               key={index}
               sx={{

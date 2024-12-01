@@ -60,7 +60,7 @@ export default function ReviewCard() {
               variant="body2"
               sx={{
                 color: "#666",
-                fontSize: "0.875rem",
+                fontSize: "0.675rem",
                 fontFamily: "Inter",
               }}
             >
@@ -75,7 +75,7 @@ export default function ReviewCard() {
             flexShrink: 0,
           }}
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((star) => (
+          {[1, 2, 3, 4].map((star) => (
             <StarIcon
               key={star}
               sx={{
@@ -97,10 +97,11 @@ export default function ReviewCard() {
       <Typography
         sx={{
           color: "#666",
-          fontSize: "0.875rem",
+          fontSize: "0.675rem",
           lineHeight: 1.6,
           letterSpacing: "0.1px",
           fontFamily: "Inter",
+          pl:{xs:0, md:8}
         }}
       >
         Lorem ipsum dolor sit amet consectetur. Pellentesque ipsum tellus

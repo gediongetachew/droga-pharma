@@ -32,7 +32,7 @@ export default function ProductCard({
         sx={{
           position: "relative",
           width: "100%",
-          height: { xs: "180px", sm: "220px", md: "260px" },
+          height: { xs: "180px", sm: "220px", md: "250px" },
           borderRadius: { xs: "12px", sm: "14px", md: "16px" },
           bgcolor: "white",
         }}
@@ -40,8 +40,8 @@ export default function ProductCard({
         <Box
           sx={{
             position: "absolute",
-            top: "5%",
-            left: "5%",
+            top: "3%",
+            left: "4%",
             right: "5%",
             bottom: "5%",
             borderRadius: { xs: "8px", sm: "10px", md: "12px" },
@@ -93,6 +93,7 @@ export default function ProductCard({
             mb: { xs: 0.75, sm: 1, md: 1.25 },
             fontSize: { xs: "0.875rem", sm: "1rem", md: "1.125rem" },
             lineHeight: { xs: 1.4, sm: 1.5, md: 1.6 },
+            paddingX: {xs:0, md:2}
           }}
         >
           {title}
@@ -105,6 +106,7 @@ export default function ProductCard({
             fontWeight: "regular",
             lineHeight: { xs: 1.4, sm: 1.5, md: 1.6 },
             fontFamily: "Red Hat Display",
+            paddingX: {xs:0, md:2}
           }}
         >
           {description}

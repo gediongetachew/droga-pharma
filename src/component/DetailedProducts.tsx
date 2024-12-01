@@ -73,7 +73,7 @@ export default function DetailedProducts() {
         sx={{
           mb: { xs: 7, md: 10 },
           border: "1px solid #B4B4B4",
-          borderRadius: "24px",
+          borderRadius: 50,
           width: { xs: "100px", md: "140px" },
 
           px: 1,
@@ -84,13 +84,13 @@ export default function DetailedProducts() {
           },
         }}
       >
-        <ArrowBackIcon sx={{ color: "black", scale: { xs: 0.8, md: 1.2 } }} />{" "}
+        <ArrowBackIcon sx={{ color: "black", scale: { xs: 0.8, md: 1.5 } }} />{" "}
         <Typography
           sx={{
             ml: 1,
             color: "black",
-            fontWeight: 500,
-            fontSize: { xs: "15px", md: "20px" },
+            fontWeight: 700,
+            fontSize: { xs: "15px", md: "22px" },
             fontFamily: "Plus Jakarta Sans",
           }}
         >
@@ -112,20 +112,22 @@ export default function DetailedProducts() {
           xs={12}
           md={5.5}
           sx={{
-            height: { xs: "auto", md: "100%" },
+            height: { xs: "auto", md: "85%" },
             display: "flex",
             alignItems: "center",
-            paddingY: { xs: 1, md: 5 },
+            paddingY: { xs: 1, md: 2 },
             paddingX: { xs: 2, md: 2 },
           }}
         >
           <Box
             sx={{
               position: "relative",
-              width: "100%",
-              height: { xs: "300px", md: "525px", lg: "550px", xl: "525px" },
+              width: "90%",
+              height: { xs: "300px", md: "525px", lg: "550px", xl: "410px" },
               borderRadius: "40px",
               overflow: "hidden",
+              marginLeft:{xs:0, md:3},
+              marginTop:{xs:0, md:4}
             }}
           >
             <Image
@@ -142,14 +144,17 @@ export default function DetailedProducts() {
           xs={12}
           md={6}
           sx={{
+          
+            justifyContent:'space-between',
             height: { xs: "auto", md: "100%" },
             overflow: "auto",
             paddingY: { xs: 1, md: 5 },
-            paddingX: { xs: 2, md: 2 },
+            paddingX: { xs: 2, md: 0 },
+          
           }}
         >
-          <Box sx={{ display: "flex", gap: 4, marginTop: { xs: 2, md: 2 } }}>
-            <Stack spacing={2} sx={{ flex: 1 }}>
+          <Box sx={{ display: "flex", gap: 4, marginTop: { xs: 2, md: 2 },}}>
+            <Stack spacing={2} sx={{ flex: 1 ,}}>
               <Typography
                 variant="h4"
                 component="h1"
@@ -180,7 +185,8 @@ export default function DetailedProducts() {
                   mt: 2,
                   fontFamily: "Plus Jakarta Sans",
                   fontWeight: "regular",
-                  fontSize: { xs: "12px", md: "12px", lg: "16px", xl: "18px" },
+                  fontSize: { xs: "12px", md: "12px", lg: "16px", xl: 15 },
+                  width:'90%'
                 }}
               >
                 Lorem ipsum dolor sit amet consectetur. Pellentesque ipsum
@@ -191,7 +197,7 @@ export default function DetailedProducts() {
                 amet tortor. Suspendisse sed at ut pharetra facilisis amet sit.
               </Typography>
 
-              <Box sx={{ paddingTop: { xs: 3, md: 5, lg: 8 } }}>
+              <Box sx={{ paddingTop: { xs: 3, md: 5, lg: 2 } }}>
                 <Typography
                   variant="h6"
                   gutterBottom
@@ -199,7 +205,7 @@ export default function DetailedProducts() {
                     color: "black",
                     fontWeight: 500,
                     fontFamily: "Plus Jakarta Sans",
-                    fontSize: { xs: "10px", md: "15px" },
+                    fontSize: { xs: "10px", md: 15 },
                   }}
                 >
                   Material Info:
@@ -212,7 +218,7 @@ export default function DetailedProducts() {
                         sm: "14px",
                         md: "12px",
                         lg: "14px",
-                        xl: "16px",
+                        xl: 15,
                       },
                       fontFamily: "Plus Jakarta Sans",
                     }}
@@ -226,7 +232,7 @@ export default function DetailedProducts() {
                         sm: "14px",
                         md: "12px",
                         lg: "14px",
-                        xl: "16px",
+                        xl: 15,
                       },
                       fontFamily: "Plus Jakarta Sans",
                     }}
@@ -240,7 +246,7 @@ export default function DetailedProducts() {
                         sm: "14px",
                         md: "12px",
                         lg: "14px",
-                        xl: "16px",
+                        xl: 15,
                       },
                       fontFamily: "Plus Jakarta Sans",
                     }}
@@ -254,7 +260,7 @@ export default function DetailedProducts() {
                         sm: "14px",
                         md: "12px",
                         lg: "14px",
-                        xl: "16px",
+                        xl: 15,
                       },
                       fontFamily: "Plus Jakarta Sans",
                     }}
@@ -266,7 +272,7 @@ export default function DetailedProducts() {
             </Stack>
 
             <Stack
-              spacing={2}
+              spacing={3}
               sx={{
                 display: { xs: "none", md: "flex" },
                 width: "100px",
