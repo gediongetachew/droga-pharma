@@ -9,7 +9,7 @@ export default function OurPartners() {
   return (
    <Grid container sx={{}}>
     <Grid item xs={12}>
-       <Typography sx={{fontSize:{xs:'40px', md:'64px'}, fontWeight:600, fontFamily:'Plus Jakarta Sans', color:'black'}}>
+       <Typography sx={{fontSize:{xs:'40px', md:'60px'}, fontWeight:600, fontFamily:'Plus Jakarta Sans', color:'white', paddingLeft:10, paddingY:5}}>
         Our Partners
        </Typography>
     </Grid>

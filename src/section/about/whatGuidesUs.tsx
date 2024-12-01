@@ -19,7 +19,7 @@ export default function whatGuidesUs() {
         marginBottom: { xs: 4, lg: 5 }
       }}>
         <Typography sx={{
-          fontSize: { xs: '24px', sm: '30px', lg: '55px' }, 
+          fontSize: { xs: '24px', sm: '30px', lg: '45px' }, 
           fontFamily: 'Plus Jakarta Sans', 
           fontWeight: 600, 
           color: 'black',
@@ -28,7 +28,7 @@ export default function whatGuidesUs() {
           What Guides Us
         </Typography>
         <Typography sx={{
-          fontSize: { xs: '14px', sm: '16px', lg: '20px' }, 
+          fontSize: { xs: '14px', sm: '16px', lg: '17px' }, 
           fontFamily: 'Plus Jakarta Sans', 
           fontWeight: 600, 
           color: '#777777',
@@ -107,7 +107,7 @@ export default function whatGuidesUs() {
       <Grid item xs={12} sx={{
         display: 'flex', 
         flexDirection: { xs: 'column', lg: 'row' },
-        marginX: { xs: 0, lg: 15 },
+        marginLeft: { xs: 0, lg: 18 },
         marginBottom: { xs: 3, lg: 5 },
         gap: { xs: 3,lg: 30 }
       }}>

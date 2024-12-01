@@ -92,7 +92,10 @@ export default function ImageCarousel({
                       style={{
                         objectFit: "contain",
                         width: '100%',
-                        maxWidth: '100%'
+                        maxWidth: '100%',
+                        filter: 'grayscale(100%)',
+                      transition: 'filter 0.3s ease-in-out',
+                       
                       }}
                     />
                   </Box>

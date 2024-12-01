@@ -68,7 +68,7 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           <Typography
             sx={{
               fontSize: { xs: "10px", md: "20px" },
-              fontWeight: 'regular',
+              fontWeight: "regular",
               fontFamily: "Plus Jakarta Sans",
               color: "#F3EFEF",
               textAlign: "left",
@@ -137,21 +137,26 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
                 <Checkbox
                   name="subscribe"
                   sx={{
-                    '& .MuiSvgIcon-root': {
-                      fontSize: { xs: '16px', md: '16px' },
+                    "& .MuiSvgIcon-root": {
+                      fontSize: { xs: "16px", md: "16px" },
                       borderRadius: "100%",
                       border: "1px solid #5A5A5A",
                       backgroundColor: "transparent",
                     },
-                    padding: '4px',
-                    '&.Mui-checked': {
-                      color: '#FCEE23',
+                    padding: "4px",
+                    "&.Mui-checked": {
+                      color: "#FCEE23",
                     },
                   }}
                 />
               }
               label={
-                <Typography sx={{ color: "#999999", fontSize: { xs: "12px", md: "14px" } }}>
+                <Typography
+                  sx={{
+                    color: "#999999",
+                    fontSize: { xs: "12px", md: "14px" },
+                  }}
+                >
                   i agree with the{" "}
                   <Box component="span" sx={{ color: "#FCEE23" }}>
                     Terms & Conditions
@@ -191,14 +196,60 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
             variant="h6"
             fontWeight="bold"
             color="#E0E0E0"
-            sx={{ marginBottom: { xs: 0 },fontFamily:'Plus Jakarta Sans',fontWeight:600, fontSize:{xs:20} }}
+            sx={{
+              marginBottom: { xs: 0 },
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: 600,
+              fontSize: { xs: 20 },
+            }}
           >
             Companies
           </Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}> Ema</Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Pharmacy</Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Trust Pharma</Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Physioterapy</Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            {" "}
+            Ema
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            Droga Pharmacy
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            Trust Pharma
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            Droga Physioterapy
+          </Typography>
         </Box>
         <Box
           sx={{
@@ -213,14 +264,60 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
             variant="body1"
             fontWeight="bold"
             color="#E0E0E0"
-            sx={{ marginBottom: { xs: 0 } ,fontFamily:'Plus Jakarta Sans',fontWeight:600, fontSize:{xs:20}}}
+            sx={{
+              marginBottom: { xs: 0 },
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: 600,
+              fontSize: { xs: 20 },
+            }}
           >
             Companies
           </Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}> Ema</Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Pharmacy</Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Trust Pharma</Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Physioterapy</Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            {" "}
+            Ema
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            Droga Pharmacy
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            Trust Pharma
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            Droga Physioterapy
+          </Typography>
         </Box>
         <Box
           sx={{
@@ -235,14 +332,60 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
             variant="body1"
             fontWeight="bold"
             color="#E0E0E0"
-            sx={{ marginBottom: { xs: 0 } ,fontFamily:'Plus Jakarta Sans',fontWeight:600, fontSize:{xs:20}}}
+            sx={{
+              marginBottom: { xs: 0 },
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: 600,
+              fontSize: { xs: 20 },
+            }}
           >
             Companies
           </Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}> Ema</Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Pharmacy</Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Trust Pharma</Typography>
-          <Typography variant="body2"sx={{fontFamily:'Plus Jakarta Sans', fontWeight:'regular', color:'#F3EFEF', fontSize:{xs:16}}}>Droga Physioterapy</Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            {" "}
+            Ema
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            Droga Pharmacy
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            Trust Pharma
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "Plus Jakarta Sans",
+              fontWeight: "regular",
+              color: "#F3EFEF",
+              fontSize: { xs: 16 },
+            }}
+          >
+            Droga Physioterapy
+          </Typography>
         </Box>
         <Box
           sx={{
@@ -253,7 +396,7 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
             marginLeft: { xs: 35, md: 0 },
             width: { xs: "20%", md: "5%" },
             marginTop: { xs: 0, md: 8 },
-            paddingY: 2,
+            paddingY: 1,
             height: "45%",
             background: "#FCEE23",
             alignItems: "center",
@@ -263,14 +406,52 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           }}
         >
           <LinkedInIcon
-            sx={{ color: "black", width: "40px", border: "black" }}
+            sx={{
+              color: "black",
+              width: "30px",
+              height: "30px",
+              transition: "transform 0.2s ease-in-out",
+              cursor: "pointer",
+              "&:hover": {
+                transform: "scale(1.2)",
+              },
+            }}
           />
-          <XIcon sx={{ color: "black", width: "40px", border: "black" }} />
+          <XIcon
+            sx={{
+              color: "black",
+              width: "30px",
+              height: "30px",
+              transition: "transform 0.2s ease-in-out",
+              cursor: "pointer",
+              "&:hover": {
+                transform: "scale(1.2)",
+              },
+            }}
+          />
           <InstagramIcon
-            sx={{ color: "black", width: "40px", border: "black" }}
+            sx={{
+              color: "black",
+              width: "30px",
+              height: "30px",
+              transition: "transform 0.2s ease-in-out",
+              cursor: "pointer",
+              "&:hover": {
+                transform: "scale(1.2)",
+              },
+            }}
           />
           <FacebookIcon
-            sx={{ color: "black", width: "40px", border: "black" }}
+            sx={{
+              color: "black",
+              width: "30px",
+              height: "30px",
+              transition: "transform 0.2s ease-in-out",
+              cursor: "pointer",
+              "&:hover": {
+                transform: "scale(1.2)",
+              },
+            }}
           />
         </Box>
       </Grid>
@@ -325,7 +506,7 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           <Typography
             sx={{
               fontFamily: "Segoe UI",
-              fontSize:  12 ,
+              fontSize: 12,
               color: "#999A9A",
             }}
           >

@@ -6,11 +6,15 @@ import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 interface InvertedBorderProps {
   name?: string;
   height?: string | number;
+  icon?: string;
+  buttonText?: string;
 }
 
 export default function InvertedBorder({
   name,
   height = "450px",
+  icon,
+  buttonText,
 }: InvertedBorderProps) {
   console.log("Received name prop:", name);
 
@@ -34,7 +38,7 @@ export default function InvertedBorder({
   };
 
   return (
-    <main style={{ width: "100%", height: "100%", padding: "20px" }}>
+    <main style={{ width: '100%', height: "100%", padding: "10px" }}>
       <div className="container" style={{ width: "100%", height: height }}>
         <div className="card video" style={{ width: "100%", height: "100%" }}>
           <div className="card-inner">
@@ -65,7 +69,7 @@ export default function InvertedBorder({
               <div
                 className="tag"
                 onClick={handlePlayVideo}
-                style={{ cursor: "pointer", width: "auto", minWidth: "100px" }}
+                style={{ cursor: "pointer", width: "auto", }}
               >
                 <a
                   style={{
@@ -77,9 +81,16 @@ export default function InvertedBorder({
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "8px",
+                   
+                    
                   }}
                 >
-                  <PlayArrowIcon /> Play Video
+                  {icon ? (
+                    <img src={icon} alt="play" style={{ width: '24px', height: '24px' }} />
+                  ) : (
+                    <PlayArrowIcon />
+                  )} 
+                  {buttonText || 'Play Video'}
                 </a>
               </div>
             </div>

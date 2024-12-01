@@ -5,12 +5,11 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import Image from "next/image";
 import vector from "../../../public/Vector.svg";
-import founder from "../../../public/founder.png";
 import InvertedBorder from "@/component/InvertedBorder";
 
 export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
   return (
-    <Grid container sx={{ background: "#F5F5F5", minHeight: "108vh" }}>
+    <Grid container sx={{ background: "#F5F5F5", minHeight: "90vh" }}>
       <Grid
         item
         xs={12}
@@ -19,7 +18,7 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
           margin: 5,
           borderRadius: "24px",
           overflow: "hidden",
-          minHeight: { xs: "auto", md: "790px" },
+          height: 750,
         }}
       >
         <Grid container sx={{ background: "white", height: "100%" }}>
@@ -28,21 +27,21 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
               <Grid
                 item
                 xs={12}
-                md={6}
-                sx={{ height: { xs: "400px", md: "850px" } }}
+                md={5.5}
+                sx={{ height: { xs: "400px", md: "500px" } }}
               >
-                <InvertedBorder name="aboutus" height='700px' />
+                <InvertedBorder name="aboutus" height={620} />
               </Grid>
               <Grid
                 item
                 xs={12}
-                md={5.5}
+                md={6}
                 sx={{
                   display: "flex",
                   flexDirection: "column",
                   padding: { xs: 2, md: 10 },
                   height: { xs: "auto", md: "850px" },
-                  justifyContent: "center",
+                  justifyContent: "start",
                 }}
               >
                 <Typography
@@ -54,7 +53,7 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                     color: "black",
                   }}
                 >
-                  Founders Message
+                  CEO's Message
                 </Typography>
                 <Typography
                   sx={{
@@ -92,6 +91,10 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                     width: "100%",
                     justifyItems: "center",
                     marginTop: 5,
+                    padding: 2,
+                    minHeight: "200px",
+                    position: "relative",
+                    background: "#FBFBFB",
                   }}
                 >
                   <Image
@@ -120,33 +123,29 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                       marginTop: 5,
                     }}
                   >
-                    <Image
-                      src={founder}
-                      alt="tropy-img"
-                      layout="fill"
-                      style={{ borderRadius: "100px" }}
-                    />
-                    <Box sx={{ marginLeft: { xs: 7, md: 10 } }}>
+                    <Box sx={{}}>
                       <Typography
                         variant="h6"
                         fontWeight="bold"
                         sx={{
-                          fontSize: { xs: 10, sm: 20, md: 20 },
+                          fontSize: 14,
                           color: "black",
                           textWrap: "nowrap",
+                          fontFamily: "Segoe Ui",
                         }}
                       >
-                        Philimon Mehari
+                        Dr,Abdi
                       </Typography>
                       <Typography
                         variant="subtitle2"
                         sx={{
-                          color: "#475467",
-                          fontSize: { xs: 6, sm: 15, md: 20 },
+                          color: "black",
+                          fontSize: 10,
                           textWrap: "nowrap",
+                          fontFamily: "Segoe Ui",
                         }}
                       >
-                        CEO
+                        CEO, Founder
                       </Typography>
                     </Box>
                   </Box>
@@ -164,12 +163,12 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                   flexDirection: "column",
                   padding: { xs: 2, md: 10 },
                   height: { xs: "auto", md: "850px" },
-                  justifyContent: "center",
+                  justifyContent: "start",
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: { xs: "20px", md: "32px" },
+                    fontSize: { xs: "20px", md: 32 },
                     fontFamily: "Plus Jakarta Sans",
                     fontWeight: 500,
                     width: "90%",
@@ -180,8 +179,8 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: { xs: "10px", md: "20px" },
-                    fontFamily: "Sego Ui",
+                    fontSize: { xs: "10px", md: 20 },
+                    fontFamily: "Segoe Ui",
                     fontWeight: 400,
                     width: "100%",
                     color: "#686868",
@@ -214,6 +213,10 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                     width: "100%",
                     justifyItems: "center",
                     marginTop: 5,
+                    padding: 2,
+                    minHeight: "200px",
+                    position: "relative",
+                    background: "#FBFBFB",
                   }}
                 >
                   <Image
@@ -224,7 +227,7 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                   <Typography
                     sx={{
                       fontSize: { xs: "15px", md: "24px" },
-                      fontFamily: "Sego Ui",
+                      fontFamily: "Segoe Ui",
                       fontWeight: 400,
                       color: "black",
                       marginLeft: 5,
@@ -238,37 +241,34 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                       width: { xs: "40px", sm: "50px", md: "60px" },
                       height: { xs: "30px", sm: "50px", md: "60px" },
                       position: "relative",
+                      fontFamily: "Segoe Ui",
                       marginLeft: 5,
                       marginTop: 5,
                     }}
                   >
-                    <Image
-                      src={founder}
-                      alt="tropy-img"
-                      layout="fill"
-                      style={{ borderRadius: "100px" }}
-                    />
-                    <Box sx={{ marginLeft: { xs: 7, md: 10 } }}>
+                    <Box sx={{}}>
                       <Typography
                         variant="h6"
                         fontWeight="bold"
                         sx={{
-                          fontSize: { xs: 10, sm: 20, md: 20 },
+                          fontSize: 14,
                           color: "black",
                           textWrap: "nowrap",
+                          fontFamily: "Segoe Ui",
                         }}
                       >
-                        Philimon Mehari
+                        Dr Abdi
                       </Typography>
                       <Typography
                         variant="subtitle2"
                         sx={{
-                          color: "#475467",
-                          fontSize: { xs: 6, sm: 15, md: 20 },
+                          color: "black",
+                          fontSize: 10,
                           textWrap: "nowrap",
+                          fontFamily: "Segoe Ui",
                         }}
                       >
-                        CEO
+                        CEO, Founder
                       </Typography>
                     </Box>
                   </Box>
@@ -277,10 +277,10 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
               <Grid
                 item
                 xs={12}
-                md={6}
-                sx={{ height: { xs: "400px", md: "850px" } }}
+                md={5.5}
+                sx={{ height: { xs: "400px", md: "500px" } }}
               >
-                <InvertedBorder height='700px'/>
+                <InvertedBorder height={620} />
               </Grid>
             </>
           )}

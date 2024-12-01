@@ -78,7 +78,7 @@ export default function Media() {
   const totalPages = Math.ceil(newsAndPodcast.length / itemsPerPage);
 
   return (
-    <Grid container spacing={2} sx={{ background: "white", marginTop: 10 }}>
+    <Grid container spacing={2} sx={{ background: "white", marginTop: 0, height:{xs:'50vh', md:'150vh'} }}>
       <Grid
         item
         xs={12}
@@ -130,7 +130,7 @@ export default function Media() {
             key={index}
             sx={{
               width: { xs: "100%", md: "48%" },
-              height: { xs: "390px", md: item.id === 2 ? "500px" : "450px" },
+              height: { xs: "390px", md: item.id === 2 ? "600px" : "550px", lg: item.id === 2 ? "500px" : "450px" },
               position: "relative",
               border: "3px solid",
               borderRadius: "30px",
@@ -150,7 +150,7 @@ export default function Media() {
                 left: "1%",
                 width: "98%",
                 height: {
-                  xs: "50%",
+                  xs: "30%",
                   md: item.id === 2 ? "70%" : "65%",
                 },
                 zIndex: 2,
@@ -173,7 +173,8 @@ export default function Media() {
               sx={{
                 marginTop: {
                   xs: "70%",
-                  md: item.id === 2 ? "52%" : "45%",
+                  md: item.id === 2 ? "10%" : "25%",
+                  lg: item.id === 2 ? "51%" : "45%",
                 },
                 paddingX: 2,
               }}

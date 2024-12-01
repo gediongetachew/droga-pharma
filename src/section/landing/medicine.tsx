@@ -15,6 +15,8 @@ export default function Medicine() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [page, setPage] = useState(1);
   const [supplyPage, setSupplyPage] = useState(1);
+  const [showAllMedicine, setShowAllMedicine] = useState(false);
+  const [showAllSupplies, setShowAllSupplies] = useState(false);
 
   const medicineItems = medicineCards;
   const medicineOnlyItems = medicineItems.filter(
@@ -41,6 +43,34 @@ export default function Medicine() {
     setSupplyPage(value);
   };
 
+  const getMedicineRows = () => {
+    if (isSmallScreen) {
+      return [medicineOnlyItems.slice((page - 1) * itemsPerPage, page * itemsPerPage)];
+    }
+    if (!showAllMedicine) {
+      return [medicineOnlyItems.slice(0, itemsPerPage)];
+    }
+    const rows = [];
+    for (let i = 0; i < medicineOnlyItems.length; i += itemsPerPage) {
+      rows.push(medicineOnlyItems.slice(i, i + itemsPerPage));
+    }
+    return rows;
+  };
+
+  const getSupplyRows = () => {
+    if (isSmallScreen) {
+      return [supplyOnlyItems.slice((supplyPage - 1) * itemsPerPage, supplyPage * itemsPerPage)];
+    }
+    if (!showAllSupplies) {
+      return [supplyOnlyItems.slice(0, itemsPerPage)];
+    }
+    const rows = [];
+    for (let i = 0; i < supplyOnlyItems.length; i += itemsPerPage) {
+      rows.push(supplyOnlyItems.slice(i, i + itemsPerPage));
+    }
+    return rows;
+  };
+
   return (
     <Grid container sx={{}}>
       <Grid item xs={12} sx={{}}>
@@ -52,7 +82,7 @@ export default function Medicine() {
             flexDirection: "column",
             justifyContent: "space-between",
             padding: { xs: 0, md: 5 },
-            background: { xs: "white", md: "#EBEBEA" },
+            background: { xs: "#EBEBEA" },
           }}
         >
           <Grid
@@ -92,6 +122,7 @@ export default function Medicine() {
               </Typography>
 
               <Button
+                onClick={() => setShowAllMedicine(!showAllMedicine)}
                 sx={{
                   border: "1px solid #B4B4B4",
                   borderRadius: "100px",
@@ -102,7 +133,7 @@ export default function Medicine() {
                   fontWeight: 500,
                 }}
               >
-                See All
+                {showAllMedicine ? "Show Less" : "See All"}
               </Button>
             </Box>
             <Box
@@ -113,22 +144,21 @@ export default function Medicine() {
                 gap: 2,
               }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: isSmallScreen ? "center" : "space-between",
-                  width: "100%",
-                  minHeight: "40vh",
-                  overflow: "hidden",
-                  borderRadius: "24px",
-                  paddingX: { xs: 2, md: 10 },
-                  paddingY: 2,
-                  gap: 2,
-                }}
-              >
-                {medicineOnlyItems
-                  .slice((page - 1) * itemsPerPage, page * itemsPerPage)
-                  .map((item, index) => (
+              {getMedicineRows().map((row, rowIndex) => (
+                <Box
+                  key={`medicine-row-${rowIndex}`}
+                  sx={{
+                    display: "flex",
+                    justifyContent: isSmallScreen ? "center" : "space-between",
+                    width: "100%",
+                 
+                    borderRadius: "24px",
+                    paddingX: { xs: 2, md: 10 },
+                    paddingY: 2,
+                    gap: 2,
+                  }}
+                >
+                  {row.map((item, index) => (
                     <Box
                       key={index}
                       sx={{
@@ -198,17 +228,18 @@ export default function Medicine() {
                       </Box>
                     </Box>
                   ))}
-              </Box>
-              {isSmallScreen && (
+                </Box>
+              ))}
+              {isSmallScreen &&  (
                 <Pagination
-                  count={totalMedicinePages}
-                  page={page}
-                  onChange={handlePageChange}
-                  color="standard"
-                  hidePrevButton
-                  hideNextButton
-                  sx={{ marginTop: 2 }}
-                />
+                count={totalMedicinePages}
+                page={page}
+                onChange={handlePageChange}
+                color="standard"
+                hidePrevButton
+                hideNextButton
+                sx={{ marginTop: 2 }}
+              />
               )}
             </Box>
           </Grid>
@@ -250,6 +281,7 @@ export default function Medicine() {
               </Typography>
 
               <Button
+                onClick={() => setShowAllSupplies(!showAllSupplies)}
                 sx={{
                   border: "1px solid #B4B4B4",
                   borderRadius: "100px",
@@ -260,7 +292,7 @@ export default function Medicine() {
                   fontWeight: 500,
                 }}
               >
-                See All
+                {showAllSupplies ? "Show Less" : "See All"}
               </Button>
             </Box>
             <Box
@@ -271,25 +303,21 @@ export default function Medicine() {
                 gap: 2,
               }}
             >
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: isSmallScreen ? "center" : "space-between",
-                  width: "100%",
-                  minHeight: "40vh",
-                  overflow: "hidden",
-                  borderRadius: "24px",
-                  paddingX: { xs: 2, md: 10 },
-                  paddingY: 2,
-                  gap: 2,
-                }}
-              >
-                {supplyOnlyItems
-                  .slice(
-                    (supplyPage - 1) * itemsPerPage,
-                    supplyPage * itemsPerPage
-                  )
-                  .map((item, index) => (
+              {getSupplyRows().map((row, rowIndex) => (
+                <Box
+                  key={`supply-row-${rowIndex}`}
+                  sx={{
+                    display: "flex",
+                    justifyContent: isSmallScreen ? "center" : "space-between",
+                    width: "100%",
+                   
+                    borderRadius: "24px",
+                    paddingX: { xs: 2, md: 10 },
+                    paddingY: 2,
+                    gap: 2,
+                  }}
+                >
+                  {row.map((item, index) => (
                     <Box
                       key={index}
                       sx={{
@@ -359,7 +387,8 @@ export default function Medicine() {
                       </Box>
                     </Box>
                   ))}
-              </Box>
+                </Box>
+              ))}
               {isSmallScreen && (
                 <Pagination
                   count={totalSupplyPages}

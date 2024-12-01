@@ -131,6 +131,7 @@ export default function AboutUs() {
               paddingX: { xs: 1, md: 2 },
               paddingY: { xs: 2, md: 3 },
               fontFamily: "Plus Jakarta Sans",
+              fontWeight:'bold',  
               color: "#FCEE23",
               background: "black",
               fontSize: {xs:'18px',sm:'20px', md:'24px'}

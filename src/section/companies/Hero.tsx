@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Image from "next/image";
 import aboutImage from "../../../public/aboutus.png";
-import logo from "../../../public/logo.svg";
+import logo2 from "../../../public/logo2.svg";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
@@ -16,20 +16,31 @@ export default function Hero() {
         flexDirection: {xs:'column', md:'row'},
         justifyContent: "space-between",
         paddingX: { xs: "5%" },
-        background: "white",
-        paddingY: { xs: 10 },
+        background: "#F5F5F5",
+        
        
       }}
     >
-      <Grid item xs={12} md={5} sx={{ justifyContent: "center", alignItems: "center", marginTop: {xs:0, md:11}, }}>
+      <Box sx={{
+        display:'flex', 
+        flexDirection:{xs:'column', md:'row'},
+        marginTop:20,
+        marginBottom:10,
+        marginX:0,
+        padding:5, 
+        justifyContent: "space-between", 
+        background:'white',
+        borderRadius:'24px'
+      }}>
+        <Grid item xs={12} md={5.5} sx={{ justifyContent: "center", alignItems: "center" }}>
         <Box
           sx={{
             position: "relative",
             width: "100%",
             height: {xs:'55vh', md:"80vh"},
-            borderRadius: "20px",
+            borderRadius: "30px",
             zindex: 1,
-
+            boxShadow: '2px 2px 2px rgba(0.3, 0.3, 0.3, 0.3)',
             overflow: "hidden",
           }}
         >
@@ -49,20 +60,30 @@ export default function Hero() {
               height: {xs:"20%",md:"10%"},
               zIndex: 2,
               background: "white",
-
               borderBottomLeftRadius: "20px",
+              overflow: "hidden",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-start",
             }}
           >
             <Image
-              src={logo}
+              src={logo2}
               alt="about us"
-              fill
-              style={{ objectFit: "cover" }}
+              width={100}
+              height={80}
+              style={{ 
+                width: "auto",
+                height: "100%",
+                padding: "8px",
+                objectFit: "contain",
+                borderBottomLeftRadius: "20px",
+                objectPosition: "center top",
+              }}
             />
           </Box>
         </Box>
       </Grid>
-
       <Grid
         item
         xs={12}
@@ -73,7 +94,7 @@ export default function Hero() {
           alignItems: "start",
           justifyContent: "start",
           gap: { xs: 4, },
-          marginTop: {xs:5, md:11},
+         
         }}
       >
         <Typography
@@ -109,6 +130,7 @@ export default function Hero() {
           affordability, Droga Pharma contributes significantly to improving
           healthcare standards in the region.
         </Typography>
+        
 
         <Button
           component="a"
@@ -121,6 +143,7 @@ export default function Hero() {
               paddingX: { xs: 1, md: 2 },
               paddingY: { xs: 2, md: 3 },
               fontFamily: "Plus Jakarta Sans",
+              fontWeight:'bold',
               color: "#FCEE23",
               background: "black",
               fontSize: {xs:'18px',sm:'20px', md:'24px'}
@@ -129,6 +152,8 @@ export default function Hero() {
           Read More
         </Button>
       </Grid>
+      </Box>
+         
     </Grid>
   );
 }
