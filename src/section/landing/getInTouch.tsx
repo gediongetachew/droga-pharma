@@ -66,13 +66,14 @@ export default function GetInTouch(hidden?: any) {
           zIndex: 1
         }}>
           <Image 
-            src={dna2} 
+            src={dna} 
             alt='dna spiral' 
             fill 
             style={{
               objectFit: 'contain',
               width: '100%',
-              height: '100%'
+              height: '100%',
+  transform: 'rotate(-180deg) scaleX(-1)'
             }}
           />
         </Box>
