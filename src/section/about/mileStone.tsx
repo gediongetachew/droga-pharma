@@ -9,15 +9,45 @@ export default function mileStone() {
       sx={{
         position: "relative",
         width: "100%",
-        height: { xs: "300px", md: "950px" },
+        height: { xs: "3000px", md: "950px" },
+        background:'whtie'
       }}
     >
-      <Image
-        src="/mileStone.svg"
-        alt="milestone"
-        fill
-        style={{ objectFit: "cover" }}
-      />
+      <Box
+        sx={{
+          display:{xs:'none', md:'flex'},
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          top: 0,
+          left: 0,
+        }}
+      >
+        <Image
+          src="/mileStone.svg"
+          alt="milestone"
+          fill
+          style={{ objectFit: "cover" }}
+        />
+      </Box>
+      <Box
+        sx={{
+          display:{xs:'flex', md:'none'},
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          top: 0,
+          left: 0,
+        
+        }}
+      >
+        <Image
+          src="/milestoneVertical.svg"
+          alt="milestone"
+          fill
+          style={{ objectFit: "cover" }}
+        />
+      </Box>
 
       <Typography
         sx={{
@@ -26,9 +56,9 @@ export default function mileStone() {
           fontFamily: "Plus Jakarta Sans",
           fontWeight: 500,
           color: "black",
-          paddingLeft: 15,
+          paddingLeft: {xs:5,md:10,lg:15},
           paddingTop: 15,
-          fontSize: { xs: "20px", md: "60px" },
+          fontSize: { xs: 32, md: "60px" },
         }}
       >
         Our Journey

@@ -7,6 +7,7 @@ import WhatGuidesUs from '@/section/about/whatGuidesUs'
 import JourneySection from '@/section/about/mileStone'
 import OurPartners from '@/section/about/OurPartners'
 import dynamic from 'next/dynamic'
+import { Grid } from '@mui/material'
 
 // Dynamically import TestimonialSwiper with client-side only rendering
 const TestimonialSwiper = dynamic(
@@ -20,7 +21,9 @@ export default function page() {
     <div>
         <Hero />
         <FoundersMessage />
-        <FoundersMessage reverse={true}/>
+        <Grid item xs={12} sx={{ display: { xs: 'none', lg: 'block' } }}>
+            <FoundersMessage reverse={true} />
+        </Grid>
         <WhatGuidesUs />
         <JourneySection />
         <OurPartners />

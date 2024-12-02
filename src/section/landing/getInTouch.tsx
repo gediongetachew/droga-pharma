@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import dna from '../../../public/dna.svg';
-import dna2 from '../../../public/dna2.svg';
+
 
 export default function GetInTouch(hidden?: any) {
   return (
@@ -35,14 +35,38 @@ export default function GetInTouch(hidden?: any) {
           background: 'black'
         }}
       >
-        {/* Left DNA Image */}
+        {/* DNA Image for Small Screens */}
+        <Box sx={{
+          position: { xs: 'absolute', md: 'absolute' },
+          width: { xs: '80%', md: '20%' },
+          height: '100%',
+          left: { xs: '20%', md: 0 },
+          top: 0,
+          zIndex: 1,
+          display: { xs: 'flex', md: 'none' }
+        }}>
+          <Image 
+            src={dna} 
+            alt='dna spiral' 
+            fill 
+            style={{
+              objectFit: 'contain',
+              width: '100%',
+              height: '100%',
+              transform: 'rotate(-180deg) scaleX(-1)'
+            }}
+          />
+        </Box>
+
+        {/* Left DNA Image for Medium and Larger Screens */}
         <Box sx={{
           position: 'absolute',
-          width: {xs:'40%', md:'20%'},
+          width: {xs:'40%', sm:'40%', md:'45%'},
           height: '100%',
           left: 0,
           top: 0,
-          zIndex: 1
+          zIndex: 1,
+          display: { xs: 'none', md: 'block' }
         }}>
           <Image 
             src={dna} 
@@ -56,14 +80,16 @@ export default function GetInTouch(hidden?: any) {
           />
         </Box>
 
-        {/* Right DNA Image */}
+        {/* Right DNA Image for Medium and Larger Screens */}
         <Box sx={{
           position: 'absolute',
-          width: {xs:'40%', md:'20%'},
+          width: {xs:'40%', sm:'40%', md:'45%'},
           height: '100%',
           right: 0,
           top: 0,
-          zIndex: 1
+          zIndex: 1,
+          marginX: -2,
+          display: { xs: 'none', md: 'block' }
         }}>
           <Image 
             src={dna} 
@@ -73,7 +99,7 @@ export default function GetInTouch(hidden?: any) {
               objectFit: 'contain',
               width: '100%',
               height: '100%',
-  transform: 'rotate(-180deg) scaleX(-1)'
+              transform: 'rotate(-180deg) scaleX(-1)'
             }}
           />
         </Box>
@@ -94,7 +120,7 @@ export default function GetInTouch(hidden?: any) {
           <Typography
             sx={{
               color: "#FCEE23",
-              fontSize: { xs: "20px", md: "60px" },
+              fontSize: { xs: 32, sm:40, md:40 },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 700,
               width: { xs: "100%", md: "60%" },
@@ -107,7 +133,7 @@ export default function GetInTouch(hidden?: any) {
           <Typography
             sx={{
               color: "#FCEE23",
-              fontSize: { xs: "20px", md: "60px" },
+              fontSize: { xs: 32, sm:40},
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 700,
               width: { xs: "100%", md: "60%" },
@@ -120,10 +146,10 @@ export default function GetInTouch(hidden?: any) {
           <Typography
             sx={{
               color: "#FFFFFF",
-              fontSize: { xs: "15px", md: "25px" },
+              fontSize: { xs: 20, sm:25, md:23 },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 704,
-              width: { xs: "100%", md: "50%" },
+              width: { xs: "100%", md: "80%", lg:'50%' },
               zIndex: 2,
               marginTop: { xs: 1, md: 2 },
               textAlign: "center",
@@ -135,13 +161,13 @@ export default function GetInTouch(hidden?: any) {
           </Typography>
           <Button
             sx={{
-              width: { xs: "170px", md: "230px" },
+              width: { xs: "180px", sm: "200px" },
               padding: { 
-                xs: "8px 16px",    // Small screens
-                sm: "10px 20px",   // Medium screens
+                xs: "20px 18px",    // Small screens
+                sm: "20px 22px",   // Medium screens
                 md: "20px 15px"    // Large screens
               },
-              fontSize: { xs: "16px", md: "25.5px" },
+              fontSize: { xs: 21, sm:25 },
               fontWeight: 700,
               borderRadius: "93px",
               fontFamily: "Plus Jakarta Sans",

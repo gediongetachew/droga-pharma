@@ -9,7 +9,8 @@ export default function whatGuidesUs() {
     <Grid container sx={{ 
       width: '100%', 
       background: 'white',
-      padding: { xs: 2, sm: 4, lg: 15 },
+      padding: { xs: 2, sm: 4, lg: 4 },
+      paddingLeft:{xs:0, lg:10}
     }}>
       <Grid item xs={12} sx={{
         display: 'flex', 
@@ -19,7 +20,7 @@ export default function whatGuidesUs() {
         marginBottom: { xs: 4, lg: 5 }
       }}>
         <Typography sx={{
-          fontSize: { xs: '24px', sm: '30px', lg: '45px' }, 
+          fontSize: { xs: '24px', sm: '30px',md:'40px', lg: '45px' }, 
           fontFamily: 'Plus Jakarta Sans', 
           fontWeight: 600, 
           color: 'black',
@@ -28,11 +29,12 @@ export default function whatGuidesUs() {
           What Guides Us
         </Typography>
         <Typography sx={{
-          fontSize: { xs: '14px', sm: '16px', lg: '17px' }, 
+          fontSize: { xs: '14px', sm: '16px',md:'20px', lg: '18px',xl:'20px' }, 
           fontFamily: 'Plus Jakarta Sans', 
           fontWeight: 600, 
           color: '#777777',
-          width: { xs: '100%', lg: '50%' }
+          width: { xs: '100%', lg: '60%',xl:'65%' },
+        
         }}>
           We are committed to delivering accessible healthcare, sustainable solutions, and professional services that prioritize the well-being of our communities.
         </Typography>
@@ -41,21 +43,21 @@ export default function whatGuidesUs() {
       <Grid item xs={12} sx={{
         display: 'flex', 
         flexDirection: { xs: 'column', lg: 'row' },
-        marginBottom: { xs: 3, lg: 5 },
-        gap: { xs: 3, lg: 30 }
+        marginBottom: { xs: 3, lg: 8,xl:9 },
+        gap: { xs: 3, lg: 10,xl:10 }
       }}>
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',
           padding: { xs: 3, lg: 2 },
-          width: { xs: '100%', lg: '35%' },
+          width: { xs: '100%', lg: '40%' },
           height: { xs: 'auto', lg: '280px' },
           minHeight: { xs: '200px', lg: '250px' },
           border: '1px solid #737373',
           borderRadius: '12px'
         }}>
           <Typography sx={{
-            fontSize: { xs: '22px', sm: '28px', lg: '36px' },
+            fontSize: { xs: '22px', sm: '28px',md:'30px', lg: '36px' },
             fontFamily: 'Plus Jakarta Sans',
             fontWeight: 600,
             color: 'black',
@@ -64,7 +66,7 @@ export default function whatGuidesUs() {
             Humanity
           </Typography>
           <Typography sx={{
-            fontSize: { xs: '14px', sm: '16px', lg: '20px' },
+            fontSize: { xs: '14px', sm: '16px',md:'20px', lg: '18px',xl:'20px' },
             fontFamily: 'Plus Jakarta Sans',
             fontWeight: 400,
             color: '#737373',
@@ -78,14 +80,14 @@ export default function whatGuidesUs() {
           display: 'flex',
           flexDirection: 'column',
           padding: { xs: 3, lg: 2 },
-          width: { xs: '100%', lg: '35%' },
+          width: { xs: '100%', lg: '40%' },
           height: { xs: 'auto', lg: '280px' },
           minHeight: { xs: '200px', lg: '250px' },
           border: '1px solid #737373',
           borderRadius: '12px'
         }}>
           <Typography sx={{
-            fontSize: { xs: '22px', sm: '28px', lg: '36px' },
+            fontSize: { xs: '22px', sm: '28px',md:'30px', lg: '36px' },
             fontFamily: 'Plus Jakarta Sans',
             fontWeight: 600,
             color: 'black',
@@ -94,7 +96,7 @@ export default function whatGuidesUs() {
             Integrity
           </Typography>
           <Typography sx={{
-            fontSize: { xs: '14px', sm: '16px', lg: '20px' },
+            fontSize: { xs: '14px', sm: '16px',md:'20px', lg: '18px',xl:'20px' },
             fontFamily: 'Plus Jakarta Sans',
             fontWeight: 400,
             color: '#737373',
@@ -107,23 +109,23 @@ export default function whatGuidesUs() {
       <Grid item xs={12} sx={{
         display: 'flex', 
         flexDirection: { xs: 'column', lg: 'row' },
-        marginLeft: { xs: 0, lg: 18 },
+        marginLeft: { xs: 0, lg: 10 },
         marginBottom: { xs: 3, lg: 5 },
-        gap: { xs: 3,lg: 30 }
+        gap: { xs: 3,lg: 10 }
       }}>
         
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',
           padding: { xs: 3, lg: 2 },
-          width: { xs: '100%', lg: '40%' },
+          width: { xs: '100%', lg: '45%' },
           height: { xs: 'auto', lg: '280px' },
           minHeight: { xs: '200px', lg: '250px' },
           border: '1px solid #737373',
           borderRadius: '12px'
         }}>
           <Typography sx={{
-            fontSize: { xs: '22px', sm: '28px', lg: '36px' },
+            fontSize: { xs: '22px', sm: '28px',md:'30px', lg: '36px' },
             fontFamily: 'Plus Jakarta Sans',
             fontWeight: 600,
             color: 'black',
@@ -132,7 +134,7 @@ export default function whatGuidesUs() {
             Commitment
           </Typography>
           <Typography sx={{
-            fontSize: { xs: '14px', sm: '16px', lg: '20px' },
+            fontSize: { xs: '14px', sm: '16px',md:'20px', lg: '18px',xl:'20px' },
             fontFamily: 'Plus Jakarta Sans',
             fontWeight: 400,
             color: '#737373',
@@ -145,14 +147,14 @@ export default function whatGuidesUs() {
           display: 'flex',
           flexDirection: 'column',
           padding: { xs: 3, lg: 2 },
-          width: { xs: '100%', lg: '40%' },
+          width: { xs: '100%', lg: '45%' },
           height: { xs: 'auto', lg: '250px' },
           minHeight: { xs: '200px', lg: '280px' },
           border: '1px solid #737373',
           borderRadius: '12px'
         }}>
           <Typography sx={{
-            fontSize: { xs: '22px', sm: '28px', lg: '36px' },
+            fontSize: { xs: '22px', sm: '28px',md:'30px', lg: '36px' },
             fontFamily: 'Plus Jakarta Sans',
             fontWeight: 600,
             color: 'black',
@@ -161,7 +163,7 @@ export default function whatGuidesUs() {
             Customer Centric
           </Typography>
           <Typography sx={{
-            fontSize: { xs: '14px', sm: '16px', lg: '20px' },
+            fontSize: { xs: '14px', sm: '16px',md:'20px', lg: '18px',xl:'20px' },
             fontFamily: 'Plus Jakarta Sans',
             fontWeight: 400,
             color: '#737373',

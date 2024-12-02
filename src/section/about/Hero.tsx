@@ -2,7 +2,7 @@ import { Button, Grid, Typography, Box } from "@mui/material";
 import React from "react";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import logo from "../../../public/logo.png";
-
+import aboutHero2 from '../../../public/aboutHero2.svg'
 import Image from "next/image";
 
 export default function Hero() {
@@ -31,6 +31,7 @@ export default function Hero() {
         {/* Background Image */}
         <Box
           sx={{
+            display:{xs:'none', md:'flex'},
             position: "absolute",
             width: "100%",
             height: "100%",
@@ -50,6 +51,28 @@ export default function Hero() {
             }}
           />
         </Box>
+        <Box
+          sx={{
+            display:{xs:'flex', md:'none'},
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            zIndex: 1,
+            top: 0,
+            left: 0
+          }}
+        >
+          <Image
+            src={"/aboutHero2.svg"}
+            alt="hero"
+            fill
+            style={{ 
+              objectFit: "cover", 
+              width: "100%",
+              height: "100%"
+            }}
+          />
+        </Box>
 
         {/* Main Content */}
         <Box
@@ -57,15 +80,17 @@ export default function Hero() {
             display: "flex",
             flexDirection: "column",
             gap: 2,
-            marginBottom: 4,
+            marginBottom: {xs:10, md:4},
             alignItems: "center",
           }}
         >
           <Typography
             sx={{
               fontSize: {
-                xs: "30px",
-                md: "100px",
+                xs: 48,
+                sm:55,
+                md:70,
+                lg: "100px",
               },
               fontWeight: 600,
               color: "black",
@@ -78,8 +103,10 @@ export default function Hero() {
           <Typography
             sx={{
               fontSize: {
-                xs: "30px",
-                md: "100px",
+                xs: 48,
+                sm:55,
+                md:70,
+                lg: "100px",
               },
               fontWeight: 600,
               color: "black",
@@ -91,16 +118,16 @@ export default function Hero() {
           </Typography>
           <Button
             sx={{
-              fontSize: { xs: "15px", md: "30px" },
+              fontSize: { xs: 24, md: "30px" },
               fontFamily: "Plus Jakarta Sans",
-              marginTop:{xs:1, md:15},
+              marginTop:{xs:20, md:15},
               fontWeight: 700,
               textTransform:"none",
               color: "#FCEE23",
               borderRadius: "100px",
               background: "black",
               width: { xs: "200px", md: "250px" },
-              height: { xs: "60px", md: "90px" },
+              height: { xs: "70px", md: "90px" },
               zIndex: 2,
             }}
           >
@@ -118,8 +145,10 @@ export default function Hero() {
             bottom: 50,
             left: 0,
             right: 0,
-            px: 8,
+            px: {xs:2,sm:3, md:5, lg:8},
             zIndex: 2,
+            width:'100%',
+          
           }}
         >
           {/* Arrow */}
@@ -137,7 +166,7 @@ export default function Hero() {
           >
             <ArrowDownwardIcon
               sx={{
-                scale: 4,
+                scale: {xs:3,sm:3.5,md:4},
                 color: "black",
                 transition: "transform 0.3s ease", // Optional: add hover animation
                 "&:hover": {
@@ -150,17 +179,16 @@ export default function Hero() {
           {/* Logo */}
           <Box
             sx={{
-              flexShrink: 0,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              position: "relative",
+            
+              width: { xs: "150px", sm: "200px", md: "250px" },
+              height: { xs: "60px", sm: "100px", md: "120px" },
             }}
           >
             <Image
               src={logo.src}
               alt="logo"
-              width={250} // Increased size
-              height={120} // Adjusted height
+              fill
               style={{ objectFit: "contain" }}
             />
           </Box>
