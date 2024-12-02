@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-
+import '../asse/about.css'
 interface InvertedBorderProps {
   name?: string;
   height?: string | number;
@@ -38,7 +38,7 @@ export default function InvertedBorder({
   };
 
   return (
-    <main style={{ width: '100%', height: "100%", padding: "10px" }}>
+    <main style={{ width: "100%", height: "100%", padding: "10px" }}>
       <div className="container" style={{ width: "100%", height: height }}>
         <div className="card video" style={{ width: "100%", height: "100%" }}>
           <div className="card-inner">
@@ -69,7 +69,7 @@ export default function InvertedBorder({
               <div
                 className="tag"
                 onClick={handlePlayVideo}
-                style={{ cursor: "pointer", width: "auto", }}
+                style={{ cursor: "pointer", width: "auto" }}
               >
                 <a
                   style={{
@@ -81,16 +81,18 @@ export default function InvertedBorder({
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "8px",
-                   
-                    
                   }}
                 >
                   {icon ? (
-                    <img src={icon} alt="play" style={{ width: '24px', height: '24px' }} />
+                    <img
+                      src={icon}
+                      alt="play"
+                      style={{ width: "24px", height: "24px" }}
+                    />
                   ) : (
                     <PlayArrowIcon />
-                  )} 
-                  {buttonText || 'Play Video'}
+                  )}
+                  {buttonText || "Play Video"}
                 </a>
               </div>
             </div>

@@ -62,6 +62,102 @@ const newsAndPodcast = [
     src: foodday,
     icon: newsIcon,
   },
+  {
+    id: 1,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaNews,
+    icon: newsIcon,
+  },
+  {
+    id: 2,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaPodcast,
+    icon: podcastIcon,
+  },
+  {
+    id: 3,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: foodday,
+    icon: newsIcon,
+  },
+  {
+    id: 1,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaNews,
+    icon: newsIcon,
+  },
+  {
+    id: 2,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaPodcast,
+    icon: podcastIcon,
+  },
+  {
+    id: 3,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: foodday,
+    icon: newsIcon,
+  },
+  {
+    id: 1,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaNews,
+    icon: newsIcon,
+  },
+  {
+    id: 2,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaPodcast,
+    icon: podcastIcon,
+  },
+  {
+    id: 3,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: foodday,
+    icon: newsIcon,
+  },
+  {
+    id: 1,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaNews,
+    icon: newsIcon,
+  },
+  {
+    id: 2,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaPodcast,
+    icon: podcastIcon,
+  },
+  {
+    id: 3,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: foodday,
+    icon: newsIcon,
+  },
 ];
 
 export default newsAndPodcast;

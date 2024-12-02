@@ -6,11 +6,14 @@ import product from "../../../public/product.png";
 import product2 from "../../../public/product2.png";
 export default function Products() {
   return (
-    <Grid container sx={{ 
-      background: "white", 
-      height: "500px",
-      display: { xs: "none", md: "block" }  // Hide on xs and sm screens, show from md up
-    }}>
+    <Grid
+      container
+      sx={{
+        background: "white",
+        height: "500px",
+        display: { xs: "none", md: "block" }, // Hide on xs and sm screens, show from md up
+      }}
+    >
       <Grid
         item
         md={12}
@@ -26,8 +29,8 @@ export default function Products() {
             width: "44%",
             height: "44vh",
             background: "#FCEE23",
-            borderTopRightRadius:'24px',
-            borderBottomRightRadius: '24px',
+            borderTopRightRadius: "24px",
+            borderBottomRightRadius: "24px",
             marginY: 10,
           }}
         >
@@ -43,7 +46,7 @@ export default function Products() {
           >
             <Typography
               sx={{
-                fontSize: { md: "14px" },
+                fontSize: { md: "10px", lg: "14px" },
                 fontFamily: "Plus Jakarta Sans",
                 fontWeight: 500,
                 color: "black",
@@ -54,25 +57,24 @@ export default function Products() {
             <Typography
               sx={{
                 fontSize: {
-                  md: "24px",
-                  fontWeight: 800,
-                  fontFamily: "Plus Jakarta Sans",
-                  width: "80%",
-                  color: "black",
+                  md: { xs: "10px", md: "24px" },
+                 
                 },
+                fontWeight: 800,
+                fontFamily: "Plus Jakarta Sans",
+                width: { md: "100%", lg: "80%" },
+                color: "black",
               }}
             >
               Your Health, Just a Click Away
             </Typography>
             <Typography
               sx={{
-                fontSize: {
-                  md: "16px",
-                  fontWeight: 500,
-                  fontFamily: "Plus Jakarta Sans",
-                  color: "#2B2B2B",
-                  width: "95%",
-                },
+                fontSize: {md: "15px",lg:'16px'},
+                fontWeight: 500,
+                fontFamily: "Plus Jakarta Sans",
+                color: "#2B2B2B",
+                width: {md:"100%", lg:"95%"},
               }}
             >
               Convenient, reliable access to all your pharmacy needs, delivered
@@ -80,15 +82,15 @@ export default function Products() {
             </Typography>
             <Button
               sx={{
-                width: { md: "245px" },
-                fontSize: { md: "16px" },
+                width: { md: "150px" , lg:'180px', xl:'245px'},
+                fontSize: { md: "10px", lg:'12px', xl:'16px' },
                 fontWeight: 600,
                 color: "#FCEE23",
-                paddingx: { md: 1 },
+                paddingx: { md: 0, lg:1 },
                 paddingY: { md: 2 },
                 borderRadius: { md: "100px" },
                 background: "black",
-                marginTop:2
+                marginTop: {md:0 , lg:2},
               }}
             >
               View More Products
@@ -132,7 +134,7 @@ export default function Products() {
           >
             <Typography
               sx={{
-                fontSize: { md: "14px" },
+                fontSize: { md: "10px", lg:'14px'},
                 fontFamily: "Plus Jakarta Sans",
                 fontWeight: 500,
                 color: "white",
@@ -143,7 +145,7 @@ export default function Products() {
             <Typography
               sx={{
                 fontSize: {
-                  md: "24px",
+                  md: "15px", lg:'24px'
                 },
                 fontWeight: 800,
                 fontFamily: "Plus Jakarta Sans",
@@ -156,13 +158,12 @@ export default function Products() {
             <Typography
               sx={{
                 fontSize: {
-                  md: "16px",
+                  md: "15px",
                 },
                 fontWeight: 500,
                 fontFamily: "Plus Jakarta Sans",
                 color: "white",
                 width: "100%",
-          
               }}
             >
               Convenient, reliable access to all your pharmacy needs, delivered
@@ -175,7 +176,7 @@ export default function Products() {
             alt="product"
             priority
             style={{
-              width: "50%",
+              width: "40%",
               height: "100%",
 
               position: "relative",

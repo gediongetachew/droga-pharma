@@ -13,22 +13,29 @@ export default function AboutUs() {
       sx={{
         position: "relative",
         display: "flex",
-        flexDirection: {xs:'column', md:'row'},
+        flexDirection: { xs: "column", md: "row" },
         justifyContent: "space-between",
         paddingX: { xs: "5%" },
         background: "white",
         paddingY: { xs: 10 },
+        
       }}
     >
-      <Grid item xs={12} md={5} sx={{ justifyContent: "center", alignItems: "center" }}>
+      <Grid
+        item
+        xs={12}
+        md={6}
+        lg={5}
+        sx={{ justifyContent: "center", alignItems: "center", paddingBottom:{xs:0, sm:0, md:15, lg:0}}}
+      >
         <Box
           sx={{
             position: "relative",
             width: "100%",
-            height: {xs:'55vh', md:"80vh"},
+            height: { xs: "55vh", md: "90vh" },
             borderRadius: "30px",
             zindex: 1,
-            boxShadow: '2px 2px 2px rgba(0.3, 0.3, 0.3, 0.3)',
+            boxShadow: "2px 2px 2px rgba(0.3, 0.3, 0.3, 0.3)",
             overflow: "hidden",
           }}
         >
@@ -44,8 +51,8 @@ export default function AboutUs() {
               position: "absolute",
               top: "0%",
               right: "0%",
-              width: {xs:"50%",md:"40%"},
-              height: {xs:"20%",md:"10%"},
+              width: { xs: "40%", sm: "30%", md: "40%", lg:'40%' },
+              height: { xs: "10%", sm: "12%", md: "8%", lg:'8%', xl:'10%' },
               zIndex: 2,
               background: "white",
               borderBottomLeftRadius: "20px",
@@ -60,7 +67,7 @@ export default function AboutUs() {
               alt="about us"
               width={100}
               height={80}
-              style={{ 
+              style={{
                 width: "auto",
                 height: "100%",
                 padding: "8px",
@@ -76,13 +83,14 @@ export default function AboutUs() {
       <Grid
         item
         xs={12}
-        md={6}
+        md={5}
+        lg={6}
         sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "start",
           justifyContent: "start",
-          gap: { xs: 4, },
+          gap: { xs: 4 },
           marginTop: 5,
         }}
       >
@@ -107,7 +115,7 @@ export default function AboutUs() {
             fontFamily: "Plus Jakarta Sans",
             fontWeight: 400,
 
-            fontSize: { xs: "12px", sm: "18px", md: "24px" },
+            fontSize: { xs: "12px", sm: "18px", md: "20px", lg:'24px' },
           }}
         >
           Droga Pharma Pvt. Ltd. Co., based in Addis Ababa, Ethiopia, is
@@ -127,14 +135,15 @@ export default function AboutUs() {
             borderRadius: "100px",
             width: {
               xs: "200px",
-              md: "213px"},
-              paddingX: { xs: 1, md: 2 },
-              paddingY: { xs: 2, md: 3 },
-              fontFamily: "Plus Jakarta Sans",
-              fontWeight:'bold',  
-              color: "#FCEE23",
-              background: "black",
-              fontSize: {xs:'18px',sm:'20px', md:'24px'}
+              md: "213px",
+            },
+            paddingX: { xs: 1, md: 2 },
+            paddingY: { xs: 2, md: 3 },
+            fontFamily: "Plus Jakarta Sans",
+            fontWeight: "bold",
+            color: "#FCEE23",
+            background: "black",
+            fontSize: { xs: "18px", sm: "20px", md: "24px" },
           }}
         >
           Read More

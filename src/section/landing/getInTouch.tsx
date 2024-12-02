@@ -12,7 +12,7 @@ export default function GetInTouch(hidden?: any) {
     <Grid
       container
       sx={{
-        height: "100%",
+        height: {xs:"50%", md:"100%"},
         alignItems: "center",
         background: "white",
         position: "relative",
@@ -38,7 +38,7 @@ export default function GetInTouch(hidden?: any) {
         {/* Left DNA Image */}
         <Box sx={{
           position: 'absolute',
-          width: '20%',
+          width: {xs:'40%', md:'20%'},
           height: '100%',
           left: 0,
           top: 0,
@@ -59,7 +59,7 @@ export default function GetInTouch(hidden?: any) {
         {/* Right DNA Image */}
         <Box sx={{
           position: 'absolute',
-          width: '20%',
+          width: {xs:'40%', md:'20%'},
           height: '100%',
           right: 0,
           top: 0,
@@ -93,7 +93,7 @@ export default function GetInTouch(hidden?: any) {
           <Typography
             sx={{
               color: "#FCEE23",
-              fontSize: { xs: "30px", md: "60px" },
+              fontSize: { xs: "20px", md: "60px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 700,
               width: { xs: "100%", md: "60%" },
@@ -106,7 +106,7 @@ export default function GetInTouch(hidden?: any) {
           <Typography
             sx={{
               color: "#FCEE23",
-              fontSize: { xs: "30px", md: "60px" },
+              fontSize: { xs: "20px", md: "60px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 700,
               width: { xs: "100%", md: "60%" },
@@ -134,7 +134,7 @@ export default function GetInTouch(hidden?: any) {
           </Typography>
           <Button
             sx={{
-              width: { xs: "200px", md: "230px" },
+              width: { xs: "170px", md: "230px" },
               padding: { 
                 xs: "8px 16px",    // Small screens
                 sm: "10px 20px",   // Medium screens

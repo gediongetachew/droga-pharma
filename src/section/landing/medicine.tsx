@@ -133,7 +133,7 @@ export default function Medicine() {
                   fontWeight: 500,
                 }}
               >
-                {showAllMedicine ? "Show Less" : "See All"}
+                {showAllMedicine ? "Less" : "See All"}
               </Button>
             </Box>
             <Box
@@ -163,13 +163,13 @@ export default function Medicine() {
                       key={index}
                       sx={{
                         position: "relative",
-                        width: { xs: "90%", sm: "30%" },
+                        width: { xs: "90%", sm: "30%", md:'50%', lg:'30%' },
                         aspectRatio: "1/1",
                         zIndex: 2,
                         borderRadius: "24px",
                         overflow: "hidden",
                         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                        height: { xs: "290px", sm: "400px", md: "400px" },
+                        height: { xs: "290px", sm: "300px", md: "350px", lg:'400px' },
                         display: "flex",
                         flexDirection: "column",
                       }}
@@ -177,7 +177,7 @@ export default function Medicine() {
                       <Box
                         sx={{
                           position: "relative",
-                          height: "70%", // Image container takes 70% of height
+                          height: {xs:"70%", md:"65%", lg:"70%"}, // Image container takes 70% of height
                           width: "100%",
                         }}
                       >
@@ -208,7 +208,7 @@ export default function Medicine() {
                             fontFamily: "Plus Jakarta Sans",
                             color: "black",
                             fontWeight: 500,
-                            fontSize: { xs: "15px", sm: "15px", md: "20px" },
+                            fontSize: { xs: "15px", sm: "15px", md: "18px", lg:'20px' },
                             textAlign: "left",
                           }}
                         >
@@ -219,7 +219,7 @@ export default function Medicine() {
                             fontFamily: "Plus Jakarta Sans",
                             color: "#737373",
                             fontWeight: 500,
-                            fontSize: { xs: "10px", sm: "10px", md: "16px" },
+                            fontSize: { xs: "10px", sm: "10px", md: "14px", lg:'16px' },
                             textAlign: "left",
                           }}
                         >
@@ -292,7 +292,7 @@ export default function Medicine() {
                   fontWeight: 500,
                 }}
               >
-                {showAllSupplies ? "Show Less" : "See All"}
+                {showAllSupplies ? "Less" : "See All"}
               </Button>
             </Box>
             <Box
@@ -322,13 +322,13 @@ export default function Medicine() {
                       key={index}
                       sx={{
                         position: "relative",
-                        width: { xs: "90%", sm: "30%" },
+                        width: { xs: "90%", sm: "30%", md:'50%', lg:'30%' },
                         aspectRatio: "1/1",
                         zIndex: 2,
                         borderRadius: "24px",
                         overflow: "hidden",
                         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                        height: { xs: "290px", sm: "400px", md: "400px" },
+                        height: { xs: "290px", sm: "300px", md: "350px", lg:'400px' },
                         display: "flex",
                         flexDirection: "column",
                       }}
@@ -336,7 +336,7 @@ export default function Medicine() {
                       <Box
                         sx={{
                           position: "relative",
-                          height: "70%", // Image container takes 70% of height
+                          height: {xs:"70%", md:"65%", lg:"70%"}, // Image container takes 70% of height
                           width: "100%",
                         }}
                       >
@@ -367,7 +367,7 @@ export default function Medicine() {
                             fontFamily: "Plus Jakarta Sans",
                             color: "black",
                             fontWeight: 500,
-                            fontSize: { xs: "15px", sm: "15px", md: "20px" },
+                            fontSize: { xs: "15px", sm: "15px", md: "18px", lg:'20px' },
                             textAlign: "left",
                           }}
                         >
@@ -378,7 +378,7 @@ export default function Medicine() {
                             fontFamily: "Plus Jakarta Sans",
                             color: "#737373",
                             fontWeight: 500,
-                            fontSize: { xs: "10px", sm: "10px", md: "16px" },
+                            fontSize: { xs: "10px", sm: "10px", md: "14px", lg:'16px' },
                             textAlign: "left",
                           }}
                         >

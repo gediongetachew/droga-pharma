@@ -1,16 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Box, IconButton, Grid, Typography } from "@mui/material";
+import { Box, IconButton, Grid, Typography, useMediaQuery } from "@mui/material";
 import { IoMdClose } from "react-icons/io";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Player } from "video-react";
 import "video-react/dist/video-react.css";
-import play from "../../../public/play.svg";
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 import Image from "next/image";
 import star from "../../../public/star.svg";
 import HomeHeroImage from "../../../public/HomeHero.png";
+import HomeHeroImageSmall from "../../../public/HomeHero2.png";
 
 const backgroundImages = [
   HomeHeroImage,
@@ -26,6 +27,8 @@ const HomeHero = () => {
   });
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const totalImages = backgroundImages.length;
+
+  const isSmallScreen = useMediaQuery('(max-width:1000px)');
 
   useEffect(() => {
     if (!inView) {
@@ -55,7 +58,7 @@ const HomeHero = () => {
           flexDirection: "column",
           position: "absolute",
           top: 0,
-          height: "125vh",
+          height: {xs:"125vh", sm:"125vh",md:"125vh",lg:"125vh", xl:"125vh"},
           width: "100%",
           paddingX: { xs: "5%" },
           paddingTop:{xs:5, md:0},
@@ -65,7 +68,7 @@ const HomeHero = () => {
         {backgroundImages.map((img, index) => (
           <Image
             key={index}
-            src={img}
+            src={isSmallScreen ? HomeHeroImageSmall : img}
             alt={`Hero background ${index + 1}`}
             fill
             priority={index === 0}
@@ -113,7 +116,8 @@ const HomeHero = () => {
         <Grid
           item
           xs={12}
-          md={4}
+          md={12}
+          lg={4}
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -122,9 +126,10 @@ const HomeHero = () => {
             justifyContent: "flex-start",
             alignContent: "flex-end",
             marginTop: {
-              xs: "50px",
-              sm: "30px",
-              md: "255px",
+              xs: "30px",
+              sm: "40px",
+              md: "110px",
+              lg:'255px'
             },
             height: "100%",
             gap: 2,
@@ -137,7 +142,7 @@ const HomeHero = () => {
               color: "black",
               position: "relative",
               zIndex: 1,
-              fontSize: { xs: "50px", sm: "48px", md: "58px", lg: "96px" },
+              fontSize: { xs: "48px", sm: "80px", md: "95px", lg: "96px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 600
             }}
@@ -148,7 +153,7 @@ const HomeHero = () => {
             sx={{
               textAlign: "left",
               color: "#737373",
-              fontSize: { xs: "15px", sm: "17px", md: "15px", lg: "18px" },
+              fontSize: { xs: "13px", sm: "20px", md: "25px", lg: "18px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 500,
             }}
@@ -163,7 +168,8 @@ const HomeHero = () => {
         <Grid
           item
           xs={12}
-          md={3}
+          md={12}
+          lg={3}
           sx={{
             display: "flex",
             flexDirection: "column",
@@ -171,14 +177,15 @@ const HomeHero = () => {
             zIndex: 1,
             pl: 8,
             justifyContent: "flex-center",
-            alignItems: "flex-end",
+            alignItems: {xs:"left", lg:"flex-end"},
             height: "100%",
-            ml: "auto",
+            ml: {xs:-5, lg:"auto"},
             gap: 2,
             marginTop: {
-              xs: "210px",
+              xs: "350px",
               sm: "30px",
-              md: -5
+              md: "30px",
+              lg:-5
             },
            
           }}
@@ -198,7 +205,7 @@ const HomeHero = () => {
             sx={{
               width: {
                 xs: "6px", // mobile
-                sm: "70px", // tablet
+                sm: "90px", // tablet
                 md: "85px", // small desktop
                 lg: "80%", // large desktop
               },
@@ -209,7 +216,7 @@ const HomeHero = () => {
             sx={{
               textAlign: "left",
               color: "#737373",
-              fontSize: { xs: "10px", sm: "17px", md: "15px", lg: "18px" },
+              fontSize: { xs: "13px", sm: "20px", md: "25px", lg: "18px" },
               fontFamily: "Plus Jakarta Sans",
               fontWeight: 500,
               width: "100%",
@@ -224,7 +231,7 @@ const HomeHero = () => {
             <Box
               sx={{
                 position: "absolute",
-                bottom: "14px",
+                bottom: {xs:"14px", md:"8px"},
                 zIndex: 2
               }}
             >
@@ -238,27 +245,17 @@ const HomeHero = () => {
                   setShowVideo(true);
                 }}
                 sx={{
-                  scale: 3,
+                  scale: {xs:1.5, sm:2, md:1.8},
                   width: { xs: 30, md: 40 },
                   height: { xs: 30, md: 40 },
-                  marginBottom:{xs:2, md:5},
+                  marginBottom:{xs:3, md:5},
                   color: "black",
                   borderRadius: "100%",
-                  background:'#EBEBEB'
+                  background:'#FCEE23'
                 }}
               >
-                <Image
-                  src={play}
-                  alt="play button"
-                  width={40}
-                  height={40}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                  }}
-                />
-              </IconButton>
+                  <PlayArrowIcon sx={{scale: {xs:.8, md:1} , color:'black'}} />
+               </IconButton>
             </Box>
 
             <motion.div

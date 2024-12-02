@@ -111,13 +111,19 @@ export default function TestimonialSwiper() {
   return (
     <>
       <style>{swiperStyles}</style>
-      <Box sx={{ py: { xs: 8, md: 8 }, background: "#FBFBFB" }}>
+      <Box
+        sx={{
+          py: { xs: 8, md: 8 },
+          background: "#FBFBFB",
+          marginTop:{xs:100, md:0}
+        }}
+      >
         <Typography
           variant="h2"
           sx={{
             fontSize: { xs: "24px", md: "42px" },
             fontWeight: 600,
-            fontFamily:'Plus Jakarta Sans',
+            fontFamily: "Plus Jakarta Sans",
             px: { xs: 2, md: 10 },
             color: "black",
           }}
@@ -141,7 +147,7 @@ export default function TestimonialSwiper() {
               spaceBetween: 20,
             },
             // Desktop view: 1.75 cards without pagination
-            768: {
+            1100: {
               slidesPerView: 1.75,
               spaceBetween: -40,
             },
@@ -159,9 +165,9 @@ export default function TestimonialSwiper() {
                   borderRadius: "16px",
                   p: { xs: 3, md: 4 },
                   m: { xs: 0, md: 5 },
-                  height: { xs: "auto", md: "500px" },
-                  minHeight: { xs: "450px", md: "500px" },
-                  width: { xs: "100%", md: "85%" },
+                  height: { xs: "300px", md: "400px" , lg:'450px', xl:'500px'},
+
+                  width: { xs: "100%", md: "85%", lg:'85%' },
                   display: "flex",
                   flexDirection: "column",
                   transition: "all 0.3s ease-in-out",
@@ -175,9 +181,9 @@ export default function TestimonialSwiper() {
                 <Typography
                   variant="h6"
                   sx={{
-                    fontSize: { xs: "18px", md: "20px" },
-                    fontWeight: 'bold',
-                    fontFamily:'DM Sans',
+                    fontSize: { xs: "10px", sm: "13px", md:'15px',lg:'18px', xl:'20px' },
+                    fontWeight: "bold",
+                    fontFamily: "DM Sans",
                     alignSelf: "flex-end",
                     background: "#EAEAEA",
                     borderRadius: "30px",
@@ -190,53 +196,29 @@ export default function TestimonialSwiper() {
                 <Typography
                   variant="h6"
                   sx={{
-                    fontSize: { xs: "18px", md: "40px" },
+                    fontSize: { xs: "10px", sm: "20px", md:'30px', lg:'35px', xl:'40px'},
                     fontWeight: 700,
-                    fontFamily:'DM Sans',
+                    fontFamily: "DM Sans",
                     mb: 2,
                   }}
                 >
                   {testimonial.company}
                 </Typography>
 
-                <Box sx={{ position: 'relative', width: '95%' }}>
-                  <Typography
-                    sx={{
-                      color: '#CCCCCC',
-                      fontSize: { xs: '40px', md: '60px' },
-                      position: 'absolute',
-                      top: -20,
-                      left: -10,
-                      fontFamily: 'DM Sans',
-                    }}
-                  >
-                    "
-                  </Typography>
+                <Box sx={{ position: "relative", width: "95%" }}>
                   <Typography
                     sx={{
                       color: "text.secondary",
-                      mb: 8,
-                      fontSize: { xs: "14px", md: "20px" },
+                      mb: { xs: 4, md: 5, lg:8,xl:6 },
+                      fontSize: { xs: "10px", sm: "13px", md:'15px', lg:'16px', xl:'20px'},
                       flexGrow: 1,
                       width: "100%",
-                      fontFamily: 'DM Sans',
-                      fontWeight: 'regular',
-                      px: 4  // Add padding to accommodate the quotes
+                      fontFamily: "DM Sans",
+                      fontWeight: "regular",
+                      px: { xs: 0, md: 0, lg:0, xl:4 }, // Add padding to accommodate the quotes
                     }}
                   >
                     {testimonial.content}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      color: '#CCCCCC',
-                      fontSize: { xs: '40px', md: '60px' },
-                      position: 'absolute',
-                      bottom: 10,
-                      right: 90,
-                      fontFamily: 'DM Sans',
-                    }}
-                  >
-                    "
                   </Typography>
                 </Box>
 
@@ -245,7 +227,7 @@ export default function TestimonialSwiper() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
-                    paddingX: 2,
+                    paddingX: { xs: 0, md:0, lg:2  },
                   }}
                 >
                   <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
@@ -254,8 +236,8 @@ export default function TestimonialSwiper() {
                       alt={testimonial.author.name}
                       variant="square"
                       sx={{
-                        width: 68,
-                        height: 65,
+                        width: { xs: 40, sm: 50, md:58, lg:60,xl:68},
+                        height: { xs: 40, sm: 50, md:58 , lg:60 , xl:65},
                         borderRadius: "18px",
                       }}
                     />
@@ -263,7 +245,7 @@ export default function TestimonialSwiper() {
                       <Typography
                         sx={{
                           fontWeight: "500",
-                          fontSize: { xs: "14px", md: "25px" },
+                          fontSize: { xs: "10px", md: "18px", lg:'20px', xl:'25px'},
                         }}
                       >
                         {testimonial.author.name}
@@ -271,20 +253,34 @@ export default function TestimonialSwiper() {
                       <Typography
                         sx={{
                           color: "text.secondary",
-                          fontSize: { xs: "12px", md: "20px" },
+                          fontSize: { xs: "8px", md: "15px", lg:'18px',xl:'20px' },
                         }}
                       >
                         {testimonial.author.role}
                       </Typography>
                     </Box>
                   </Box>
-                  <Image
-                    src={testimonial.logo}
-                    alt="Company logo"
-                    width={90}
-                    height={40}
-                    style={{ objectFit: "contain", marginLeft: 20 }}
-                  />
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "flex-end", // Align the image to the right
+                      width: { xs: "60px", sm: "80px", md: "90px" }, // Responsive width
+                      height: { xs: "30px", sm: "50px", md: "40px" }, // Responsive height
+                      marginLeft: 2, // Adjust margin as needed
+                    }}
+                  >
+                    <Image
+                      src={testimonial.logo}
+                      alt="Company logo"
+                      width={90} // Keep original width for the image
+                      height={40} // Keep original height for the image
+                      style={{
+                        objectFit: "contain",
+                        width: "100%",
+                        height: "100%",
+                      }} // Make image fill the box
+                    />
+                  </Box>
                 </Box>
               </Paper>
             </SwiperSlide>

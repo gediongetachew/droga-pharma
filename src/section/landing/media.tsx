@@ -78,7 +78,15 @@ export default function Media() {
   const totalPages = Math.ceil(newsAndPodcast.length / itemsPerPage);
 
   return (
-    <Grid container spacing={2} sx={{ background: "white", marginTop: 0, height:{xs:'50vh', md:'150vh'} }}>
+    <Grid
+      container
+      spacing={2}
+      sx={{
+        background: "white",
+        marginTop: 0,
+        height:  "150vh",
+      }}
+    >
       <Grid
         item
         xs={12}
@@ -102,11 +110,11 @@ export default function Media() {
 
         <Typography
           sx={{
-            fontSize: { xs: "10px", md: "20px" },
+            fontSize: { xs: "10px", sm: "15px", md:'20px' },
             fontWeight: 400,
             fontFamily: "Plus Jakarta Sans",
             color: "#6D6D6D",
-            width: "40%",
+            width: {xs:"60%", sm:"50%", md:'40%'},
           }}
         >
           Lorem ipsum dolor sit amet consectetur. Montes habitant enim a
@@ -130,7 +138,13 @@ export default function Media() {
             key={index}
             sx={{
               width: { xs: "100%", md: "48%" },
-              height: { xs: "390px", md: item.id === 2 ? "600px" : "550px", lg: item.id === 2 ? "500px" : "450px" },
+              height: {
+                xs: "300px",
+                sm:'450px',
+                md: item.id === 2 ? "500px" : "450px",
+                lg: item.id === 2 ? "600px" : "550px",
+                xl: item.id === 2 ? "530px" : "480px",
+              },
               position: "relative",
               border: "3px solid",
               borderRadius: "30px",
@@ -150,7 +164,8 @@ export default function Media() {
                 left: "1%",
                 width: "98%",
                 height: {
-                  xs: "30%",
+                  xs: "50%",
+                  sm:'60%',
                   md: item.id === 2 ? "70%" : "65%",
                 },
                 zIndex: 2,
@@ -172,16 +187,18 @@ export default function Media() {
             <Box
               sx={{
                 marginTop: {
-                  xs: "70%",
-                  md: item.id === 2 ? "10%" : "25%",
-                  lg: item.id === 2 ? "51%" : "45%",
+                  xs: "50%",
+                  sm:'40%',
+                  md: item.id === 2 ? "95%" : "80%",
+                  lg: item.id === 2 ? "69%" : "60%",
+                  xl: item.id === 2 ? "57%" : "48%",
                 },
                 paddingX: 2,
               }}
             >
               <Typography
                 sx={{
-                  fontSize: { xs: "18px", md: "24px" },
+                  fontSize: { xs: "15px", sm: "25px" , md:'20px', lg:'24px'},
                   fontWeight: 700,
                   fontFamily: "Red Hat Display",
                   color: "black",
@@ -191,7 +208,7 @@ export default function Media() {
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: "15px", md: "20px" },
+                  fontSize: { xs: "13px", sm: "15px",md:'15px', lg:'20px'},
                   fontWeight: 400,
                   fontFamily: "Red Hat Display",
                   color: "#6D6D6D",
@@ -205,7 +222,7 @@ export default function Media() {
             <CallMadeIcon
               sx={{
                 position: "absolute",
-                top: item.id === 2 ? "75%" : "70%",
+                top: {xs:item.id === 2 ? "55%" : "55%", md:item.id === 2 ? "75%" : "70%"},
                 right: "3%",
                 color: "black",
                 scale: { xs: 0.8, md: 1 },
@@ -221,8 +238,8 @@ export default function Media() {
         sx={{
           display: "flex",
           justifyContent: "start",
-          marginLeft: { xs: 5, md: 10 },
-          marginY: 4,
+          marginLeft: { xs: 0, md: 10 },
+          marginY: {xs:2, md:4},
         }}
       >
         <CustomPagination
