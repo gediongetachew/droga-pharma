@@ -191,7 +191,7 @@ export default function Media() {
                   sm:'40%',
                   md: item.id === 2 ? "95%" : "80%",
                   lg: item.id === 2 ? "69%" : "60%",
-                  xl: item.id === 2 ? "50%" : "40%",
+                  xl: item.id === 2 ? "40%" : "30%",
                 },
                 paddingX: 2,
               }}
