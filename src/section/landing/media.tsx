@@ -140,7 +140,7 @@ export default function Media() {
               width: { xs: "100%", md: "48%" },
               height: {
                 xs: "300px",
-                sm:'450px',
+                sm:'500px',
                 md: item.id === 2 ? "500px" : "450px",
                 lg: item.id === 2 ? "600px" : "550px",
                 xl: item.id === 2 ? "530px" : "480px",
@@ -187,8 +187,8 @@ export default function Media() {
             <Box
               sx={{
                 marginTop: {
-                  xs: "50%",
-                  sm:'40%',
+                  xs: "48%",
+                  sm:'45%',
                   md: item.id === 2 ? "95%" : "80%",
                   lg: item.id === 2 ? "69%" : "60%",
                   xl: item.id === 2 ? "40%" : "30%",
