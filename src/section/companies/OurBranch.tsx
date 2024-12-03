@@ -13,9 +13,9 @@ export default function OurBranch() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          gap: 2,
+          gap: 10,
           background: "white",
-          marginX: 5,
+          marginX: {xs:2,md:5},
           marginY: 5,
           borderRadius: "24px",
         }}
@@ -23,11 +23,12 @@ export default function OurBranch() {
         <Grid
           item
           xs={12}
+       
           sx={{
             display: "flex",
             flexDirection: { xs: "column", md: "row" },
             justifyContent: "space-between",
-            paddingX: { xs: 1, md: 5 },
+            paddingX: { xs: 1, sm: 3, md: 5 },
             paddingTop: { xs: 2, md: 10 },
           }}
         >
@@ -44,7 +45,7 @@ export default function OurBranch() {
           </Typography>
           <Typography
             sx={{
-              fontSize: { xs: "12px", md: "22px" },
+              fontSize: { xs: "12px", md: "15px", lg:'22px' },
               fontFamily: "Plus Jakarta Sans",
               color: "gray",
               width: { xs: "100", md: "50%" },
@@ -65,7 +66,7 @@ export default function OurBranch() {
               display: "flex",
               paddingX: { xs: 1, md: 2 },
               marginTop: { xs: 3, md: 0 },
-              gap: 8,
+              gap: {xs:4, md:2,lg:4, xl:4},
             }}
           >
             <Grid item xs={12} md={6.5}>
@@ -83,14 +84,14 @@ export default function OurBranch() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                paddingTop: { xs: 1, md: 8 },
+                paddingTop: { xs: 2, md: 0,lg:0, xl:8 },
                 gap: 2,
                 paddingRight: 2,
               }}
             >
               <Typography
                 sx={{
-                  fontSize: { xs: "20px", md: "32px" },
+                  fontSize: { xs: "20px", md: "25px", lg:'32px' },
                   fontFamily: "Plus Jakarta Sans",
                   fontWeight: 500,
                   width: "80%",
@@ -101,7 +102,7 @@ export default function OurBranch() {
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: "10px", md: "20px" },
+                  fontSize: { xs: "10px", md: "15px", lg:'20px'},
                   fontFamily: "Sego Ui",
                   fontWeight: 400,
                   width: "94%",
@@ -117,12 +118,12 @@ export default function OurBranch() {
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: "10px", md: "20px" },
+                  fontSize: { xs: "10px", md: "15px", lg:'20px'},
                   fontFamily: "Sego Ui",
                   fontWeight: 400,
                   width: "93%",
                   color: "#686868",
-                  marginTop: { xs: 2, md: 10 },
+                  marginTop: { xs: 2, md: 5, lg:4, xl:10 },
                 }}
               >
                 Thank you for trusting us with your health and well-being.
@@ -137,8 +138,9 @@ export default function OurBranch() {
             container
             sx={{
               display: "flex",
+              flexDirection:{xs:'column-reverse', md:'row'},
               paddingX: { xs: 2, md: 5 },
-              gap: 5,
+              gap:0,
               paddingBottom: 5,
             }}
           >
@@ -149,24 +151,24 @@ export default function OurBranch() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                paddingTop: { xs: 2, md: 10 },
+                paddingTop: { xs: 2, md: 0,lg:0, xl:8 },
                 gap: 2,
               }}
             >
               <Typography
                 sx={{
-                  fontSize: { xs: "20px", md: "32px" },
+                  fontSize: { xs: "20px", md: "25px", lg:'32px' },
                   fontFamily: "Plus Jakarta Sans",
                   fontWeight: 500,
                   width: "90%",
                   color: "black",
                 }}
               >
-                Droga Pharama - Somali Land
+                Droga Pharama - Rwanda
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: "10px", md: "20px" },
+                  fontSize: { xs: "10px", md: "15px" , lg:'20px'},
                   fontFamily: "Sego Ui",
                   fontWeight: 400,
                   width: "90%",
@@ -182,12 +184,12 @@ export default function OurBranch() {
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: "10px", md: "20px" },
+                  fontSize: { xs: "10px", md: "15px" , lg:'20px'},
                   fontFamily: "Sego Ui",
                   fontWeight: 400,
                   width: "90%",
                   color: "#686868",
-                  marginTop: { xs: 2, md: 10 },
+                  marginTop: { xs: 2, md: 4 , lg:4, xl:8},
                 }}
               >
                 Thank you for trusting us with your health and well-being.

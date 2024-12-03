@@ -10,10 +10,10 @@ import Collapse from "@mui/material/Collapse";
 import companiesData from "@/data/companiesData";
 
 export default function companies() {
-  const [selected, setSelected] = React.useState(-1);
+  const [selected, setSelected] = React.useState(1);
 
   useEffect(() => {
-    setSelected(-1);
+    setSelected(1);
   }, []);
 
   return (
@@ -22,6 +22,7 @@ export default function companies() {
         item
         xs={12}
         md={6}
+        lg={6}
         sx={{
           display: "flex",
           borderBottom: { xs: "1px solid gray", md: "none" },
@@ -32,7 +33,7 @@ export default function companies() {
       >
         <Typography
           sx={{
-            fontSize: { xs: "30px", md: "80px" },
+            fontSize: { xs: "30px", md: "60px", lg:'80px' },
             fontFamily: "Plus Jakarta Sans",
             fontWeight: 600,
             color: "#4F4F4F",
@@ -67,7 +68,8 @@ export default function companies() {
       <Grid
         item
         xs={12}
-        md={6}
+        md={5}
+        lg={6}
         sx={{
           display: "flex",
           flexDirection: "column",

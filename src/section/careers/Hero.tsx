@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import SouthIcon from "@mui/icons-material/South";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useState, useEffect, useRef } from "react";
+import { Paper } from "@mui/material";
 
 export default function Hero() {
   const [playVideo, setPlayVideo] = useState(false);
@@ -73,7 +74,7 @@ export default function Hero() {
           flexDirection: "column",
           alignItems: "start",
           justifyContent: "start",
-          gap: { xs: 4 },
+          gap: { xs: 4, md:3,lg:4},
           marginTop: { xs: 5, md: 11 },
         }}
       >
@@ -98,7 +99,7 @@ export default function Hero() {
             fontFamily: "Plus Jakarta Sans",
             fontWeight: 400,
 
-            fontSize: { xs: "12px", sm: "18px", md: "24px" },
+            fontSize: { xs: "12px", sm: "18px", md: "18px", lg:'24px' },
           }}
         >
           At Droga Pharma, we believe in fostering a truly employee-centered
@@ -120,7 +121,7 @@ export default function Hero() {
             fontFamily: "Plus Jakarta Sans",
             fontWeight: 400,
 
-            fontSize: { xs: "12px", sm: "18px", md: "24px" },
+            fontSize: { xs: "12px", sm: "18px", md: "18px", lg:'24px' },
           }}
         >
           Explore the roles we’re hiring for below and find your place within
@@ -139,12 +140,12 @@ export default function Hero() {
             },
             paddingX: { xs: 1, md: 2 },
             paddingY: { xs: 2, md: 3 },
-            marginTop: { xs: 2, md: 8 },
+            marginTop: { xs: 2, md: 4,gl:8 },
             fontFamily: "Roboto",
             textWrap: "nowrap",
             color: "black",
             background: "#FCEE23",
-            fontSize: { xs: "10px", sm: "16px", md: "20px" },
+            fontSize: { xs: "10px", sm: "16px", md: "18px", lg:'20px'},
             '&:hover': {
               background: "#FCEE23",
               opacity: 0.9,
@@ -158,7 +159,8 @@ export default function Hero() {
       <Grid
         item
         xs={12}
-        md={5}
+        md={6}
+        lg={5}
         sx={{
           justifyContent: "center",
           alignItems: "center",
@@ -251,25 +253,28 @@ export default function Hero() {
             </Box>
           )}
 
-          <Box
+          <Paper
             sx={{
               position: "absolute",
               top: "0%",
               right: "0%",
-              width: { xs: "50%", md: "40%" },
-              height: { xs: "20%", md: "10%" },
+              width: { xs: "40%",sm:'40%', md: "50%",lg:'40%' },
+              height: { xs: "10%",sm:'15%', md: "10%", lg:'8%' },
               zIndex: 3,
               background: "white",
               borderBottomLeftRadius: "20px",
+              overflow: 'hidden',
+             
+            
             }}
           >
             <Image
               src={logo}
               alt="about us"
               fill
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: "contain" }}
             />
-          </Box>
+          </Paper>
         </Box>
       </Grid>
     </Grid>

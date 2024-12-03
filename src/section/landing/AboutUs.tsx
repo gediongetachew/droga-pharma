@@ -32,7 +32,7 @@ export default function AboutUs() {
           sx={{
             position: "relative",
             width: "100%",
-            height: { xs: "55vh", md: "90vh" },
+            height: { xs: "55vh", md: "90vh" , xl:'80vh'},
             borderRadius: "30px",
             zindex: 1,
             boxShadow: "2px 2px 2px rgba(0.3, 0.3, 0.3, 0.3)",

@@ -64,7 +64,7 @@ export default function DetailedProducts() {
         background: "#F5F5F5",
         minHeight: "100vh",
 
-        paddingX: { xs: 4, md: 8 },
+        paddingX: { xs: 2, md: 8 },
         paddingY: { xs: 8, md: 20 },
       }}
     >
@@ -116,13 +116,13 @@ export default function DetailedProducts() {
             display: "flex",
             alignItems: "center",
             paddingY: { xs: 1, md: 2 },
-            paddingX: { xs: 2, md: 2 },
+            paddingX: { xs: 1, md: 2 },
           }}
         >
           <Box
             sx={{
               position: "relative",
-              width: "90%",
+              width: {xs:"100%", md:'90%'},
               height: { xs: "300px", md: "525px", lg: "550px", xl: "410px" },
               borderRadius: "40px",
               overflow: "hidden",

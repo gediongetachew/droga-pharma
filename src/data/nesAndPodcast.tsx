@@ -63,7 +63,7 @@ const newsAndPodcast = [
     icon: newsIcon,
   },
   {
-    id: 1,
+    id: 4,
     title: "Lorem ipsum dolor sit amet",
     description:
       "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
@@ -71,7 +71,7 @@ const newsAndPodcast = [
     icon: newsIcon,
   },
   {
-    id: 2,
+    id: 1,
     title: "Lorem ipsum dolor sit amet",
     description:
       "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
@@ -79,7 +79,55 @@ const newsAndPodcast = [
     icon: podcastIcon,
   },
   {
+    id: 2,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: foodday,
+    icon: newsIcon,
+  },
+  {
     id: 3,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaNews,
+    icon: newsIcon,
+  },
+  {
+    id: 4,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaPodcast,
+    icon: podcastIcon,
+  },
+  {
+    id: 1,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: foodday,
+    icon: newsIcon,
+  },
+  {
+    id: 2,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaNews,
+    icon: newsIcon,
+  },
+  {
+    id: 3,
+    title: "Lorem ipsum dolor sit amet",
+    description:
+      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
+    src: mediaPodcast,
+    icon: podcastIcon,
+  },
+  {
+    id: 4,
     title: "Lorem ipsum dolor sit amet",
     description:
       "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
@@ -111,47 +159,7 @@ const newsAndPodcast = [
     icon: newsIcon,
   },
   {
-    id: 1,
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
-    src: mediaNews,
-    icon: newsIcon,
-  },
-  {
-    id: 2,
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
-    src: mediaPodcast,
-    icon: podcastIcon,
-  },
-  {
-    id: 3,
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
-    src: foodday,
-    icon: newsIcon,
-  },
-  {
-    id: 1,
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
-    src: mediaNews,
-    icon: newsIcon,
-  },
-  {
-    id: 2,
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
-    src: mediaPodcast,
-    icon: podcastIcon,
-  },
-  {
-    id: 3,
+    id: 4,
     title: "Lorem ipsum dolor sit amet",
     description:
       "Lorem ipsum dolor sit amet consectetur. Commodo sollicitudin ultrices mauris bibendum pulvinar pellentesque. Facilisis porttitor porta lacus.",
