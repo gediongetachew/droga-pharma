@@ -38,7 +38,8 @@ export default function Nav() {
 
   const handleNavigation = (path: string, index: number) => {
     setActive(index);
-    router.push(`/${path.toLowerCase()}`);
+    let newPath = path.toLowerCase();
+    router.replace(`/${newPath}`);
     setMobileOpen(false); // Close drawer after navigation
   };
 

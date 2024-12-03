@@ -22,7 +22,7 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
           margin: { xs: 1, md: 5 },
           borderRadius: "24px",
           overflow: "hidden",
-          height: { xs: 950,sm:1070, md: 750 },
+          height: { xs: 950,sm:1070, md: 750, lg:780 },
         }}
       >
         <Grid container sx={{ background: "white" }}>
@@ -35,7 +35,7 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  padding: { xs: 2,sm:4, md: 4, lg: 4, xl: 10 },
+                  padding: { xs: 2,sm:4, md: 4, lg: 4, xl:12 },
                   height: { xs: "auto", md: "850px" },
                   justifyContent: "start",
                 }}
@@ -152,13 +152,13 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                 xs={12}
                 md={6}
                 sx={{
-                  height: { xs: "650px",sm:'680px', md: "500px" },
+                  height: { xs: "650px",sm:'680px', md: "500px", xl:'520px' },
                   padding: { xs: 0,sm:4, md: 4, lg: 4, xl: 4 },
                 }}
               >
                 <InvertedBorder
                   name="aboutus"
-                  height={isSmallScreen ? 500 : 650}
+                  height={isSmallScreen ? 500 : 620}
                 />
               </Grid>
             </>
@@ -186,7 +186,7 @@ export default function FoundersMessage({ reverse }: { reverse?: boolean }) {
                   display:{xs:'none',lg:'flex'},
            
                   flexDirection: "column",
-                  padding: { lg:4,xl:10 },
+                  padding: { lg:4,xl:12 },
                   height: { xs: "auto", md: "850px" },
                   justifyContent: "start",
                 }}
