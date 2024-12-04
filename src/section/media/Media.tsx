@@ -79,6 +79,8 @@ const MediaItem = styled.div`
   }
 `;
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 const Media = () => {
   const [mediaCards, setMediaCards] = useState<MediaCard[]>([]);
   const [pagination, setPagination] = useState<PaginationState>({
@@ -95,7 +97,7 @@ const Media = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://192.168.1.60:8000/api/media?page=${pagination.page}&per_page=${pagination.per_page}`
+          `${BASE_URL}/api/media?page=${pagination.page}&per_page=${pagination.per_page}&limit=6`
         );
         const data = await response.json();
 

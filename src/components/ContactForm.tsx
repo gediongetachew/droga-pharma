@@ -7,18 +7,40 @@ import {
   FormControlLabel,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
 
-export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-    subscribe: false,
-  });
+interface ContactFormProps {
+  formData: {
+    name: string;
+    subject: string;
+    email: string;
+    phone: string;
+    message: string;
+    subscribe: boolean;
+  };
+  setFormData: React.Dispatch<
+    React.SetStateAction<{
+      name: string;
+      subject: string;
+      email: string;
+      phone: string;
+      message: string;
+      subscribe: boolean;
+    }>
+  >;
+  errors: {
+    name: string;
+    subject: string;
+    email: string;
+    phone: string;
+    message: string;
+  };
+}
 
+export default function ContactForm({
+  formData,
+  setFormData,
+  errors,
+}: ContactFormProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here

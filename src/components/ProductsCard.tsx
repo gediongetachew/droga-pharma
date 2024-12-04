@@ -3,19 +3,33 @@ import { Card, CardContent, Typography, Box } from "@mui/material";
 import "swiper/css";
 import "swiper/css/pagination";
 
-interface ProductCardProps {
-  image: string;
-  title: string;
-  description: string;
-  tag?: string;
+interface Attachments {
+  product_thumbnail: string; // URL of the product thumbnail
+  product_variations: string[]; // Array of URLs for product variations
 }
 
-export default function ProductCard({
-  image,
-  title,
-  description,
-  tag,
-}: ProductCardProps) {
+// Type for Category
+interface Category {
+  id: string; // Category ID
+  name: string; // Category name
+}
+
+
+
+interface relatedProducts {
+  id: string; // Product ID
+  name: string; // Product name
+  category_id: string; // ID of the associated category
+  description: string; // Product description
+  info: string; // Additional information about the product
+  is_featured: boolean; // Whether the product is featured
+  reviews_count: number; // Number of reviews for the product
+  average_rate: number | null; // Average rating of the product (null if no ratings)
+  attachment: string; // Attachments related to the product
+  category: Category; // 
+}
+
+export default function ProductCard(product: relatedProducts) {
   return (
     <Card
       sx={{
@@ -49,15 +63,15 @@ export default function ProductCard({
           }}
         >
           <Image
-            src={image}
-            alt={title}
+            src={`/medicine1.png`}
+            alt='related product'
             fill
             style={{
               objectFit: "cover",
             }}
           />
         </Box>
-        {tag && (
+        {product.category.name && (
           <Typography
             sx={{
               position: "absolute",
@@ -74,7 +88,7 @@ export default function ProductCard({
               zIndex: 1,
             }}
           >
-            {tag}
+            {product.category.name}
           </Typography>
         )}
       </Box>
@@ -96,7 +110,7 @@ export default function ProductCard({
             paddingX: {xs:0, md:2}
           }}
         >
-          {title}
+          {product.name}
         </Typography>
         <Typography
           variant="body2"
@@ -109,7 +123,7 @@ export default function ProductCard({
             paddingX: {xs:0, md:2}
           }}
         >
-          {description}
+          {product.description}
         </Typography>
       </CardContent>
     </Card>

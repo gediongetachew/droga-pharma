@@ -1,45 +1,69 @@
 import { Box, Typography, IconButton } from "@mui/material";
 import { useState } from "react";
 import ProductCard from "./ProductsCard";
+// Type for Attachments
 
-export default function RelatedProducts() {
+// Type for Category
+interface Category {
+  id: string; // Category ID
+  name: string; // Category name
+}
+interface relatedProducts {
+  id: string; // Product ID
+  name: string; // Product name
+  category_id: string; // ID of the associated category
+  description: string; // Product description
+  info: string; // Additional information about the product
+  is_featured: boolean; // Whether the product is featured
+  reviews_count: number; // Number of reviews for the product
+  average_rate: number | null; // Average rating of the product (null if no ratings)
+  attachment: string; // Attachments related to the product
+  category: Category; //
+}
+
+
+
+interface RelatedProductsProps {
+  products: relatedProducts[]; // The array of related products
+}
+export default function RelatedProducts({ products }: RelatedProductsProps) {
   const [activeStep, setActiveStep] = useState(0);
   const [showAll, setShowAll] = useState(false);
 
-  const products = [
-    {
-      id: 1,
-      image: "/suply1.jpeg",
-      title: "Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Aliquam accusam nget ut tellus non porttitor ut. Odio nec auctor habitasse sed vel consectetur vel faucibus.",
-      tag: "Medicine",
-    },
-    {
-      id: 2,
-      image: "/suply2.jpeg",
-      title: "Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Aliquam accusam nget ut tellus non porttitor ut. Odio nec auctor habitasse sed vel consectetur vel faucibus.",
-      tag: "Medicine",
-    },
-    {
-      id: 3,
-      image: "/suply3.jpeg",
-      title: "Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Aliquam accusam nget ut tellus non porttitor ut. Odio nec auctor habitasse sed vel consectetur vel faucibus.",
-      tag: "Medicine",
-    },
-    {
-      id: 4,
-      image: "/suply1.jpeg",
-      title: "Lorem ipsum dolor sit amet",
-      description:
-        "Lorem ipsum dolor sit amet consectetur. Aliquam accusam nget ut tellus non porttitor ut. Odio nec auctor habitasse sed vel consectetur vel faucibus.",
-      tag: "Medicine",
-    },
-  ];
+  // const products = [
+  //   {
+  //     id: 1,
+  //     image: "/suply1.jpeg",
+  //     title: "Lorem ipsum dolor sit amet",
+  //     description:
+  //       "Lorem ipsum dolor sit amet consectetur. Aliquam accusam nget ut tellus non porttitor ut. Odio nec auctor habitasse sed vel consectetur vel faucibus.",
+  //     tag: "Medicine",
+  //   },
+  //   {
+  //     id: 2,
+  //     image: "/suply2.jpeg",
+  //     title: "Lorem ipsum dolor sit amet",
+  //     description:
+  //       "Lorem ipsum dolor sit amet consectetur. Aliquam accusam nget ut tellus non porttitor ut. Odio nec auctor habitasse sed vel consectetur vel faucibus.",
+  //     tag: "Medicine",
+  //   },
+  //   {
+  //     id: 3,
+  //     image: "/suply3.jpeg",
+  //     title: "Lorem ipsum dolor sit amet",
+  //     description:
+  //       "Lorem ipsum dolor sit amet consectetur. Aliquam accusam nget ut tellus non porttitor ut. Odio nec auctor habitasse sed vel consectetur vel faucibus.",
+  //     tag: "Medicine",
+  //   },
+  //   {
+  //     id: 4,
+  //     image: "/suply1.jpeg",
+  //     title: "Lorem ipsum dolor sit amet",
+  //     description:
+  //       "Lorem ipsum dolor sit amet consectetur. Aliquam accusam nget ut tellus non porttitor ut. Odio nec auctor habitasse sed vel consectetur vel faucibus.",
+  //     tag: "Medicine",
+  //   },
+  // ];
 
   const displayedProducts = showAll ? products : products.slice(0, 3);
 
@@ -169,7 +193,7 @@ export default function RelatedProducts() {
             }}
           >
             {products.slice(0, 3).map((product) => (
-              <ProductCard key={product.id} {...product} />
+              <ProductCard {...product} />
             ))}
           </Box>
 

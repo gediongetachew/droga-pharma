@@ -9,16 +9,34 @@ import SouthEastIcon from "@mui/icons-material/SouthEast";
 import React from "react";
 import ContactForm from "@/components/ContactForm";
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 export default function Contact() {
   const [playVideo, setPlayVideo] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const videoRef = useRef<HTMLDivElement>(null);
+  const [formData, setFormData] = useState({
+    name: "",
+    subject: "",
+    email: "",
+    phone: "",
+    message: "",
+    subscribe: false,
+  });
+
+  const [errors, setErrors] = useState({
+    name: "",
+    subject: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
 
   useEffect(() => {
     const options = {
       threshold: 0.2,
     };
-
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting && playVideo) {
@@ -44,6 +62,80 @@ export default function Contact() {
     setPlayVideo(true);
   };
 
+  const validateForm = () => {
+    let formErrors = {
+      name: "",
+      subject: "",
+      email: "",
+      phone: "",
+      message: "",
+    };
+    let isValid = true;
+
+    // Name validation
+    if (!formData.name) {
+      formErrors.name = "Name is required.";
+      isValid = false;
+    }
+
+    // Subject validation
+    if (!formData.subject) {
+      formErrors.subject = "Subject is required.";
+      isValid = false;
+    }
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email) {
+      formErrors.email = "Email is required.";
+      isValid = false;
+    } else if (!emailPattern.test(formData.email)) {
+      formErrors.email = "Email is not valid.";
+      isValid = false;
+    }
+
+    // Phone validation (optional)
+    const phonePattern = /^[0-9]{10}$/; // Adjust pattern as needed
+    if (formData.phone && !phonePattern.test(formData.phone)) {
+      formErrors.phone = "Phone number must be 10 digits.";
+      isValid = false;
+    }
+
+    // Message validation
+    if (!formData.message) {
+      formErrors.message = "Message is required.";
+      isValid = false;
+    }
+
+    setErrors(formErrors);
+    return isValid;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (validateForm()) {
+      try {
+        const response = await fetch(`${BASE_URL}/api/contacts`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const result = await response.json();
+        console.log("Form submitted successfully:", result);
+        // Optionally reset the form or show a success message
+      } catch (error) {
+        console.error("Error submitting form:", error);
+      }
+    }
+  };
+
   return (
     <Grid container sx={{ background: "#FFFFFF" }}>
       <Grid item xs={12}>
@@ -53,6 +145,7 @@ export default function Contact() {
             display: "flex",
             alignItems: "center",
             flexDirection: { xs: "column", md: "row" },
+           
           }}
         >
           <Grid
@@ -62,49 +155,61 @@ export default function Contact() {
             sx={{
               display: "flex",
               gap: { xs: 2, md: 0 },
-              paddingX: { xs: 2, md: 10 },
-              paddingTop: { xs: 2, md: 8 },
+              paddingX: { xs: 1, md: 2 },
+              paddingTop: { xs: 10, md: 8 },
               flexDirection: { xs: "column", md: "row" },
+            
+              width: "100%",
             }}
           >
             <Box
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                width: { xs: "100%", md: "50%" },
+                width: { xs: "100%", md: "100%", xl:'60%' },
                 gap: { xs: 1, md: 2 },
                 paddingTop: { xs: 0, md: 10 },
+               
               }}
             >
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
+                  justifyContent:{xs: "start", md:'start'},
+                  alignItems: { xs: "center", md: "center" },
                   flexDirection: { xs: "row", md: "row" },
-                  gap: { xs: 2, md: 0 },
+                  gap: { xs: 2, md: 2},
+                  textAlign: "center",
+               
+                  width:'100%',
+                  paddingLeft:{xs:0,lg:10, xl:10}
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: { xs: "18px", md: "28px" },
+                    fontSize: { xs: "18px",sm:'24px', md: "24px", lg:'28px' },
                     fontFamily: "Segoe Ui",
                     fontWeight: 400,
                     color: "#010202",
+                    display: "flex",
+                    alignItems: "center",
+                    textAlign:'left',
+                    gap:{xs:2}
                   }}
                 >
                   <CircleIcon
-                    sx={{ scale: { xs: 0.5, md: 1 }, color: "black" }}
+                    sx={{ scale: { xs: 0.3, md: 1 }, color: "black" }}
                   />{" "}
                   Contact Us
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: { xs: "25px", md: "42px" },
+                    fontSize: { xs: "25px",sm:'30px', md: "42px" },
                     fontFamily: "Segoe Ui",
                     fontWeight: 400,
                     color: "#010202",
                     textAlign: { xs: "center", md: "right" },
+                    paddingLeft:{xs:0, md:2, lg:5 }
                   }}
                 >
                   It's Nice
@@ -112,22 +217,24 @@ export default function Contact() {
               </Box>
               <Typography
                 sx={{
-                  fontSize: { xs: "25px", md: "42px" },
+                  fontSize: { xs: "25px",sm:'30px', md: "42px" },
                   fontFamily: "Segoe Ui",
                   fontWeight: 400,
                   color: "#010202",
-                  textAlign: { xs: "center", md: "right" },
+                  textAlign: { xs: "left", md: "right" },
+                  paddingLeft:{xs:8, md:0, lg:0}
                 }}
               >
                 Meet You, Feel
               </Typography>
               <Typography
                 sx={{
-                  fontSize: { xs: "25px", md: "42px" },
+                 fontSize: { xs: "25px",sm:'30px', md: "42px" },
                   fontFamily: "Segoe Ui",
                   fontWeight: 400,
                   color: "#010202",
-                  textAlign: { xs: "center", md: "right" },
+                  textAlign: { xs: "left", md: "right" },
+                  paddingLeft:{xs:0, md:0, lg:0}
                 }}
               >
                 Free to Contact Us
@@ -141,12 +248,14 @@ export default function Contact() {
                 width: { xs: "100%", md: "20%" },
                 justifyContent: "center",
                 alignItems: { xs: "flex-end", md: "flex-end" },
-                mt: { xs: 2, md: 30 },
+                mt: { xs:0, md: 30 },
+                paddingRight:{xs:5, md:0},
+                paddingBottom:{xs:4}
               }}
             >
               <SouthEastIcon
                 sx={{
-                  scale: { xs: 2, md: 4.5 },
+                  scale: { xs: 3,sm:3, md: 4.5 },
                   color: "#FCEE23",
                   background: "black",
                   borderRadius: "100%",
@@ -161,20 +270,21 @@ export default function Contact() {
             xs={12}
             md={6}
             sx={{
-              display: "flex",
+              display: { xs: "none", md: "flex" },
               alignItems: "center",
               justifyContent: "end",
-              paddingRight: { xs: 0, md: 15 },
-              paddingTop: { xs: 2, md: 20 },
+              paddingRight: { xs: 0, md: 5, xl:15 },
+              paddingTop: { xs: 2, md: 15, xl:20 },
               width: "100%",
+              
             }}
           >
             <Box
               ref={videoRef}
               sx={{
                 position: "relative",
-                width: { xs: "100%", md: "35%" },
-                height: { xs: "40vh", md: "35vh" },
+                width: { xs: "100%", md: "70%", xl:'50%' },
+                height: { xs: "40vh", md: "50vh", xl:'45vh' },
                 borderRadius: "20px",
                 zIndex: 1,
                 overflow: "hidden",
@@ -333,7 +443,14 @@ export default function Contact() {
           </Typography>
         </Box>
         <Box sx={{ width: { xs: "100%", md: "50%" } }}>
-          <ContactForm />
+          <form onSubmit={handleSubmit}>
+            <ContactForm
+              formData={formData}
+              setFormData={setFormData}
+              errors={errors}
+            />
+        
+          </form>
         </Box>
       </Grid>
     </Grid>

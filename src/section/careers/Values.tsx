@@ -64,6 +64,7 @@ const Values = () => {
 
         {valuesData.map((value, index) => (
           <Box
+          key={index}
             sx={{
               display: "flex",
               flexDirection: {

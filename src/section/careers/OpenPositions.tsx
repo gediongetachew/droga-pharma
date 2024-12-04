@@ -14,24 +14,46 @@ import Grid from "@mui/material/Grid";
 
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
-import positionData from "@/data/positonsData";
 import SearchIcon from "@mui/icons-material/Search";
 import SvgIcon from "@mui/material/SvgIcon";
 import Drawer from "@mui/material/Drawer";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
+// Updated Job interface to match the provided data structure
 interface Job {
-  id: number;
-  title: string;
-  location: string;
-  department: string;
-  description: string;
+  id: string; // Unique identifier for the job
+  title: string; // Title of the job
+  description: string; // Description of the job
+  job_category_id: string; // ID of the job category
+  job_type_id: string; // ID of the job type
+  active: number; // Status of the job (1 for active, 0 for inactive)
+  created_at: string; // Timestamp of when the job was created
+  updated_at: string; // Timestamp of when the job was last updated
+  type: {
+    id: string; // Unique identifier for the job type
+    name: string; // Name of the job type
+    description: string; // Description of the job type
+    active: number; // Status of the job type
+    created_at: string; // Timestamp of when the job type was created
+    updated_at: string; // Timestamp of when the job type was last updated
+  };
+  category: {
+    id: string; // Unique identifier for the job category
+    name: string; // Name of the job category
+    description: string; // Description of the job category
+    active: number; // Status of the job category
+    created_at: string; // Timestamp of when the job category was created
+    updated_at: string; // Timestamp of when the job category was last updated
+  };
 }
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default function OpenPositions() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedType, setSelectedType] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [positionData, setPositionData] = useState<Job[]>([]); // State to hold job data
 
   const handleFilterClick = (type: string) => {
     setSelectedType(type);
@@ -42,25 +64,42 @@ export default function OpenPositions() {
     setIsFilterOpen(false);
   };
 
+  // Fetch job data from the API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/api/careers?limit=5`);
+        const data = await response.json();
+        if (data?.data) {
+          setPositionData(data.data); // Set the job data
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const filteredPositions = useMemo(() => {
     return selectedType === "all"
       ? positionData
       : positionData.filter(
           (position) =>
-            position.type.toLowerCase() === selectedType.toLowerCase()
+            position.type.name.toLowerCase() === selectedType.toLowerCase()
         );
-  }, [selectedType]);
+  }, [selectedType, positionData]);
 
   // Get unique types and their corresponding names
   const filterOptions = [
     "all",
-    ...new Set(positionData.map((pos) => pos.type)),
+    ...new Set(positionData.map((pos) => pos.type.name)),
   ].map((type) => ({
     type: type,
     name:
       type === "all"
         ? "All Positions"
-        : positionData.find((pos) => pos.type === type)?.name || type,
+        : positionData.find((pos) => pos.type.name === type)?.type.name || type,
   }));
 
   // Filter jobs based on search query
@@ -71,10 +110,8 @@ export default function OpenPositions() {
 
     return filteredPositions.filter(
       (job) =>
-        job.name.toLowerCase().includes(searchTerm) ||
-        job.experience.toLowerCase().includes(searchTerm) ||
-        job.deal.toLowerCase().includes(searchTerm) ||
-        job.description.toLowerCase().includes(searchTerm)
+        job.title.toLowerCase().includes(searchTerm) ||
+        job.description.toLowerCase().includes(searchTerm) // Adjusted to use title and description
     );
   }, [filteredPositions, searchQuery]);
 
@@ -105,7 +142,7 @@ export default function OpenPositions() {
                 color: "black",
               }}
             >
-              we have 17 open positions now!
+              We have {positionData.length} open positions now!
             </Typography>
           </Grid>
 
@@ -192,7 +229,7 @@ export default function OpenPositions() {
                           {option.type === "all"
                             ? positionData.length
                             : positionData.filter(
-                                (pos) => pos.type === option.type
+                                (pos) => pos.type.name === option.type
                               ).length}
                         </Typography>
                       </ListItemButton>
@@ -368,7 +405,7 @@ export default function OpenPositions() {
                         color: "#090808",
                       }}
                     >
-                      {position.name}
+                      {position.title}
                     </Typography>
                     <Box sx={{ display: "flex", width: "100%", gap: 1 }}>
                       <Button
@@ -382,7 +419,7 @@ export default function OpenPositions() {
                           borderRadius: "29px",
                         }}
                       >
-                        {position.experience}
+                        {position.type.name}
                       </Button>
                       <Button
                         sx={{
@@ -395,7 +432,7 @@ export default function OpenPositions() {
                           borderRadius: "29px",
                         }}
                       >
-                        {position.deal}
+                        {position.category.name}
                       </Button>
                     </Box>
                     <Typography
@@ -526,7 +563,7 @@ export default function OpenPositions() {
                       primary={type.charAt(0).toUpperCase() + type.slice(1)}
                     />
                     <Typography>
-                      {positionData.filter((pos) => pos.type === type).length}
+                      {positionData.filter((pos) => pos.type.name === type).length}
                     </Typography>
                   </ListItemButton>
                 )

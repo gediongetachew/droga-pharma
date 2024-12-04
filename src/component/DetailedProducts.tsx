@@ -1,69 +1,109 @@
 "use client";
-
 import { Box, Typography, IconButton, Grid, Stack } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import ReviewCard from "@/components/RateSection";
-import { useState, useRef, MouseEvent, TouchEvent } from "react";
+import { useState, useEffect } from "react";
 import RelatedProducts from "@/components/RelatedProducts";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+// Type for Attachments
+interface Attachments {
+  product_thumbnail: string; // URL of the product thumbnail
+  product_variations: string[]; // Array of URLs for product variations
+}
+
+// Type for Category
+interface Category {
+  id: string; // Category ID
+  name: string; // Category name
+}
+
+// Type for the main object
+interface Product {
+  id: string; // Product ID
+  name: string; // Product name
+  category_id: string; // ID of the associated category
+  description: string; // Product description
+  info: string; // Additional information about the product
+  is_featured: boolean; // Whether the product is featured
+  reviews_count: number; // Number of reviews for the product
+  average_rate: number | null; // Average rating of the product (null if no ratings)
+  attachments: Attachments; // Attachments related to the product
+  category: Category; // Associated category information
+}
+
+interface relatedProducts {
+  id: string; // Product ID
+  name: string; // Product name
+  category_id: string; // ID of the associated category
+  description: string; // Product description
+  info: string; // Additional information about the product
+  is_featured: boolean; // Whether the product is featured
+  reviews_count: number; // Number of reviews for the product
+  average_rate: number | null; // Average rating of the product (null if no ratings)
+  attachment: string; // Attachments related to the product
+  category: Category; //
+}
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
 export default function DetailedProducts() {
   const router = useRouter();
+  const [id, setId] = useState<string | null>(null);
 
-  const thumbnails = ["/suply1.jpeg", "/suply2.jpeg", "/suply3.jpeg"];
+  useEffect(() => {
+    // Access window.location only in the client
+    const urlParams = new URLSearchParams(window.location.search);
+    const idParam = urlParams.get("id");
+    setId(idParam);
+  }, []);
 
-  const reviews = [1, 2, 3, 4, 5, 6]; // Example of more reviews
+  const [product, setProduct] = useState<Product | null>(null);
+  const [relatedProducts, setRelatedPoducts] = useState<
+    relatedProducts[] | null
+  >(null);
+  const [loading, setLoading] = useState(true);
 
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const sliderRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      if (id) {
+        try {
+          const response = await fetch(
+            `${BASE_URL}/api/products/${id}?reviews`
+          );
+          const data = await response.json();
 
-  const startDragging = (
-    e: MouseEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>
-  ) => {
-    setIsDragging(true);
-    if ("touches" in e) {
-      setStartX(e.touches[0].pageX - (sliderRef.current?.offsetLeft || 0));
-    } else {
-      setStartX(e.pageX - (sliderRef.current?.offsetLeft || 0));
-    }
-    setScrollLeft(sliderRef.current?.scrollLeft || 0);
-  };
+          setProduct(data.product);
+          setRelatedPoducts(data.related);
+        } catch (error) {
+          console.error("Error fetching product:", error);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
 
-  const stopDragging = () => {
-    setIsDragging(false);
-  };
+    fetchProduct();
+  }, [id]);
 
-  const move = (e: MouseEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>) => {
-    if (!isDragging) return;
+  if (loading) {
+    return <Typography>Loading...</Typography>;
+  }
 
-    e.preventDefault();
-    if (!sliderRef.current) return;
-
-    let x;
-    if ("touches" in e) {
-      x = e.touches[0].pageX - (sliderRef.current.offsetLeft || 0);
-    } else {
-      x = e.pageX - (sliderRef.current.offsetLeft || 0);
-    }
-
-    const walk = (x - startX) * 2;
-    sliderRef.current.scrollLeft = scrollLeft - walk;
-  };
+  if (!product) {
+    return <Typography>Product not found.</Typography>;
+  }
 
   return (
     <Box
       sx={{
         background: "#F5F5F5",
         minHeight: "100vh",
-
         paddingX: { xs: 2, md: 8 },
         paddingY: { xs: 8, md: 20 },
       }}
@@ -75,7 +115,6 @@ export default function DetailedProducts() {
           border: "1px solid #B4B4B4",
           borderRadius: 50,
           width: { xs: "100px", md: "140px" },
-
           px: 1,
           py: { xs: 1, md: 2 },
           "&:hover": {
@@ -84,7 +123,7 @@ export default function DetailedProducts() {
           },
         }}
       >
-        <ArrowBackIcon sx={{ color: "black", scale: { xs: 0.8, md: 1.5 } }} />{" "}
+        <ArrowBackIcon sx={{ color: "black", scale: { xs: 0.8, md: 1.5 } }} />
         <Typography
           sx={{
             ml: 1,
@@ -122,17 +161,17 @@ export default function DetailedProducts() {
           <Box
             sx={{
               position: "relative",
-              width: {xs:"100%", md:'90%'},
+              width: { xs: "100%", md: "90%" },
               height: { xs: "300px", md: "525px", lg: "550px", xl: "410px" },
               borderRadius: "40px",
               overflow: "hidden",
-              marginLeft:{xs:0, md:3},
-              marginTop:{xs:0, md:4}
+              marginLeft: { xs: 0, md: 3 },
+              marginTop: { xs: 0, md: 4 },
             }}
           >
             <Image
-              src="/medicine1.png"
-              alt="Medical Supplies"
+              src={product.attachments?.product_thumbnail || "/medicine1.png"} // Use product image or fallback
+              alt={product.name}
               fill
               style={{ objectFit: "cover" }}
             />
@@ -144,17 +183,15 @@ export default function DetailedProducts() {
           xs={12}
           md={6}
           sx={{
-          
-            justifyContent:'space-between',
+            justifyContent: "space-between",
             height: { xs: "auto", md: "100%" },
             overflow: "auto",
             paddingY: { xs: 1, md: 5 },
             paddingX: { xs: 2, md: 0 },
-          
           }}
         >
-          <Box sx={{ display: "flex", gap: 4, marginTop: { xs: 2, md: 2 },}}>
-            <Stack spacing={2} sx={{ flex: 1 ,}}>
+          <Box sx={{ display: "flex", gap: 4, marginTop: { xs: 2, md: 2 } }}>
+            <Stack spacing={2} sx={{ flex: 1 }}>
               <Typography
                 variant="h4"
                 component="h1"
@@ -164,7 +201,7 @@ export default function DetailedProducts() {
                   fontFamily: "Plus Jakarta Sans",
                 }}
               >
-                Medical Suppliers
+                {product.name}
               </Typography>
 
               <Typography
@@ -176,7 +213,7 @@ export default function DetailedProducts() {
                   fontWeight: "regular",
                 }}
               >
-                Category: Medical supplies
+                Category: {product?.category?.name}
               </Typography>
 
               <Typography
@@ -186,17 +223,13 @@ export default function DetailedProducts() {
                   fontFamily: "Plus Jakarta Sans",
                   fontWeight: "regular",
                   fontSize: { xs: "12px", md: "12px", lg: "16px", xl: 15 },
-                  width:'90%'
+                  width: "90%",
                 }}
               >
-                Lorem ipsum dolor sit amet consectetur. Pellentesque ipsum
-                tellus facilisis ultrices ut tempor ultricies amet sit. Massa
-                nunc pellentesque a in vitam tempus diam. Viverra nunc tempor
-                sed pellentesque. Vel ullamcorper ut blanket amet diam duis a
-                non. Faucibus diam augue sem sapien. Amet turpis molestie purus
-                amet tortor. Suspendisse sed at ut pharetra facilisis amet sit.
+                {product.description}
               </Typography>
 
+              {/* Material Info Section */}
               <Box sx={{ paddingTop: { xs: 3, md: 5, lg: 2 } }}>
                 <Typography
                   variant="h6"
@@ -223,54 +256,14 @@ export default function DetailedProducts() {
                       fontFamily: "Plus Jakarta Sans",
                     }}
                   >
-                    Lorem ipsum dolor sit
+                    {product.info}
                   </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: {
-                        xs: "12px",
-                        sm: "14px",
-                        md: "12px",
-                        lg: "14px",
-                        xl: 15,
-                      },
-                      fontFamily: "Plus Jakarta Sans",
-                    }}
-                  >
-                    Size: 34px x 34mm
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: {
-                        xs: "12px",
-                        sm: "14px",
-                        md: "12px",
-                        lg: "14px",
-                        xl: 15,
-                      },
-                      fontFamily: "Plus Jakarta Sans",
-                    }}
-                  >
-                    Country: Munich, Germany
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: {
-                        xs: "12px",
-                        sm: "14px",
-                        md: "12px",
-                        lg: "14px",
-                        xl: 15,
-                      },
-                      fontFamily: "Plus Jakarta Sans",
-                    }}
-                  >
-                    Dimension: 34mm x 34mm
-                  </Typography>
+                  {/* Add more product details as needed */}
                 </Stack>
               </Box>
             </Stack>
 
+            {/* Thumbnails Section */}
             <Stack
               spacing={3}
               sx={{
@@ -278,7 +271,7 @@ export default function DetailedProducts() {
                 width: "100px",
               }}
             >
-              {thumbnails.map((thumb, index) => (
+              {product?.attachments?.product_variations?.map((thumb, index) => (
                 <Box
                   key={index}
                   sx={{
@@ -300,6 +293,7 @@ export default function DetailedProducts() {
             </Stack>
           </Box>
 
+          {/* Mobile Thumbnails Section */}
           <Box
             sx={{
               display: { xs: "block", md: "none" },
@@ -322,7 +316,7 @@ export default function DetailedProducts() {
                 pb: 2,
               }}
             >
-              {thumbnails.map((thumb, index) => (
+              {product.attachments?.product_variations?.map((thumb, index) => (
                 <Box
                   key={index}
                   sx={{
@@ -348,6 +342,7 @@ export default function DetailedProducts() {
         </Grid>
       </Grid>
 
+      {/* Rate and Review Section */}
       <Box sx={{ mt: 8, mb: 4, paddingLeft: { xs: 2, md: 5 } }}>
         <Typography
           variant="h5"
@@ -372,11 +367,11 @@ export default function DetailedProducts() {
             grabCursor={true}
             style={{ padding: "10px" }}
           >
-            {reviews.map((review) => (
+            {/* {reviews.map((review) => (
               <SwiperSlide key={review}>
                 <ReviewCard />
               </SwiperSlide>
-            ))}
+            ))} */}
           </Swiper>
         </Box>
 
@@ -389,15 +384,15 @@ export default function DetailedProducts() {
             grabCursor={true}
             style={{ padding: "10px" }}
           >
-            {reviews.map((review) => (
+            {/* {reviews.map((review) => (
               <SwiperSlide key={review}>
                 <ReviewCard />
               </SwiperSlide>
-            ))}
+            ))} */}
           </Swiper>
         </Box>
       </Box>
-      <RelatedProducts />
+      <RelatedProducts products={relatedProducts || []} />
     </Box>
   );
 }
