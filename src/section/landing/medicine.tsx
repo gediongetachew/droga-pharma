@@ -103,7 +103,7 @@ export default function Medicine() {
                 display: "flex",
                 justifyContent: "space-between",
                 width: "100%",
-                paddingX: { xs: 5, md: 10 },
+                paddingX: { xs: 2, md: 10 },
                 paddingY: { xs: 1, md: 5 },
               }}
             >
@@ -153,7 +153,7 @@ export default function Medicine() {
                     width: "100%",
                  
                     borderRadius: "24px",
-                    paddingX: { xs: 2, md: 10 },
+                    paddingX: { xs: 2, md: 2, lg:5,xl:10 },
                     paddingY: 2,
                     gap: 2,
                   }}
@@ -169,7 +169,7 @@ export default function Medicine() {
                         borderRadius: "24px",
                         overflow: "hidden",
                         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                        height: { xs: "290px", sm: "300px", md: "350px", lg:'400px' },
+                        height: { xs: "290px", sm: "300px", md: "390px", lg:'400px' },
                         display: "flex",
                         flexDirection: "column",
                       }}
@@ -177,7 +177,7 @@ export default function Medicine() {
                       <Box
                         sx={{
                           position: "relative",
-                          height: {xs:"70%", md:"65%", lg:"70%"}, // Image container takes 70% of height
+                          height: {xs:"65%",sm:'60%', md:"65%", lg:"70%"}, // Image container takes 70% of height
                           width: "100%",
                         }}
                       >
@@ -262,7 +262,7 @@ export default function Medicine() {
                 display: "flex",
                 justifyContent: "space-between",
                 width: "100%",
-                paddingX: { xs: 5, md: 10 },
+                paddingX: { xs: 2, md: 10 },
                 paddingY: { xs: 1, md: 5 },
               }}
             >
@@ -312,7 +312,7 @@ export default function Medicine() {
                     width: "100%",
                    
                     borderRadius: "24px",
-                    paddingX: { xs: 2, md: 10 },
+                    paddingX: { xs: 2, md: 2, lg:5,xl:10 },
                     paddingY: 2,
                     gap: 2,
                   }}
@@ -336,7 +336,7 @@ export default function Medicine() {
                       <Box
                         sx={{
                           position: "relative",
-                          height: {xs:"70%", md:"65%", lg:"70%"}, // Image container takes 70% of height
+                          height: {xs:"65%",sm:'60%', md:"65%", lg:"70%"}, // Image container takes 70% of height
                           width: "100%",
                         }}
                       >

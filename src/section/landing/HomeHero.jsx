@@ -176,18 +176,18 @@ const HomeHero = () => {
             position: "relative",
             zIndex: 1,
             pl: 8,
-            justifyContent: "flex-center",
+            justifyContent: "center",
             alignItems: {xs:"left", lg:"flex-end"},
             height: "100%",
             ml: {xs:-5, lg:"auto"},
             gap: 2,
             marginTop: {
-              xs: "350px",
+              xs: "450px",
               sm: "30px",
               md: "30px",
               lg:-5
             },
-           
+          
           }}
         >
           <Image
@@ -199,7 +199,7 @@ const HomeHero = () => {
               display: "block",
               height: "auto",
               marginRight: 'auto',
-              marginTop:-20,
+              marginTop:{xs:0, md:-20},
               width: "clamp(10px, 10vw, 80px)", // responsive width
             }}
             sx={{

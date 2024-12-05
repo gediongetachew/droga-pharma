@@ -226,6 +226,7 @@ export default function Nav() {
                 justifyContent: "center",
                 alignItems: "center",
                 padding: 0,
+                border: 'none',
               }}
             >
               <Typography
@@ -252,6 +253,7 @@ export default function Nav() {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              border: 'none',
             }}
           >
             <Button

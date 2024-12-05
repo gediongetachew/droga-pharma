@@ -50,7 +50,8 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           background: "black",
           borderTopLeftRadius: "40px",
           borderTopRightRadius: "40px",
-          paddingX: { xs: 4, md: 20 },
+          paddingLeft: { xs: 4, md: 5, lg:10 },
+          paddingRight: { xs: 4, md: 20, lg:20 },
           paddingTop: { xs: 8, md: 15 },
           paddingBottom: 5,
           gap: { xs: 6, md: 0 },
@@ -393,8 +394,8 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
             flexDirection: "column",
             gap: 4,
             marginRight: { xs: 0, md: -20 },
-            marginLeft: { xs: 35, md: 0 },
-            width: { xs: "20%", md: "5%" },
+            marginLeft: { xs: '90%', md: 0 },
+            width: { xs: "20%",sm:'15%', md: "5%" },
             marginTop: { xs: 0, md: 8 },
             paddingY: 1,
             height: "45%",
@@ -477,11 +478,11 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           <Box
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: {xs:'center'},
               width: { xs: "85%", md: "18%" },
               marginX: { xs: 0, md: 11 },
               alignItems: "center",
-              gap: { xs: 1, md: 2 },
+              gap: { xs: 1,sm:10, md: 2 },
             }}
           >
             <Image
@@ -495,7 +496,7 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
             <Typography
               sx={{
                 fontFamily: "Segoe UI",
-                fontSize: { xs: "10px", md: "12px" },
+                fontSize: { xs: "8px",sm:"10px", md: "12px" },
                 fontWeight: 400,
                 color: "#999A9A",
               }}
@@ -506,7 +507,7 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           <Typography
             sx={{
               fontFamily: "Segoe UI",
-              fontSize: 12,
+              fontSize: { xs: "8px",sm:"10px", md: "12px" },
               color: "#999A9A",
             }}
           >
@@ -515,7 +516,7 @@ export default function Fotter({ bg, top }: { bg?: string; top?: number }) {
           <Typography
             sx={{
               fontFamily: "Segoe UI",
-              fontSize: { xs: "10px", md: "12px" },
+              fontSize: { xs: "8px",sm:'10px', md: "12px" },
               fontWeight: 400,
               color: "#999A9A",
             }}

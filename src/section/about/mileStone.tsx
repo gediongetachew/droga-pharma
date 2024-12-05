@@ -9,8 +9,8 @@ export default function mileStone() {
       sx={{
         position: "relative",
         width: "100%",
-        height: { xs: "3000px", md: "950px" },
-        background:'whtie'
+        height: { xs: '950px',sm:'1500px', md: "600px", lg:'750px', xl:'950px' },
+        background:'white'
       }}
     >
       <Box
@@ -27,7 +27,7 @@ export default function mileStone() {
           src="/mileStone.svg"
           alt="milestone"
           fill
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "contain" }}
         />
       </Box>
       <Box
@@ -38,14 +38,14 @@ export default function mileStone() {
           height: "100%",
           top: 0,
           left: 0,
-        
+          overflowX: "auto",
         }}
       >
         <Image
           src="/milestoneVertical.svg"
           alt="milestone"
           fill
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "contain" }}
         />
       </Box>
 
@@ -57,8 +57,8 @@ export default function mileStone() {
           fontWeight: 500,
           color: "black",
           paddingLeft: {xs:5,md:10,lg:15},
-          paddingTop: 15,
-          fontSize: { xs: 32, md: "60px" },
+          paddingTop: {xs:0,sm:5},
+          fontSize: { xs: 30, sm:35, md: "60px" },
         }}
       >
         Our Journey

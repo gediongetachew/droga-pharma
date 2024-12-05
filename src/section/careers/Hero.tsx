@@ -108,10 +108,7 @@ export default function Hero() {
           growth, creating a culture where each individual has the autonomy to
           make meaningful decisions and contribute in impactful ways. Our
           commitment goes beyond just work; we’re dedicated to helping our team
-          thrive personally and professionally. That’s why our development team
-          is constantly on the lookout for talented individuals who are
-          passionate about innovation and want to be part of a supportive,
-          growth-oriented workplace.
+          thrive personally and professionally.
         </Typography>
         <Typography
           sx={{
@@ -259,7 +256,7 @@ export default function Hero() {
               top: "0%",
               right: "0%",
               width: { xs: "40%",sm:'40%', md: "50%",lg:'40%' },
-              height: { xs: "10%",sm:'15%', md: "10%", lg:'8%' },
+              height: { xs: "10%",sm:'15%', md: "10%", lg:'10%' },
               zIndex: 3,
               background: "white",
               borderBottomLeftRadius: "20px",
